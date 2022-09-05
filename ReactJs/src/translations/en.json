@@ -1,4 +1,14 @@
 {
+    "homeHeader": {
+        "specialty": "Specialty",
+        "searchDoctor": "Find doctor by specailty",
+        "clinic": "Health facilities",
+        "chooseClinic": "Choose hospital / clinic",
+        "doctor": "Doctor",
+        "chooseDoctor": "Choose a good doctor",
+        "medicalPackage": "Checkup package",
+        "generalHealthCheck": "General health check"
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",
