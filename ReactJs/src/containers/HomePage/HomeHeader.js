@@ -4,11 +4,20 @@ import { connect } from 'react-redux';
 import './HomeHeader.scss';
 import logo from '../../assets/images/logo.png'
 import { FormattedMessage } from 'react-intl';
+import { LANGUAGES } from '../../utils'
+import { changeLanguageApp } from '../../store/actions'
 
 class Header extends Component {
 
-    render() {
+    changeLanguage = (language) => {
+        // alert('Change language: ' + language);
+        //fire redux event : actions
+        this.props.changeLanguageAppRedux(language);
+    }
 
+    render() {
+        // console.log('check props : ', this.props); thuoc tinh language cua props lay tu redux chu ko phai la cua cha truyen den
+        let language = this.props.language;
 
         return (
             // do render chi tra ve 1 khoi duy nhat
@@ -39,8 +48,8 @@ class Header extends Component {
                         </div>
                         <div className="right-content">
                             <div className="support"><i className="fas fa-question-circle"></i>Hỗ trợ</div>
-                            <div className="language-vi">VN</div>
-                            <div className="language-en">EN</div>
+                            <div className= { language === LANGUAGES.VI ? "language-vi active" :"language-vi"}><span onClick={() => this.changeLanguage(LANGUAGES.VI) }>VN</span></div>
+                            <div className= { language === LANGUAGES.EN ? "language-en active" :"language-en"}><span onClick={() => this.changeLanguage(LANGUAGES.EN) }>EN</span></div>
                         </div>
                     </div>
                 </div>
@@ -115,12 +124,14 @@ class Header extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
+        language: state.app.language
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language))
     };
 };
 

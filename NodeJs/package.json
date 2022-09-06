@@ -1,5 +1,5 @@
 {
-  "name": "nodejs",
+  "name": "react-app",
   "version": "1.0.0",
   "description": "Learning backend nodejs on udemy",
   "main": "server.js",
