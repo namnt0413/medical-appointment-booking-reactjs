@@ -19,6 +19,7 @@ import System from '../routes/System';
 
 import { CustomToastCloseButton } from '../components/CustomToast';
 import ConfirmModal from '../components/ConfirmModal';
+import CustomScrollbars from '../components/CustomScrollbars';
 
 class App extends Component {
 
@@ -49,7 +50,8 @@ class App extends Component {
                         <ConfirmModal />
                         {this.props.isLoggedIn && <Header />}
 
-                        <span className="content-container">
+                        <div className="content-container">
+                        <CustomScrollbars style={ {height:'100vh' ,width:'100%'}  } >
                             <Switch>
                             {/* path da duoc chuan hoa trong constant.js */}
                                 <Route path={path.HOME} exact component={(Home)} />
@@ -57,7 +59,8 @@ class App extends Component {
                                 <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                 <Route path={path.HOMEPAGE} component={HomePage} />
                             </Switch>
-                        </span>
+                        </CustomScrollbars>    
+                        </div>
 
                         <ToastContainer
                             className="toast-container" toastClassName="toast-item" bodyClassName="toast-item-body"
