@@ -6,6 +6,7 @@ import logo from '../../assets/images/logo.png'
 import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils'
 import { changeLanguageApp } from '../../store/actions'
+import Header from '../Header/Header';
 
 class HomeHeader extends Component {
 
@@ -18,10 +19,10 @@ class HomeHeader extends Component {
     render() {
         // console.log('check props : ', this.props); thuoc tinh language cua props lay tu redux chu ko phai la cua cha truyen den
         let language = this.props.language;
-
         return (
             // do render chi tra ve 1 khoi duy nhat
             <React.Fragment> 
+             {/* {this.props.isLoggedIn && <Header />} */}
                 <div className="home-header-container">
                     <div className="home-header-content">
                         <div className="left-content">
@@ -125,7 +126,8 @@ class HomeHeader extends Component {
 const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
-        language: state.app.language
+        language: state.app.language,
+        userInfo: state.user.userInfo
     };
 };
 

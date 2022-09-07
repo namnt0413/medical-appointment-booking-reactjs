@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from 'react-router-dom';
-import UserManage from '../containers/System/UserManage';
-import UserRedux from '../containers/System/UserRedux';
+import ManageUser from '../containers/System/ManageUser';
+import ManageUserRedux from '../containers/System/ManageUserRedux';
 import Header from '../containers/Header/Header';
 
 class System extends Component {
@@ -15,8 +15,8 @@ class System extends Component {
                 <div className="system-container">
                     <div className="system-list">
                         <Switch>
-                            <Route path="/system/user-manage" component={UserManage} />
-                            <Route path="/system/user-redux" component={UserRedux} />
+                            <Route path="/system/manage-user" component={ManageUser} />
+                            <Route path="/system/manage-user-redux" component={ManageUserRedux} />
                             <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
                         </Switch>
                     </div>

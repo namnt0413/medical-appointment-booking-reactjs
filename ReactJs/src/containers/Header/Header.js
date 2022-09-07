@@ -17,8 +17,9 @@ class Header extends Component {
 
     render() {
         console.log(this.props)
-        const { processLogout } = this.props;
-        let language = this.props.language;
+        const { processLogout , language , userInfo } = this.props;
+        //  === let language = this.props.language;
+        // console.log(this.props)
  
         return (
             <div className="header-container">
@@ -29,6 +30,7 @@ class Header extends Component {
 
                 {/* nút logout */}
                 <div className="lang-logout">
+                    <span className="welcome">Welcome {userInfo? userInfo.firstName : ""} {userInfo? userInfo.lastName : ""} </span>
                     <div className= { language === LANGUAGES.VI ? "language-vi active" :"language-vi"}><span onClick={() => this.changeLanguage(LANGUAGES.VI) }>VN</span></div>
                     <div className= { language === LANGUAGES.EN ? "language-en active" :"language-en"}><span onClick={() => this.changeLanguage(LANGUAGES.EN) }>EN</span></div>
 
@@ -45,7 +47,8 @@ class Header extends Component {
 const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
-        language: state.app.language
+        language: state.app.language,
+        userInfo: state.user.userInfo
     };
 };
 

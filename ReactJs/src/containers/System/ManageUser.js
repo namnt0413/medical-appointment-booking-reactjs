@@ -7,7 +7,7 @@ import ModalUser from './ModalUser'; // import component
 import ModalEditUser from './ModalEditUser'; 
 import { emitter } from '../../utils/emitter'
 
-class UserManage extends Component {
+class ManageUser extends Component {
     // Component life cycle
     // 1. Contructor : init state
     //2. Didmount : set state - unmount
@@ -213,4 +213,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserManage);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageUser);

@@ -35,6 +35,16 @@
                 height: 35px;
                 line-height: 35px;
                 text-transform: none;
+
+                &.active {
+                    // font-weight: 500;
+                    a{
+                         color: #0071ba !important;
+                    }
+                    background-color:#ededed;
+                        
+                }
+
                 .menu-link {
                     text-decoration: none;
                     color: $text-in-light;
@@ -69,12 +79,9 @@
                         }
                     }
                 }
-                &.active span {
-                    font-weight: 500;
-                    color: $colormain;
-                }
+
                 &:hover {
-                    background-color: darken($bg-menu-color, 3);
+                    background-color: rgba(219, 219, 219, 0.882);
                     .sub-menu-list {
                         display: block;
                     }
