@@ -7,7 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils'
 import { changeLanguageApp } from '../../store/actions'
 
-class Header extends Component {
+class HomeHeader extends Component {
 
     changeLanguage = (language) => {
         // alert('Change language: ' + language);
@@ -135,4 +135,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);

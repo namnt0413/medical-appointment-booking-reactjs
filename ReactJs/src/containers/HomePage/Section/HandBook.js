@@ -10,11 +10,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import specialtyImg from "../../../assets/specialty/120331-co-xuong-khop.jpg"
 
-class Specialty extends Component {
+class HandBook extends Component {
 
     render() {
         return (
-            <div className="section-share section-specialty">
+            <div className="section-share section-handbook">
                 <div className="section-container">
                     <div className="section-header">
                         <span className="title-section">Chuyen khoa pho bien</span>
@@ -24,27 +24,27 @@ class Specialty extends Component {
                     <div className="section-body">
                     <Slider {...this.props.settings}>
                     <div className="section-customize">
-                        <div className="image section-specialty" />
+                        <div className="image section-handbook" />
                         <div>Co xuong khop 1</div>
                       </div>
                       <div className="section-customize">
-                        <div className="image section-specialty" />
+                        <div className="image section-handbook" />
                         <div>Co xuong khop 2</div>
                       </div>
                       <div className="section-customize">
-                        <div className="image section-specialty" />
+                        <div className="image section-handbook" />
                         <div>Co xuong khop 3</div>
                       </div>
                       <div className="section-customize">
-                        <div className="image section-specialty" />
+                        <div className="image section-handbook" />
                         <div>Co xuong khop 4</div>
                       </div>
                       <div className="section-customize">
-                        <div className="image section-specialty" />
+                        <div className="image section-handbook" />
                         <div>Co xuong khop 5</div>
                       </div>
                       <div className="section-customize">
-                        <div className="image section-specialty" />
+                        <div className="image section-handbook" />
                         <div>Co xuong khop 6</div>
                       </div>
                     </Slider>
@@ -71,4 +71,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Specialty);
+export default connect(mapStateToProps, mapDispatchToProps)(HandBook);

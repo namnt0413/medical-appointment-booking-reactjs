@@ -3,16 +3,38 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import HomeHeader from './HomeHeader';
 import Specialty from './Section/Specialty'
+import MedicalFacility from './Section/MedicalFacility'
+import OutstandingDoctor from './Section/OutstandingDoctor'
+import HandBook from './Section/HandBook'
+
+import './HomePage.scss'
 
 class HomePage extends Component {
 
     render() {
-
+        let settings = {
+            dots: false,
+            infinite: true, 
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 2,
+          };
 
         return (
             <div>
                 <HomeHeader/>
-                <Specialty/>
+                <Specialty
+                    settings={settings}
+                />
+                <MedicalFacility
+                    settings={settings}
+                />
+                <OutstandingDoctor
+                    settings={settings}
+                />
+                <HandBook 
+                    settings={settings}
+                />
             </div>
             );
     }
