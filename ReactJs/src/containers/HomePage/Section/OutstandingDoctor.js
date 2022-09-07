@@ -18,14 +18,14 @@ class OutstandingDoctor extends Component {
                 <div className="section-container">
                     <div className="section-header">
                         <span className="title-section">Bác sĩ nổi bật tuần qua</span>
-                        <button className="btn-section">Tim Kiem</button>
+                        <button className="btn-section">TÌM KIẾM</button>
                     </div>
 
                     <div className="section-body">
                     <Slider {...this.props.settings}>
                     <div className="section-customize">
                         <div className="outer-bg">
-                            <div  className="image section-outstanding-doctor" />
+                            <div  className="image section-outstanding-doctor"/>
                         </div>
                         <div className="postion text-center">
                             <div>Bac si 1</div>

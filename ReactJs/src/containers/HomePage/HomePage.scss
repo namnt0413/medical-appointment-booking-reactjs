@@ -47,8 +47,9 @@
 
     }
 
-    &.section-handbook{
-        margin-top: 150px;
+    &.section-about{
+        // margin-top: 150px;
+        height: 600px !important;
     }
  
     .section-container {
@@ -104,11 +105,13 @@
                     }
                     &.section-outstanding-doctor{
                         background: url('../../assets/outstanding-doctor/anh1.png') ;
-                        width: 300px !important;
-                        height: 300px !important;
+                        margin: auto;
+                        width: 200px !important;
+                        height: 200px !important;
+                        border-radius: 50%;
                     }
                     &.section-handbook{
-                        background: url('../../assets/handbook/095119-benh-vien-cho-ray-h1.jpg') ;
+                        background: url('../../assets/handbook/101832-anh-xet-nghiem-9.png') ;
                     }
                 }
             }   
@@ -117,20 +120,36 @@
     }
 }
 
-.section-outstanding-doctor{
-    .outer-bg {
-        display: flex !important;
-        justify-content:center !important;
-        margin-bottom: 10px !important;
-
-
-    }
-    .section-customize{
-        padding: 5px!important;
-        .customize-border {
-            border: 1px solid red!important;
-        }
-        
-    }
+.postion {
+    width:inherit;
+    margin-top:10px;
 }
 
+.section-about{
+    
+    .section-about-header {
+        padding: 20px 10px;
+        font-size: 30px;
+        font-weight: 600;
+        margin-left: 220px !important;
+    }
+    
+    .section-about-content {
+        display: flex;
+        gap: 15px;
+        margin: 0 100px 0 100px;
+        // width: 1900px;;
+
+        .content-left{
+            width:60% !important;
+        }
+        .content-right{
+            width:40% !important;
+            p {
+                text-align: justify;
+                font-style: italic;
+            }
+        }
+
+    }
+}

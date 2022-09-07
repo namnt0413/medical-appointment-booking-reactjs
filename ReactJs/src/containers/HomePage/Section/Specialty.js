@@ -17,7 +17,7 @@ class Specialty extends Component {
             <div className="section-share section-specialty">
                 <div className="section-container">
                     <div className="section-header">
-                        <span className="title-section">Chuyen khoa pho bien</span>
+                        <span className="title-section">Chuyên khoa phổ biến</span>
                         <button className="btn-section">Xem them</button>
                     </div>
 
@@ -25,27 +25,27 @@ class Specialty extends Component {
                     <Slider {...this.props.settings}>
                     <div className="section-customize">
                         <div className="image section-specialty" />
-                        <div>Co xuong khop 1</div>
+                        <div>Cơ Xương Khớp 1</div>
                       </div>
                       <div className="section-customize">
                         <div className="image section-specialty" />
-                        <div>Co xuong khop 2</div>
+                        <div>Cơ Xương Khớp 2</div>
                       </div>
                       <div className="section-customize">
                         <div className="image section-specialty" />
-                        <div>Co xuong khop 3</div>
+                        <div>Cơ Xương Khớp 3</div>
                       </div>
                       <div className="section-customize">
                         <div className="image section-specialty" />
-                        <div>Co xuong khop 4</div>
+                        <div>Cơ Xương Khớp 4</div>
                       </div>
                       <div className="section-customize">
                         <div className="image section-specialty" />
-                        <div>Co xuong khop 5</div>
+                        <div>Cơ Xương Khớp 5</div>
                       </div>
                       <div className="section-customize">
                         <div className="image section-specialty" />
-                        <div>Co xuong khop 6</div>
+                        <div>Cơ Xương Khớp 6</div>
                       </div>
                     </Slider>
                     </div>
