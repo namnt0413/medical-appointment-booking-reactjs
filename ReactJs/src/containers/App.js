@@ -45,11 +45,8 @@ class App extends Component {
         return (
             <Fragment>
                 <Router history={history}>  {/* Luu giu lai lich su , ko phai goi api nhieu lan*/}
-               
                     <div className="main-container">
                         <ConfirmModal />
-                        {this.props.isLoggedIn && <Header />}
-
                         <div className="content-container">
                         <CustomScrollbars style={ {height:'100vh' ,width:'100%'}  } >
                             <Switch>
