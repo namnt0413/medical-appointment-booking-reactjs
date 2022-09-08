@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from 'react-router-dom';
 import ManageUser from '../containers/System/ManageUser';
-import ManageUserRedux from '../containers/System/ManageUserRedux';
+import ManageUserRedux from '../containers/System/Admin/ManageUserRedux';
 import Header from '../containers/Header/Header';
 
 class System extends Component {
     render() {
         const { systemMenuPath } = this.props;
-        console.log(this.props.isLoggedIn);
+        // console.log(this.props.isLoggedIn);
         return (
             <React.Fragment>
                 {this.props.isLoggedIn && <Header />}

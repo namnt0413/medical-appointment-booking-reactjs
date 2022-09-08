@@ -23,5 +23,8 @@
             "handbook": "Cẩm nang",
             "manage-handbook": "Quản lý cẩm nang"
         }
-    }   
+    } ,
+    "manage-user": {
+        "add": "Thêm mới người dùng"
+    }  
 }

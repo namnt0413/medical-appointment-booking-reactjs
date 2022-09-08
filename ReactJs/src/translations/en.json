@@ -23,5 +23,8 @@
             "handbook": "Handbook",
             "manage-handbook": "Manage Handbook"
         }
-    }
+    },
+    "manage-user": {
+        "add": "Add new user"
+    }  
 }
