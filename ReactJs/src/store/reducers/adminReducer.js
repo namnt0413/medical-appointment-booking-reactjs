@@ -4,26 +4,52 @@ const initialState = {
     genders: [],
     roles: [],
     positions: [],
+    isLoadingGender:false,
 }
 
 const adminReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.FETCH_GENDER_START: 
-            return {
-                ...state    
-            }
-        case actionTypes.FETCH_GENDER_SUCCESS: 
-        // console.log("check ", action, " and " , state);
-        let copyState = { ...state} // copy state rong vao 1 bien moi ( ko nen thay doi state )
-        copyState.genders = action.data;
-        // console.log(copyState);
+        let copyState = {...state};
+        copyState.isLoadingGender = true;
             return {
                 ...copyState    
             }
-        case actionTypes.FETCH_GENDER_FAILED: 
+        case actionTypes.FETCH_GENDER_SUCCESS: 
+        state.genders = action.data;
+        state.isLoadingGender = false;
+        // console.log(state);
             return {
                 ...state    
-            }        
+            }
+        case actionTypes.FETCH_GENDER_FAILED: 
+            state.isLoadingGender = true;
+            state.genders = [];
+
+            return {
+                ...state  
+            }   
+        case actionTypes.FETCH_POSITION_SUCCESS: 
+            state.positions = action.data;
+            return {
+                ...state    
+            }
+        case actionTypes.FETCH_POSITION_FAILED: 
+            state.positions = [];
+            return {
+                ...state  
+            }       
+        case actionTypes.FETCH_ROLE_SUCCESS: 
+            state.roles = action.data;
+            return {
+                ...state    
+            }
+        case actionTypes.FETCH_ROLE_FAILED: 
+            state.roles = [];
+            return {
+                ...state  
+            }               
+        
         default:
             return state;
     }
