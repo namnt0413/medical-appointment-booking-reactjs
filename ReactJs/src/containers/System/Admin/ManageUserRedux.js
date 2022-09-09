@@ -7,6 +7,7 @@ import './ManageUserRedux.scss'
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 // import {getAllUsers , createNewUserService , deleteUserService, editUserService } from '../../../services/userService';
+import TableManageUser from './TableManageUser'
 
 class ManageUserRedux extends Component {
 
@@ -75,6 +76,21 @@ class ManageUserRedux extends Component {
             });
         }
 
+        if(prevProps.users !== this.props.users){
+            this.setState({
+                email: '',
+                password: '',
+                firstName: '',
+                lastName: '',
+                phoneNumber: '',
+                address: '',
+                gender: '',
+                position: '',
+                role: '',
+                avatar: ''
+            })
+        }
+
     }
 
     handleOnChangeImage = (event) => {
@@ -137,6 +153,9 @@ class ManageUserRedux extends Component {
                 roleId: this.state.role,
                 positionId: this.state.position
             })
+            // setTimeout( () => {
+            //     this.props.fetchAllUsers()
+            // },1000 )
         }
         else return;
     }
@@ -267,22 +286,27 @@ class ManageUserRedux extends Component {
                                 </div>
                             </div>
 
-                            <div className="col-12"
+                            <div className="col-12 my-3"
                                 onClick={ ()=>{this.handleSaveUser()}}
                             >
                                 <button type="button" className="btn btn-primary">SAVE</button>
+                            </div>
+                            
+                            <div className="col-12 mb-5">
+                                <TableManageUser/>
                             </div>
                         </div>
                     </div>
                 </div>
 
-            {this.state.isOpen === true &&
-            <Lightbox
-            mainSrc={this.state.previewImgURL}
-            onCloseRequest={() => this.setState({ isOpen: false })}
-            
-                />               
-            }
+                {this.state.isOpen === true &&
+                <Lightbox
+                mainSrc={this.state.previewImgURL}
+                onCloseRequest={() => this.setState({ isOpen: false })}
+                
+                    />               
+                }
+
             </div>
 
         )
@@ -297,6 +321,8 @@ const mapStateToProps = state => {
         isLoadingGender: state.admin.isLoadingGender,
         roles: state.admin.roles,
         positions: state.admin.positions,
+        users: state.admin.users
+
     };
 };
 
@@ -308,7 +334,9 @@ const mapDispatchToProps = dispatch => {
         getPositionStart: () => dispatch(actions.fetchPositionStart()),
         getRoleStart: () => dispatch(actions.fetchRoleStart()),
 
-        createNewUser: (data) => dispatch(actions.createNewUser(data))
+        createNewUser: (data) => dispatch(actions.createNewUser(data)),
+        fetchAllUsers: () => dispatch(actions.fetchAllUsersStart() )
+
     };
 };
 
