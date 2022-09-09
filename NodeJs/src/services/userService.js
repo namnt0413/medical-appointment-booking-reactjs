@@ -205,6 +205,10 @@ let editUser = (data) => {
             user.firstName = data.firstName;
             user.lastName = data.lastName;
             user.address = data.address;
+            user.phonenumber = data.phonenumber;
+            user.gender = data.gender;
+            user.roleId = data.roleId;
+            user.positionId = data.positionId;
 
             await user.save(); // luu vao database , doc docs
                 resolve({
