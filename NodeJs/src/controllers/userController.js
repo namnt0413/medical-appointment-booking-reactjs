@@ -73,7 +73,7 @@ let handleGetAllCode = async (req, res) => {
     try {
         setTimeout( async () => {
             let data = await userService.getAllCode(req.query.type);
-            console.log(data);
+            // console.log(data);
             return res.status(200).json(data);
         },3000)
 

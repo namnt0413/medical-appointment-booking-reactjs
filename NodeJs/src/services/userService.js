@@ -140,7 +140,8 @@ let createNewUser = (data) => {
                     gender: data.gender, 
                     roleId: data.roleId,
                     phonenumber: data.phonenumber,
-                    positionId: data.positionId
+                    positionId: data.positionId,
+                    image: data.avatar
                 })
                 resolve({
                     errCode: 0,
@@ -209,6 +210,7 @@ let editUser = (data) => {
             user.gender = data.gender;
             user.roleId = data.roleId;
             user.positionId = data.positionId;
+            user.image = data.avatar;
 
             await user.save(); // luu vao database , doc docs
                 resolve({
