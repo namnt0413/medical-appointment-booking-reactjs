@@ -37,7 +37,7 @@ class TableManageUser extends Component {
     }
 
     handleUpdateUser=(user) => {
-        // console.log(user)
+        console.log(user)
         this.props.handleUpdateUserFromParent(user)
 
     }

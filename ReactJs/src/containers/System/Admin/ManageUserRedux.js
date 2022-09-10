@@ -60,14 +60,14 @@ class ManageUserRedux extends Component {
             // console.log(arrGenders)
             this.setState({
                 genderArray: arrGenders,
-                gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : ''
+                gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].keyMap : ''
             });
         }
         if( prevProps.positions !== this.props.positions ){
             let arrPositions = this.props.positions
             this.setState({
                 positionArray: arrPositions,
-                position: arrPositions && arrPositions.length >0 ? arrPositions[0].key : ''
+                position: arrPositions && arrPositions.length >0 ? arrPositions[0].keyMap : ''
 
             });
         }
@@ -75,7 +75,7 @@ class ManageUserRedux extends Component {
             let arrRoles = this.props.roles
             this.setState({
                 roleArray: arrRoles,
-                role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key :''
+                role: arrRoles && arrRoles.length > 0 ? arrRoles[0].keyMap :''
             });
         }
 
@@ -90,9 +90,9 @@ class ManageUserRedux extends Component {
                 lastName: '',
                 phoneNumber: '',
                 address: '',
-                gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : '' , 
-                position: arrPositions && arrPositions.length >0 ? arrPositions[0].key : '',
-                role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key :'',
+                gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].keyMap : '' , 
+                position: arrPositions && arrPositions.length >0 ? arrPositions[0].keyMap : '',
+                role: arrRoles && arrRoles.length > 0 ? arrRoles[0].keyMap :'',
                 avatar: '',
                 typeAction: CRUD_ACTIONS.CREATE,
                 userUpdateId: '',
@@ -209,7 +209,7 @@ class ManageUserRedux extends Component {
             gender: user.gender , 
             position: user.positionId,
             role: user.roleId,
-            avatar: '',
+            avatar: user.avatar,
             previewImgURL: imageBase64,
             typeAction: CRUD_ACTIONS.UPDATE,
             userUpdateId: user.id
@@ -219,16 +219,16 @@ class ManageUserRedux extends Component {
 
 
     render() {
-        // console.log('check state', this.state)
         let genders = this.state.genderArray; // = set genders = 1 mang cac gender
         let positions = this.state.positionArray; // = set genders = 1 mang cac gender
         let roles = this.state.roleArray; // = set genders = 1 mang cac gender
-
+        
         let language = this.props.language; // lay language tu redux
         let isLoadingGender = this.props.isLoadingGender
-
+        
         let { email , password , firstName , lastName ,
-             phoneNumber , address , gender , position ,role , avatar } = this.state
+            phoneNumber , address , gender , position ,role , avatar } = this.state
+            // console.log('check state', this.state, gender)
 
         return (
             <div className="user-redux-container" >
@@ -287,9 +287,9 @@ class ManageUserRedux extends Component {
                                 <select className="form-control" onChange={(event)=>{this.onChangeInput(event,'gender')}} value={gender}>
                                 {genders && genders.length > 0 &&
                                     genders.map( (item,index) => {
-                                       // {/* console.log(index,item); */}
+                                       {/* console.log(index,item); */}
                                         return(
-                                       <option key={index} value={item.key} > { language===LANGUAGES.VI ? item.valueVi : item.valueEn} </option>
+                                       <option key={index} value={item.keyMap} > { language===LANGUAGES.VI ? item.valueVi : item.valueEn} </option>
                                         )
                                     })
                             
@@ -303,7 +303,7 @@ class ManageUserRedux extends Component {
                                     positions.map( (item,index) => {
                                        // {/* console.log(index,item); */}
                                         return(
-                                       <option key={index} value={item.key}> { language===LANGUAGES.VI ? item.valueVi : item.valueEn} </option>
+                                       <option key={index} value={item.keyMap}> { language===LANGUAGES.VI ? item.valueVi : item.valueEn} </option>
                                         )
                                     })
                             
@@ -317,7 +317,7 @@ class ManageUserRedux extends Component {
                                     roles.map( (item,index) => {
                                        // {/* console.log(index,item); */}
                                         return(
-                                       <option key={index} value={item.key}> { language===LANGUAGES.VI ? item.valueVi : item.valueEn} </option>
+                                       <option key={index} value={item.keyMap}> { language===LANGUAGES.VI ? item.valueVi : item.valueEn} </option>
                                         )
                                     })
                             

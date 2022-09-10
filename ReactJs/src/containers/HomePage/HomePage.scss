@@ -29,6 +29,10 @@
     }
 }
 
+.slick-disabled {
+    display: none !important;
+}
+
 .slick-prev:before ,.slick-next:before {
     // content: "\e257" !important;
     font-family: FontAwesome !important;
@@ -104,7 +108,7 @@
                         background: url('../../assets/medical-facility/095119-benh-vien-cho-ray-h1.jpg') ;
                     }
                     &.section-outstanding-doctor{
-                        background: url('../../assets/outstanding-doctor/anh1.png') ;
+                        // background: url('../../assets/outstanding-doctor/anh1.png') ;
                         margin: auto;
                         width: 200px !important;
                         height: 200px !important;
