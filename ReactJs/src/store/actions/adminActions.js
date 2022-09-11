@@ -1,5 +1,6 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService , createNewUserService , getAllUsers , deleteUserService, editUserService ,getTopDoctorHomeService} from '../../services/userService';
+import { getAllCodeService , createNewUserService , getAllUsers , deleteUserService,
+     editUserService ,getTopDoctorHomeService , getAllDoctorService, saveInfoDoctorService} from '../../services/userService';
 import { ToastContainer, toast } from 'react-toastify';
 
 // export const fetchGenderStart = () => ({
@@ -223,6 +224,48 @@ export const fetchTopDoctors = () => {
             }
         } catch (error) {
             dispatch({ type: actionTypes.FETCH_TOP_DOCTORS_FAILED})            
+        }
+    }
+}
+
+export const fetchAllDoctors = () => {
+    return async (dispatch,getState) => {
+        try {
+            let res = await getAllDoctorService();
+            // console.log(res);
+            if( res && res.errCode === 0){
+                dispatch({
+                    type: actionTypes.FETCH_ALL_DOCTORS_SUCCESS,
+                    data: res.data
+                })
+            }
+            else {
+                dispatch({ type: actionTypes.FETCH_ALL_DOCTORS_FAILED})
+            }
+        } catch (error) {
+            dispatch({ type: actionTypes.FETCH_ALL_DOCTORS_FAILED})            
+        }
+    }
+}
+
+export const saveInfoDoctor = (data) => {
+    return async (dispatch,getState) => {
+        try {
+            let res = await saveInfoDoctorService(data);
+            // console.log(res);
+            if( res && res.errCode === 0){
+                toast.success("Save doctor info success!")
+                dispatch({
+                    type: actionTypes.SAVE_INFO_DOCTOR_SUCCESS
+                })
+            }
+            else {
+                toast.error("Save doctor info failed!")
+                dispatch({ type: actionTypes.SAVE_INFO_DOCTOR_FAILED})
+            }
+        } catch (error) {
+            toast.error("Save doctor info failed!")
+            dispatch({ type: actionTypes.SAVE_INFO_DOCTOR_FAILED})            
         }
     }
 }
