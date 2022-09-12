@@ -56,15 +56,31 @@
         outline: none;
         border-radius: 3px;
         border: none;
-        padding:5px;
         background: #04AA6D;
+        padding:5px;
         color: white;
         cursor: pointer;
-
+        
         &:hover {
-            opacity: 0.9;
+          opacity: 0.9;
         }
-    }
+      }
+      
+      .btn-create-content-doctor{
+        margin-top: 20px; 
+        margin-bottom: 30px;
+        outline: none;
+        border-radius: 3px;
+        border: none;
+        padding:5px;
+        background: #165acf;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+          opacity: 0.9;
+      }
+  }
 
     .more-info {
         display: flex;
