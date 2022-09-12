@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import './OutstandingDoctor.scss'
 import Slider from "react-slick";
@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import specialtyImg from "../../../assets/specialty/120331-co-xuong-khop.jpg"
 import * as actions from "../../../store/actions"
+import { withRouter } from 'react-router'
+
 
 class OutstandingDoctor extends Component {
     constructor(props){
@@ -30,9 +32,15 @@ class OutstandingDoctor extends Component {
         }
     }
 
+    handleViewDetailDoctor = (doctor) => {
+        // console.log('view doctor detail : ',doctor)
+        // redirect sang detail page
+        this.props.history.push(`/detail-doctor/${doctor.id}`)
+    }
+
     render() {
         let arrDoctors = this.state.arrDoctors
-        console.log(arrDoctors)
+        // console.log(arrDoctors)
         return (
             <div className="section-share section-outstanding-doctor">
                 <div className="section-container">
@@ -49,8 +57,11 @@ class OutstandingDoctor extends Component {
                             if(item.image){
                                 imageBase64 = new Buffer(item.image, 'base64').toString('binary');
                             }
+                            //let nameVi= `${item.positionData.valueVi`, {item.firstName} {item.lastName} 
+                            //let nameEn = `${item.positionData.valueEn`, {item.firstName} {item.lastName}
+                            
                             return (
-                                <div className="section-customize">
+                                <div className="section-customize" key={index} onClick={()=>this.handleViewDetailDoctor(item) } >
                                     <div className="outer-bg">
                                         <div  className="image section-outstanding-doctor"
                                         style = {{background: `url(${imageBase64})` }}
@@ -58,6 +69,7 @@ class OutstandingDoctor extends Component {
                                         />
                                     </div>
                                     <div className="postion text-center">
+                                    {/* {console.log(item.positionData.valueVi)} */}
                                         <div>{item.positionData.valueVi} ,{item.firstName} {item.lastName}</div>
                                         <div>CHUYEN KHOA XXX</div>
                                     </div>
@@ -82,7 +94,8 @@ class OutstandingDoctor extends Component {
 const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
-        topDoctors: state.admin.topDoctors
+        topDoctors: state.admin.topDoctors,
+        language: state.app.language
     };
 };
 
@@ -93,4 +106,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor));

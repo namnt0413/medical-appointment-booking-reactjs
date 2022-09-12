@@ -94,17 +94,24 @@ let getDetailDoctor= (inputId) => {
                         id: inputId
                     } , 
                     attributes: {
-                        exclude: ['password','image'] // loai bo di thuoc tinh password
+                        exclude: ['password'] // loai bo di thuoc tinh password
                     },
                     include: [
                         { model: db.Markdown , 
                             attributes: ['description','contentHTML','contentMarkdown']
                         },
-                        { model: db.Allcode, as: 'positionData', attributes: ['valueVi','valueEn'] }
+                        { model: db.Allcode, as: 'positionData', attributes: ['valueVi','valueEn']  },
+                        { model: db.Allcode, as: 'genderData', attributes: ['valueVi','valueEn']  }
                     ],
                     raw: true,
                     nest: true
                 })
+                if(data && data.image){ 
+                    data.image = new Buffer(data.image,'base64').toString('binary'); // convert image to base64
+                }
+                // console.log(data.image);
+                if( !data){ data={} }
+
                 resolve({
                     errCode: 0,
                     data: data
