@@ -6,13 +6,14 @@ export const adminMenu = [
                 name: 'menu.admin.manage-user', link: '/system/manage-user'
             },
             {
+                name: 'menu.admin.manage-user-redux', link: '/system/manage-user-redux'
+            },
+            {
                 name: 'menu.admin.manage-doctor', link: '/system/manage-doctor'
             },
-            {
-                name: 'menu.admin.manage-admin', link: '/system/manager-admin'
-            },
-            {
-                name: 'menu.admin.manage-user-redux', link: '/system/manage-user-redux'
+            { // quản lý ke hoach kham benh cua bac si
+
+                name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
             },
         ]
     },
@@ -43,6 +44,16 @@ export const adminMenu = [
     }
 ];
 
+export const doctorMenu = [
+    {
+        name: 'menu.admin.user', 
+        menus: [
+        { // quản lý ke hoach kham benh cua bac si
+            name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
+        },
+        ]
+    }
+];
 
 // subMenus: [
 //     { name: 'menu.system.system-administrator.user-manage', link: '/system/user-manage' },

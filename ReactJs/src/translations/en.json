@@ -22,9 +22,16 @@
             "manage-specialty": "Manage Specialty",
             "handbook": "Handbook",
             "manage-handbook": "Manage Handbook"
+        },
+        "doctor": {
+            "manage-schedule": "Manage Doctor's schedule"
         }
     },
     "manage-user": {
         "add": "Add new user"
-    }  
+    } ,
+    "homepage": {
+        "outstanding-doctor": "Bac sy noi bat tuan qua",
+        "more-info": "Xem them"
+    }
 }
