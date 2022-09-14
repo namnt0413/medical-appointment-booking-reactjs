@@ -30,9 +30,16 @@
     "manage-user": {
         "add": "Thêm mới người dùng"
 
-    }  ,
+    },
     "homepage": {
         "outstanding-doctor": "Bac sy noi bat tuan qua",
         "more-info": "Xem them"
+    },
+    "manage-schedule":  {
+        "title": "Quản lý kế hoạc khám của bác sĩ",
+        "choose-doctor": "Chọn bác sĩ",
+        "choose-date": "Chọn ngày",
+        "save-info": "Lưu thông tin"
     }
+
 }

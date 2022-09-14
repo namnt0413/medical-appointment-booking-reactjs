@@ -69,6 +69,12 @@ class Login extends Component {
         })
     }
 
+    handleKeyDown = (event) => {
+        if(event.key === 'Enter' || event.keyCode === 13) {
+            this.handleLogin();
+        }
+    }
+
     render() {
         // Cu phap JSX 
         return (
@@ -84,6 +90,7 @@ class Login extends Component {
                             placeholder="Enter your user name"
                             value={this.state.username}
                             onChange = { (event) => this.handleOnChangeUsername(event) } // bat su thay doi
+                            onKeyDown = { (event) => this.handleKeyDown(event) }
                         />
 
                     </div>
@@ -96,6 +103,7 @@ class Login extends Component {
                                 placeholder="Enter your password"
                                 value={this.state.password}
                                 onChange = { (event) => this.handleOnChangePassword(event) } 
+                                onKeyDown = { (event) => this.handleKeyDown(event) }
                             />
                                 <span onClick={() => this.handleShowHidePassword()}>
                                     <i className={this.state.isShowPassword ? 'fas fa-eye show-password' : 'fas fa-eye-slash show-password'} ></i> 

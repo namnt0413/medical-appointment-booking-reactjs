@@ -269,3 +269,26 @@ export const saveInfoDoctor = (data) => {
         }
     }
 }
+
+export const FetchAllScheduleTime = () => {
+    return async (dispatch,getState) => {
+        try {
+            let res = await getAllCodeService("TIME");
+            // console.log(res);
+            if( res && res.errCode === 0){
+                // toast.success("Save doctor info success!")
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
+                    dataTime: res.data
+                })
+            }
+            else {
+                // toast.error("Save doctor info failed!")
+                dispatch({ type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED})
+            }
+        } catch (error) {
+            // toast.error("Save doctor info failed!")
+            dispatch({ type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED})
+        }
+    }
+}
