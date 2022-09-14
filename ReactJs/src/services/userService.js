@@ -49,7 +49,11 @@ const bulkCreateSchedule = (data) => {
     return axios.post('/api/bulk-create-schedule/',data);
 }
 
-export { handleLoginApi , getAllUsers, createNewUserService, deleteUserService, bulkCreateSchedule,
+const getScheduleDoctorByDate = (doctorId,date) => {
+    return axios.get(`/api/get-schedule-doctor-by-date?doctorId=${doctorId}&date=${date}`)
+}
+
+export { handleLoginApi , getAllUsers, createNewUserService, deleteUserService, bulkCreateSchedule, getScheduleDoctorByDate,
     editUserService, getAllCodeService, getTopDoctorHomeService,getAllDoctorService,saveInfoDoctorService , getDetailInfoDoctor }
 
 
