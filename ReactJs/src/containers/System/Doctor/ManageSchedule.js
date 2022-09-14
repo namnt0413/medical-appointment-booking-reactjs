@@ -137,7 +137,7 @@ class ManageSchedule extends Component {
         let res = await bulkCreateSchedule({
             arrSchedule : result,
             doctorId: selectedDoctor.value, 
-            date: formatedDate  
+            date: formatedDate
         });
         console.log('check result : ', res);
 
