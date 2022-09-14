@@ -11,6 +11,7 @@ import moment from "moment"
 // import FormmatedDate from "../../../components/Formating/FormattedDate";
 import { toast } from 'react-toastify';
 import _ from 'lodash';
+import { bulkCreateSchedule } from '../../../services/userService'
 
 class ManageSchedule extends Component {
     constructor(props) {
@@ -97,7 +98,7 @@ class ManageSchedule extends Component {
         this.setState({rangeTime: rangeTime});
     }
 
-    handleSaveSchedule = () => {
+    handleSaveSchedule = async () => {
         let {rangeTime, selectedDoctor, currentDate} = this.state;
         let result = [];
         // console.log(rangeTime,selectedDoctor,currentDate);
@@ -109,7 +110,9 @@ class ManageSchedule extends Component {
             toast.error("Please select a doctor");
             return;
         }
-        let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
+        // let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
+        let formatedDate = new Date(currentDate).getTime(); //format ve dang timestamp de luu vao db
+
         if( rangeTime && rangeTime.length > 0){
             let selectedTime = rangeTime.filter(item => item.isSelected === true);
             // console.log(selectedTime);
@@ -120,7 +123,7 @@ class ManageSchedule extends Component {
                     let object = {};
                     object.doctorId = selectedDoctor.value;
                     object.date = formatedDate;
-                    object.time = item.keyMap;
+                    object.timeType = item.keyMap;
                     result.push(object);
                 })
             toast.success("Dat lich thanh cong");
@@ -130,7 +133,13 @@ class ManageSchedule extends Component {
                 return;
             }
         }
-        console.log('check result : ', result);
+
+        let res = await bulkCreateSchedule({
+            arrSchedule : result,
+            doctorId: selectedDoctor.value, 
+            date: formatedDate  
+        });
+        console.log('check result : ', res);
 
     }
 
