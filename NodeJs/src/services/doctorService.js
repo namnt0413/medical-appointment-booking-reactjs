@@ -57,13 +57,16 @@ let getAllDoctors = () => {
 let saveInfoDoctor = (inputData) => {
     return new Promise( async (resolve, reject) => {
         try {
-            if(!inputData.doctorId || !inputData.contentHTML || !inputData.contentMarkdown || !inputData.action) {
+            if(!inputData.doctorId || !inputData.contentHTML || !inputData.contentMarkdown || !inputData.action ||
+                !inputData.selectedPrice || !inputData.selectedPayment || !inputData.selectedProvince || !inputData.nameClinic || !inputData.addressClinic || !inputData.note    
+            ) {
                 resolve({
                     errCode:1,
                     errMessage: 'Missing required parameter'
                 })
             }
             else {
+                //upsert to markdown
                 if(inputData.action === 'CREATE') {
                     await db.Markdown.create({
                         contentHTML: inputData.contentHTML,
@@ -83,6 +86,34 @@ let saveInfoDoctor = (inputData) => {
                         // doctorMarkdown.updatedAt = new Date();
                         await doctorMarkdown.save();
                     }
+
+                }
+
+                //upsert to doctor-info
+                let doctorInfo = await db.Doctor_Info.findOne({
+                    where: {
+                        doctorId: inputData.doctorId, 
+                    },
+                    raw: false
+                })
+                if( doctorInfo) { //update
+                   doctorInfodoctorId= inputData.doctorId;
+                   doctorInfo.priceId = inputData.selectedPrice;
+                   doctorInfo.paymentId = inputData.selectedPayment;
+                   doctorInfo.provinceId = inputData.selectedProvince;
+                   doctorInfo.nameClinic = inputData.nameClinic;
+                   doctorInfo.addressClinic = inputData.addressClinic;
+                   doctorInfo.note = inputData.note;
+                } else { // create
+                    await db.Doctor_Info.create({
+                    doctorId: inputData.doctorId,
+                    priceId : inputData.selectedPrice,
+                    paymentId : inputData.selectedPayment,
+                    provinceId : inputData.selectedProvince,
+                    nameClinic : inputData.nameClinic,
+                    addressClinic : inputData.addressClinic,
+                    note : inputData.note,
+                    })
 
                 }
 
