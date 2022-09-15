@@ -97,13 +97,14 @@ let saveInfoDoctor = (inputData) => {
                     raw: false
                 })
                 if( doctorInfo) { //update
-                   doctorInfodoctorId= inputData.doctorId;
+                   doctorInfo.doctorId= inputData.doctorId;
                    doctorInfo.priceId = inputData.selectedPrice;
                    doctorInfo.paymentId = inputData.selectedPayment;
                    doctorInfo.provinceId = inputData.selectedProvince;
                    doctorInfo.nameClinic = inputData.nameClinic;
                    doctorInfo.addressClinic = inputData.addressClinic;
                    doctorInfo.note = inputData.note;
+                   await doctorInfo.save();
                 } else { // create
                     await db.Doctor_Info.create({
                     doctorId: inputData.doctorId,
@@ -150,8 +151,20 @@ let getDetailDoctor= (inputId) => {
                         { model: db.Markdown , 
                             attributes: ['description','contentHTML','contentMarkdown']
                         },
+
+                        { model: db.Doctor_Info , 
+                            attributes: { 
+                                exclude : ['id','doctorId'] 
+                            },
+                            include: [
+                                { model: db.Allcode , as: 'priceTypeData', attributes: ['valueVi','valueEn']},
+                                { model: db.Allcode , as: 'paymentTypeData', attributes: ['valueVi','valueEn']},
+                                { model: db.Allcode , as: 'provinceTypeData', attributes: ['valueVi','valueEn']},
+                            ]
+                        },
+
                         { model: db.Allcode, as: 'positionData', attributes: ['valueVi','valueEn']  },
-                        { model: db.Allcode, as: 'genderData', attributes: ['valueVi','valueEn']  }
+                        { model: db.Allcode, as: 'genderData', attributes: ['valueVi','valueEn']  },
                     ],
                     raw: true,
                     nest: true
