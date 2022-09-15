@@ -47,5 +47,11 @@
             "choose": "Choose",
             "book-free": " and book (free)"
         }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title":"Doctor detail infomation",
+            "choose-doctor": "Choose doctor"
+        }
     }
 }

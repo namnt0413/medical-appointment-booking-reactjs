@@ -48,6 +48,13 @@
             "choose": "Chọn",
             "book-free": " và đặt ( miễn phí )"
         }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title":"THÔNG TIN CHI TIẾT BÁC SĨ",
+            "choose-doctor": "Chọn bác sĩ"
+        }
     }
+    
 
 }
