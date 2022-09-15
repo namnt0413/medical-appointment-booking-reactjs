@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { LANGUAGES , CRUD_ACTIONS, CommonUtils, dateFormat } from '../../../utils'
 import './ManageSchedule.scss';
-import { FormattedDate, FormattedMessage} from 'react-intl'
+import { FormattedMessage} from 'react-intl'
 import Select from 'react-select';
 import * as actions from "../../../store/actions"
 import DatePicker from "../../../components/Input/DatePicker"
@@ -19,7 +19,7 @@ class ManageSchedule extends Component {
         this.state = {
             listDoctors: [],
             selectedDoctor: {},
-            currentDate: new Date(),
+            currentDate: moment(new Date()).add(0, 'days').startOf('day').valueOf() ,
         }
     }
 
@@ -111,6 +111,7 @@ class ManageSchedule extends Component {
             return;
         }
         // let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
+        // currentDate = currentDate[0]
         let formatedDate = new Date(currentDate).getTime(); //format ve dang timestamp de luu vao db
 
         if( rangeTime && rangeTime.length > 0){
@@ -126,7 +127,6 @@ class ManageSchedule extends Component {
                     object.timeType = item.keyMap;
                     result.push(object);
                 })
-            toast.success("Dat lich thanh cong");
 
             } else {
                 toast.error("Please select a time");
@@ -139,6 +139,9 @@ class ManageSchedule extends Component {
             doctorId: selectedDoctor.value, 
             date: formatedDate
         });
+        if(res && res.errCode === 0){
+            toast.success("Dat lich thanh cong");
+        }
         console.log('check result : ', res);
 
     }
@@ -148,6 +151,7 @@ class ManageSchedule extends Component {
         // console.log(this.state);
         let { rangeTime } = this.state ;
         let {language} = this.props;
+        let yesterday = new Date(new Date().setDate(new Date().getDate()-1));
 
         return (
             <React.Fragment>
@@ -169,7 +173,7 @@ class ManageSchedule extends Component {
                                 <label className=""><FormattedMessage id="manage-schedule.choose-date" /></label>
                                 <DatePicker
                                     onChange={this.handleOnChangeDatePicker}
-                                    minDate={new Date()}
+                                    minDate={ yesterday }
                                     value={this.state.currentDate}
                                     // value={this.state.currentDate}
                                     className="form-control"

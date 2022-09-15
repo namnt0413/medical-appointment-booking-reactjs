@@ -23,6 +23,7 @@
     }
 
     .all-avaiable-time{
+
         .text-calendar{
             color: #333;
             margin: 10px 0;
@@ -36,24 +37,37 @@
         }
 
         .time-content{
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            .time-content-btn {           
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
 
-            button{
-                padding: 8px 10px;
-                border: none;
-                outline: none;
-                background-color:#fff04b;
-                min-width: 140px;
-                border-radius:3px;
-                font-weight: 600;
-                color: #333;
+                button{
+                    padding: 8px 10px;
+                    border: none;
+                    outline: none;
+                    background-color:#fff04b;
+                    min-width: 163px;
+                    border-radius:3px;
+                    font-weight: 600;
+                    color: #333;
 
-                &:hover{
-                  background-color: #45c3d2 ;
-                  color:white; 
+                    &:hover{
+                      background-color: #45c3d2 ;
+                      color:white; 
+                    }
                 }
+
+                
+            }
+            .book-free{
+                margin-top:10px;
+                margin-bottom: 10px;
+            }
+
+            .no-schedule{
+                font-size:16px;
+                font-style: italic;
             }
         }
     }
