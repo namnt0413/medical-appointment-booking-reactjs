@@ -46,6 +46,13 @@
             "no-schedule": "There are no schedules during this time period. Please choose another time slot!",
             "choose": "Choose",
             "book-free": " and book (free)"
+        },
+        "extra-info-doctor": {
+            "text-address": "Clinic Address",
+            "price": "Examine price : ",
+            "detail": "Detail infomation",
+            "payment": "Patient can pay with method : ",
+            "hide-price": "Hide detail infomation"
         }
     },
     "admin": {

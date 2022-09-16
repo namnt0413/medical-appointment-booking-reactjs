@@ -22,14 +22,18 @@
 
     .content-down {
         .short-info {
-            span {
+            .detail {
                 cursor: pointer;
                 color: #45c3d2;
+            }
+            .currency {
+                margin: 0 5px;
             }
         }
 
         .title-price {
             margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         .detail-info {
@@ -38,8 +42,12 @@
             background-color: #f8f8f8;
             .price {
                 padding-bottom: 5px;
+                display: flex;
                 .right {
                     float: right;
+                }
+                .left {
+                    width: 85%;
                 }
             }
             .note{
