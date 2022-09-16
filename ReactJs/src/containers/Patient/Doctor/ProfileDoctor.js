@@ -7,6 +7,8 @@ import Select from 'react-select';
 import { FormattedMessage} from 'react-intl'
 import { getProfileDoctor } from '../../../services/userService';
 import NumberFormat from 'react-number-format';
+import _ from 'lodash';
+import moment from 'moment';
 
 class ProfileDoctor extends Component {
     constructor(props) {
@@ -43,11 +45,34 @@ class ProfileDoctor extends Component {
         return result;
     }
 
+    renderTimeBooking = (dataSchedule) => {
+        let {language} = this.props;
+        // console.log(dataSchedule);
+        if( dataSchedule && !_.isEmpty(dataSchedule) ){
+            let time = language===LANGUAGES.VI ?
+            dataSchedule.timeTypeData.valueVi : dataSchedule.timeTypeData.valueEn;
+
+
+            let date = language===LANGUAGES.VI ?
+                moment.unix( +dataSchedule.date / 1000 ).format('dddd - DD/MM/YYYY')
+            :   moment.unix( +dataSchedule.date / 1000 ).locale('en').format('ddd - MM/DD/YYYY') 
+            return (
+                <>
+                    <div> {time} : {date} </div>
+                    <div> Miễn phí đặt lịch </div>
+
+                </>
+            )
+        } else {
+            return <></>
+        }
+    }
+
     render() {
         // console.log(this.props.match.params.id)
-        let language = this.props.language;
         let {doctorProfile } = this.state;
-        console.log(this.state)
+        let { isShowDescriptionDoctor , language ,dataSchedule } = this.props
+        // console.log(this.props)
 
         return (
         <>   
@@ -63,13 +88,21 @@ class ProfileDoctor extends Component {
                             {doctorProfile.firstName} {doctorProfile.lastName}
                     </div>
                     }
-                    {   <div className="down">
-                            { doctorProfile && doctorProfile.Markdown && doctorProfile.Markdown.description
-                            && <span>
-                                {doctorProfile.Markdown.description}
-                            </span>
-                        }
-                    </div> }
+                    { isShowDescriptionDoctor===true ?
+                        <>
+                            {<div className="down">
+                                { doctorProfile && doctorProfile.Markdown && doctorProfile.Markdown.description
+                                && <span>
+                                    {doctorProfile.Markdown.description}
+                                </span>
+                            }
+                            </div> }
+                        </>
+                        :
+                        <>
+                          { this.renderTimeBooking(dataSchedule) }  
+                        </>
+                    }
                 </div>
             </div>
             <div className="price">

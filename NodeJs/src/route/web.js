@@ -2,6 +2,7 @@ import express from "express";
 import homeController from "../controllers/homeController";
 import userController from "../controllers/userController";
 import doctorController from "../controllers/doctorController";
+import patientController from '../controllers/patientController'
 
 let router = express.Router();
 
@@ -32,6 +33,8 @@ let initWebRoutes = (app) => {
     router.get('/api/get-schedule-doctor-by-date', doctorController.getScheduleDoctorByDate);
     router.get('/api/get-extra-info-doctor', doctorController.getExtraInfoDoctor);
     router.get('/api/get-profile-doctor', doctorController.getProfileDoctor); // component info doctor
+
+    router.post('/api/post-booking-appointment', patientController.postBookingAppointment);
 
     return app.use("/", router);
 }

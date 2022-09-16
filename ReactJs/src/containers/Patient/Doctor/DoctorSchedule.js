@@ -95,7 +95,7 @@ class DoctorSchedule extends Component {
     }
 
     handleClickScheduleTime = (time) => {
-        console.log('check time', time)
+        // console.log('check time', time)
         this.setState({
             isOpenModalBooking: true,
             dataSchedule: time
