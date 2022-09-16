@@ -6,6 +6,8 @@ import Select from 'react-select';
 // import {getScheduleDoctorByDate} from '../../../services/userService'
 import { FormattedMessage} from 'react-intl'
 import { Modal,Button } from 'reactstrap';
+import ProfileDoctor from '../ProfileDoctor';
+import _ from 'lodash';
 
 class BookingModal extends Component {
     constructor(props) {
@@ -31,8 +33,12 @@ class BookingModal extends Component {
 
     render() {
         // console.log(this.props.match.params.id)
+        let doctorId = '';
         let language = this.props.language;
         let { isOpenModal , dataSchedule } = this.props;
+        if( dataSchedule && !_.isEmpty(dataSchedule) ){
+            doctorId = dataSchedule.doctorId;
+        }
 
         return (
             <Modal 
@@ -49,8 +55,11 @@ class BookingModal extends Component {
                     
                     <div className="booking-modal-body">
                         {/* {JSON.stringify(dataSchedule)} */}
-                        <div className="doctor-info">Bac si XXX</div>
-                        <div className="price">Gia kham: 500.000 vnd</div>
+                        <div className="doctor-info">
+                            <ProfileDoctor
+                                doctorId={doctorId}
+                            />
+                        </div>
 
                         <div className="row">
                             <div className="col-6 form-group">

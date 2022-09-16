@@ -27,10 +27,11 @@ let initWebRoutes = (app) => {
     router.get('/api/top-doctor-home', doctorController.getTopDoctorHome);
     router.get('/api/get-all-doctors', doctorController.getAllDoctors);
     router.post('/api/save-info-doctor', doctorController.saveInfoDoctor);
-    router.get('/api/get-detail-doctor', doctorController.getDetailDoctor);
+    router.get('/api/get-detail-doctor', doctorController.getDetailDoctor); // component detail doctor
     router.post('/api/bulk-create-schedule', doctorController.bulkCreateSchedule);
     router.get('/api/get-schedule-doctor-by-date', doctorController.getScheduleDoctorByDate);
     router.get('/api/get-extra-info-doctor', doctorController.getExtraInfoDoctor);
+    router.get('/api/get-profile-doctor', doctorController.getProfileDoctor); // component info doctor
 
     return app.use("/", router);
 }
