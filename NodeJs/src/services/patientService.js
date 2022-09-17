@@ -1,16 +1,30 @@
 import db from '../models/index';
 require('dotenv').config();
 import _ from 'lodash';
+import emailService from './emailService'
 
 let postBookingAppointment = (data) => {
     return new Promise( async (resolve, reject) => {
         try {
-            if( !data.email || !data.doctorId || !data.timeType || !data.date ){
+            if( !data.email || !data.doctorId || !data.timeType || !data.date
+                || !data.fullName
+                ){
                 resolve({
                     errCode: 1,
                     errMessage: 'Missing required parameter'
                 })
             } else {
+                console.log(data)
+                await emailService.sendSimpleEmail({
+                    receiveEmail : data.email,
+                    patientName: data.fullName,
+                    time: data.timeString,
+                    clinicName: 'Phòng khám đa khoa Hà Đông',
+                    doctorName: data.doctorName,
+                    language: data.language,
+                    redirectLink: 'https://www.youtube.com/channel/UC_1kFQESd4UZHc1Rcn1tmWg'
+                })
+                
                 // find user and create a new user if not exist
                 let user = await db.User.findOrCreate({
                     where: { email: data.email },
