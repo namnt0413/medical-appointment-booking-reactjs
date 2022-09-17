@@ -53,6 +53,9 @@
             "detail": "Detail infomation",
             "payment": "Patient can pay with method : ",
             "hide-price": "Hide detail infomation"
+        },
+        "booking-modal": {
+            "title": "Booking appointment infomation"
         }
     },
     "admin": {
