@@ -2,6 +2,12 @@ import db from '../models/index';
 require('dotenv').config();
 import _ from 'lodash';
 import emailService from './emailService'
+import { v4 as uuidv4 } from 'uuid';
+
+let buildUrlEmail = (doctorId,token) => {
+    let result = `${process.env.URL_REACT}/verify-booking?token=${token}&doctorId=${doctorId}` ;
+    return result;
+}
 
 let postBookingAppointment = (data) => {
     return new Promise( async (resolve, reject) => {
@@ -15,6 +21,8 @@ let postBookingAppointment = (data) => {
                 })
             } else {
                 console.log(data)
+                let token = uuidv4();
+
                 await emailService.sendSimpleEmail({
                     receiveEmail : data.email,
                     patientName: data.fullName,
@@ -22,7 +30,7 @@ let postBookingAppointment = (data) => {
                     clinicName: 'Phòng khám đa khoa Hà Đông',
                     doctorName: data.doctorName,
                     language: data.language,
-                    redirectLink: 'https://www.youtube.com/channel/UC_1kFQESd4UZHc1Rcn1tmWg'
+                    redirectLink: buildUrlEmail(data.doctorId,token)
                 })
                 
                 // find user and create a new user if not exist
@@ -44,6 +52,7 @@ let postBookingAppointment = (data) => {
                             patientId: user[0].id,
                             date: data.date,
                             timeType: data.timeType,
+                            token: token,
                         }
                     })
                 }
@@ -61,6 +70,50 @@ let postBookingAppointment = (data) => {
     })
 }
 
+let postVerifyBookingAppointment = (data) => {
+    return new Promise( async (resolve, reject) => {
+        try {
+            if( !data.token || !data.doctorId ){
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required parameter'
+                })
+            } else {
+                let appointment = await db.Booking.findOne({
+                    where: {
+                        doctorId: data.doctorId,
+                        token: data.token,
+                        statusId: 'S1'
+                    },
+                    raw: false // de dung update, raw = true thi tra ve 1 object cua Javascript ( ko phai 1 obj cua sequelize de dung save)
+                })
+                // console.log(appointment)
+                if( appointment ) {
+                    appointment.statusId = 'S2'
+                    await appointment.save()
+
+                    resolve({
+                        errCode: 0,
+                        errMessage: 'Update the appointment successfully'
+                    })
+                } else {
+                    resolve({
+                        errCode: 2,
+                        errMessage: 'Appointment has been activated or does not exist'
+                    })
+                }
+
+
+            }
+
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
 module.exports = {
-    postBookingAppointment
+    postBookingAppointment,
+    buildUrlEmail,
+    postVerifyBookingAppointment
 }
