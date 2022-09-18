@@ -20,9 +20,8 @@ let postBookingAppointment = (data) => {
                     errMessage: 'Missing required parameter'
                 })
             } else {
-                console.log(data)
                 let token = uuidv4();
-
+                
                 await emailService.sendSimpleEmail({
                     receiveEmail : data.email,
                     patientName: data.fullName,
@@ -41,11 +40,12 @@ let postBookingAppointment = (data) => {
                         roleId: 'R3'
                     }
                 })
-
+                
                 // create a booking record
                 if( user && user[0] ){          //user tra ve 2 phan tu, [0] la thong tin user, [1] la bien boolean check isCreated? 
+                    console.log(user[0])
                     await db.Booking.findOrCreate({
-                        where: {patientId: user[0].id },
+                        where: {patientId: user[0].id , doctorId: data.doctorId },
                         defaults: {
                             doctorId: data.doctorId,
                             statusId: 'S1',

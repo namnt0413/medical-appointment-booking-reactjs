@@ -27,8 +27,6 @@ class DafaultClass extends Component {
     render() {
         // console.log(this.props.match.params.id)
         let language = this.props.language;
-        let {isShowDetailInfo , extraInfo } = this.state;
-        console.log(extraInfo)
 
         return (
             <div>
