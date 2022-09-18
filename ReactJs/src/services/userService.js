@@ -69,9 +69,13 @@ const postVerifyBookingAppointment = (data) => {
     return axios.post('/api/verify-booking-appointment',data);
 }
 
+const createNewSpecailty = (data) => {
+    return axios.post('/api/create-new-specialty',data);
+}
+
 export { handleLoginApi , getAllUsers, createNewUserService, deleteUserService, bulkCreateSchedule, getScheduleDoctorByDate, getExtraInfoDoctor,
     editUserService, getAllCodeService, getTopDoctorHomeService,getAllDoctorService,saveInfoDoctorService , getDetailInfoDoctor,
-    getProfileDoctor, postBookingAppointment , postVerifyBookingAppointment
+    getProfileDoctor, postBookingAppointment , postVerifyBookingAppointment, createNewSpecailty
 }
 
 

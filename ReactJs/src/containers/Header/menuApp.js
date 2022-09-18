@@ -34,7 +34,7 @@ export const adminMenu = [
             },
         ]
     },
-    {    // quản lý chuyên khoa
+    {    // quản lý cam nang
         name: 'menu.admin.handbook', 
         menus: [
             {

@@ -24,7 +24,7 @@ import CustomScrollbars from '../components/CustomScrollbars';
 import VerifyEmail from '../containers/Patient/VerifyEmail'
 
 class App extends Component {
-
+ 
     handlePersistorState = () => {
         const { persistor } = this.props;
         let { bootstrapped } = persistor.getState();
