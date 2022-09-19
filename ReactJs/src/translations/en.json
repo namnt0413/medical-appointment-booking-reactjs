@@ -62,7 +62,8 @@
     "admin": {
         "manage-doctor": {
             "title":"Doctor detail infomation",
-            "choose-doctor": "Choose doctor"
+            "choose-doctor": "Choose doctor",
+            "choose-speacialty": "Choose speacialty"
         }
     }
 }
