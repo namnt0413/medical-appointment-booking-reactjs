@@ -73,9 +73,21 @@ const createNewSpecailty = (data) => {
     return axios.post('/api/create-new-specialty',data);
 }
 
+const getAllSpecialty = () => {
+    return axios.get(`/api/get-specialty`)
+}
+
+const deleteSpecialtyService = (specialtyId) => {
+    return axios.delete('/api/delete-specialty',{data: {id: specialtyId} } ); 
+}
+
+const updateSpecialtyService = (inputData) => {
+    return axios.put('/api/update-specialty',inputData); 
+}
+
 export { handleLoginApi , getAllUsers, createNewUserService, deleteUserService, bulkCreateSchedule, getScheduleDoctorByDate, getExtraInfoDoctor,
     editUserService, getAllCodeService, getTopDoctorHomeService,getAllDoctorService,saveInfoDoctorService , getDetailInfoDoctor,
-    getProfileDoctor, postBookingAppointment , postVerifyBookingAppointment, createNewSpecailty
+    getProfileDoctor, postBookingAppointment , postVerifyBookingAppointment, createNewSpecailty , getAllSpecialty , deleteSpecialtyService, updateSpecialtyService
 }
 
 

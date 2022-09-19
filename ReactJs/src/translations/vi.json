@@ -32,8 +32,9 @@
 
     },
     "homepage": {
-        "outstanding-doctor": "Bac sy noi bat tuan qua",
-        "more-info": "Xem them"
+        "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
+        "more-info": "Xem thêm",
+        "specialty":"Chuyên khoa phổ biến"
     },
     "manage-schedule":  {
         "title": "Quản lý kế hoạc khám của bác sĩ",

@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import specialtyImg from "../../../assets/specialty/120331-co-xuong-khop.jpg"
 import * as actions from "../../../store/actions"
 import { withRouter } from 'react-router'
+import { FormattedMessage } from 'react-intl';
 
 
 class OutstandingDoctor extends Component {
@@ -45,8 +46,8 @@ class OutstandingDoctor extends Component {
             <div className="section-share section-outstanding-doctor">
                 <div className="section-container">
                     <div className="section-header">
-                        <span className="title-section">Bác sĩ nổi bật tuần qua</span>
-                        <button className="btn-section">TÌM KIẾM</button>
+                        <span className="title-section"><FormattedMessage id="homepage.outstanding-doctor" /></span>
+                        <button className="btn-section"><FormattedMessage id="homepage.more-info" /></button>
                     </div>
 
                     <div className="section-body">

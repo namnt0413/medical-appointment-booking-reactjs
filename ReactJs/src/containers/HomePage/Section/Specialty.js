@@ -9,44 +9,53 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import specialtyImg from "../../../assets/specialty/120331-co-xuong-khop.jpg"
+import {getAllSpecialty} from "../../../services/userService"
 
 class Specialty extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataSpecialty: []
+    }
+  }
+  
+  async componentDidMount() {
+    let res = await getAllSpecialty();
+    if ( res && res.errCode ===0 ){
+      this.setState({
+        dataSpecialty: res.data ? res.data : []
+      })
+    }
+    // console.log(res.data)
+  }
+  
     render() {
+      let { dataSpecialty } = this.state;
+
         return (
             <div className="section-share section-specialty">
                 <div className="section-container">
                     <div className="section-header">
-                        <span className="title-section">Chuyên khoa phổ biến</span>
-                        <button className="btn-section">Xem them</button>
+                        <span className="title-section"><FormattedMessage id="homepage.specialty"/></span>
+                        <button className="btn-section"><FormattedMessage id="homepage.more-info" /></button>
                     </div>
 
                     <div className="section-body">
                     <Slider {...this.props.settings}>
-                    <div className="section-customize">
-                        <div className="image section-specialty" />
-                        <div>Cơ Xương Khớp 1</div>
-                      </div>
-                      <div className="section-customize">
-                        <div className="image section-specialty" />
-                        <div>Cơ Xương Khớp 2</div>
-                      </div>
-                      <div className="section-customize">
-                        <div className="image section-specialty" />
-                        <div>Cơ Xương Khớp 3</div>
-                      </div>
-                      <div className="section-customize">
-                        <div className="image section-specialty" />
-                        <div>Cơ Xương Khớp 4</div>
-                      </div>
-                      <div className="section-customize">
-                        <div className="image section-specialty" />
-                        <div>Cơ Xương Khớp 5</div>
-                      </div>
-                      <div className="section-customize">
-                        <div className="image section-specialty" />
-                        <div>Cơ Xương Khớp 6</div>
-                      </div>
+                      { dataSpecialty && dataSpecialty.length > 0 && 
+                        dataSpecialty.map((item,index) => {
+                          return (
+                            <div className="section-customize specialty-child" key={index}>
+                              <div className="image section-specialty" 
+                                style = {{background: `url(${item.image})` }}
+                              />
+                              <div className="specialty-name">{item.name}</div>
+                            </div>
+                          )
+                        })
+                      }
+
+                     
                     </Slider>
                     </div>
 

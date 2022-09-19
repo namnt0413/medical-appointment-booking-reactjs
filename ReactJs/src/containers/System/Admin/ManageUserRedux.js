@@ -19,6 +19,7 @@ class ManageUserRedux extends Component {
             roleArray: [],
             previewImgURL: '',
             isOpen: false,
+            isCreateUser: false,
 
             email: '',
             password: '',
@@ -166,7 +167,7 @@ class ManageUserRedux extends Component {
                     gender: this.state.gender, 
                     roleId: this.state.role,
                     positionId: this.state.position,
-                    avatar: this.state.avatar
+                    avatar: this.state.avatar,
                 })
             }
             if( action === CRUD_ACTIONS.UPDATE){
@@ -184,10 +185,9 @@ class ManageUserRedux extends Component {
                     avatar: this.state.avatar
                 })
             }
-
-            // setTimeout( () => {
-            //     this.props.fetchAllUsers()
-            // },1000 )
+            this.setState({
+                isCreateUser: false,
+            })
         }
         else return;
     }
@@ -212,10 +212,29 @@ class ManageUserRedux extends Component {
             avatar: user.avatar,
             previewImgURL: imageBase64,
             typeAction: CRUD_ACTIONS.UPDATE,
-            userUpdateId: user.id
+            userUpdateId: user.id,
+            isCreateUser: true,
         })
     }
 
+    handleAddNewUser = () => {
+        this.setState({
+            // isCreateUser: !this.state.isCreateUser,
+            isCreateUser: true,
+            email: '',
+            password: '',
+            firstName: '',
+            lastName: '',
+            phoneNumber: '',
+            address: '',
+            gender: '',
+            position: '',
+            role: '',
+            avatar: '',
+            previewImgURL: '',
+            typeAction: CRUD_ACTIONS.CREATE,
+        })
+    }
 
 
     render() {
@@ -227,7 +246,7 @@ class ManageUserRedux extends Component {
         let isLoadingGender = this.props.isLoadingGender
         
         let { email , password , firstName , lastName ,
-            phoneNumber , address , gender , position ,role , avatar } = this.state
+            phoneNumber , address , gender , position ,role , avatar, isCreateUser } = this.state
             // console.log('check state', this.state, gender)
 
         return (
@@ -239,7 +258,12 @@ class ManageUserRedux extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-12">{isLoadingGender ? 'Loading...' : ''}</div>
-                            <div className="col-12 my-3"><FormattedMessage id="manage-user.add"/></div>
+                            <div className="col-12 my-3">
+                                <button className="btn-primary" onClick={() => this.handleAddNewUser() } ><FormattedMessage id="manage-user.add"/></button>
+                            </div>
+
+                            { isCreateUser===true ?  
+                        <>
                             <div className="col-3">
                                 <label>Email</label>
                                 <input type="email" className="form-control"
@@ -340,14 +364,15 @@ class ManageUserRedux extends Component {
                                 
                                 </div>
                             </div>
-
-                            <div className="col-12 my-3"
-                               
-                            >
+                            <div className="col-12 my-3">
                                 <button type="button" className={ this.state.typeAction === CRUD_ACTIONS.UPDATE ?  "btn btn-warning" : "btn btn-primary" }  
                                      onClick={ ()=>{this.handleSaveUser()}}>SAVE
                                 </button>
                             </div>
+                        </>
+                            : 
+                        <></>
+                            }
                             
                             <div className="col-12 mb-5">
                                 <TableManageUser
@@ -360,10 +385,9 @@ class ManageUserRedux extends Component {
                 </div>
 
                 {this.state.isOpen === true &&
-                <Lightbox
-                mainSrc={this.state.previewImgURL}
-                onCloseRequest={() => this.setState({ isOpen: false })}
-                
+                    <Lightbox
+                    mainSrc={this.state.previewImgURL}
+                    onCloseRequest={() => this.setState({ isOpen: false })}
                     />               
                 }
 

@@ -31,8 +31,9 @@
         "add": "Add new user"
     } ,
     "homepage": {
-        "outstanding-doctor": "Bac sy noi bat tuan qua",
-        "more-info": "Xem them"
+        "outstanding-doctor": "Outstanding Doctor",
+        "more-info": "More Info",
+        "specialty":"Popular Specialty"
     },
     "manage-schedule":  {
         "title": "Manage doctor's examination plan",

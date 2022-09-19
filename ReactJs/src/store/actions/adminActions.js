@@ -1,6 +1,6 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService , createNewUserService , getAllUsers , deleteUserService,
-     editUserService ,getTopDoctorHomeService , getAllDoctorService, saveInfoDoctorService} from '../../services/userService';
+import { getAllCodeService , createNewUserService , getAllUsers , deleteUserService, deleteSpecialtyService,getAllSpecialty,
+     editUserService ,getTopDoctorHomeService , getAllDoctorService, saveInfoDoctorService } from '../../services/userService';
 import { toast } from 'react-toastify';
 
 // export const fetchGenderStart = () => ({
@@ -330,4 +330,54 @@ export const getRequiredDoctorInfoSuccess = (allRequiredDoctorInfo) => ({
 
 export const getRequiredDoctorInfoFailed = () => ({
     type: actionTypes.FETCH_REQUIRED_DOCTOR_INFO_FAILED
+})
+
+export const fetchAllSpecialty = () => {
+    return async (dispatch,getState) => {
+        try {
+            let res = await getAllSpecialty();
+            // console.log(res);
+            if( res && res.errCode === 0){
+                dispatch({
+                    type: actionTypes.FETCH_ALL_SPECIALTY_SUCCESS,
+                    data: res.data.reverse()
+                })
+            }
+            else {
+                dispatch({ type: actionTypes.FETCH_ALL_SPECIALTY_FAILED})
+            }
+        } catch (error) {
+            dispatch({ type: actionTypes.FETCH_ALL_SPECIALTY_FAILED})            
+        }
+    }
+}
+
+export const deleteSpecialty = (specialtyId) => {
+    return async (dispatch,getState) => {
+        try {
+            let res = await deleteSpecialtyService(specialtyId) ;
+            // console.log(res) ;
+            if( res && res.errCode === 0 ){
+                toast.success("Delete specialty success!")
+                dispatch(deleteSpecialtySuccess());
+                dispatch(fetchAllSpecialty());
+            }
+            else {
+                toast.error("Delete specialty failed!")
+                dispatch(deleteSpecialtyFailed());
+            }
+        } catch (error) {
+            console.log('error : ', error);
+            toast.error("Delete specialty failed!")
+            dispatch(deleteSpecialtyFailed());
+        }
+    }
+}
+
+export const deleteSpecialtySuccess = () => ({
+    type: actionTypes.DELETE_SPECIALTY_SUCCESS
+})
+
+export const deleteSpecialtyFailed = () => ({
+    type: actionTypes.DELETE_SPECIALTY_FAILED
 })
