@@ -61,7 +61,7 @@ class App extends Component {
 
                                 <Route path={path.HOMEPAGE} component={HomePage} />
                                 <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
-                                <Route path={path.DETAIL_SPECIALTYR} component={DetailSpecialty} />
+                                <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
                                 <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
                             </Switch>
                         </CustomScrollbars>    

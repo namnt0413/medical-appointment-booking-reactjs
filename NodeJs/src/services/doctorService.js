@@ -134,8 +134,8 @@ let saveInfoDoctor = (inputData) => {
                     nameClinic : inputData.nameClinic,
                     addressClinic : inputData.addressClinic,
                     note : inputData.note,
-                    specialtyId : inputData.specialtyId,
-                    clinicId : inputData.clinicId
+                    specialtyId : inputData.selectedSpecialty,
+                    clinicId : inputData.selectedClinic
                     })
 
                 }

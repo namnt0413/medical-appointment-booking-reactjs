@@ -7,6 +7,8 @@ import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils'
 import { changeLanguageApp } from '../../store/actions'
 import Header from '../Header/Header';
+import { withRouter } from 'react-router'
+
 
 class HomeHeader extends Component {
 
@@ -14,6 +16,12 @@ class HomeHeader extends Component {
         // alert('Change language: ' + language);
         //fire redux event : actions
         this.props.changeLanguageAppRedux(language);
+    }
+
+    handleClickLogo = () => {
+        if( this.props.history ){
+            this.props.history.push(`/home`)
+          }
     }
 
     render() {
@@ -27,7 +35,7 @@ class HomeHeader extends Component {
                     <div className="home-header-content">
                         <div className="left-content">
                             <i className="fas fa-bars"></i>
-                            <img src = {logo} ></img>
+                            <img src = {logo} onClick={()=>this.handleClickLogo() }></img>
                         </div>
                         <div className="center-content">
                             <div className="child-content"> 
@@ -140,4 +148,5 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader));
+

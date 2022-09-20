@@ -159,7 +159,7 @@ class ManageSpecialty extends Component {
     }
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         let { isCreateSpecialty , language} = this.state;
 
         return (

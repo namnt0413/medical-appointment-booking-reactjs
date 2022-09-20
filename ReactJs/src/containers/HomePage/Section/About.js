@@ -20,7 +20,7 @@ class About extends Component {
                 </div>
                 <div className="section-about-content">
                     <div className="content-left">
-                        <iframe width="90%" height="500" src="https://www.youtube.com/embed/-tKVN2mAKRI" title="DAOKO × 米津玄師『打上花火』MUSIC VIDEO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                    
+                        <iframe width="90%" height="500" src="https://www.youtube.com/embed/-tKVN2mAKRI" title="DAOKO × 米津玄師『打上花火』MUSIC VIDEO" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>                    
                     </div>
                     
                     <div className="content-right">

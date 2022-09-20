@@ -12,11 +12,11 @@ class HomeFooter extends Component {
     render() {
         return (
             <div className="home-footer">
-		        <footer class="footer-07">
-		        		<div class="row justify-content-center">
-		        			<div class="col-md-12 text-center">
-		        				<h2 class="footer-heading"><a href="#" class="logo">MedicalBooking.com</a></h2>
-		        				<p class="menu">
+		        <footer className="footer-07">
+		        		<div className="row justify-content-center">
+		        			<div className="col-md-12 text-center">
+		        				<h2 className="footer-heading"><a href="#" className="logo">MedicalBooking.com</a></h2>
+		        				<p className="menu">
 		        					<a href="#">Home</a>
 		        					<a href="#">Agent</a>
 		        					<a href="#">About</a>
@@ -24,10 +24,10 @@ class HomeFooter extends Component {
 		        					<a href="#">Blog</a>
 		        					<a href="#">Contact</a>
 		        				</p>
-		        				<ul class="ftco-footer-social p-0">
-                                    <li class="ftco-animate"><a href="#" title="Twitter"><span className="fab fa-twitter"></span></a></li>
-                                    <li class="ftco-animate"><a href="#"  title="Facebook"><span className="fab fa-facebook"></span></a></li>
-                                    <li class="ftco-animate"><a href="#" title="Instagram"><span className="fab fa-instagram"></span></a></li>
+		        				<ul className="ftco-footer-social p-0">
+                                    <li className="ftco-animate"><a href="#" title="Twitter"><span className="fab fa-twitter"></span></a></li>
+                                    <li className="ftco-animate"><a href="#"  title="Facebook"><span className="fab fa-facebook"></span></a></li>
+                                    <li className="ftco-animate"><a href="#" title="Instagram"><span className="fab fa-instagram"></span></a></li>
                                 </ul>
 		        			</div>
 		        		</div>
