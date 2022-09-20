@@ -139,10 +139,11 @@ let getDetailSpecialtyById = (inputId , location) => {
                     where: { 
                         id : inputId 
                     },
-                    attributes: ['descriptionMarkdown','descriptionHTML']
+                    attributes: ['descriptionMarkdown','descriptionHTML','image']
                 })
-            
+                
                 if( data ){
+                    data.image = new Buffer(data.image,'base64').toString('binary'); // convert image to base64
                     let doctorSpecialty = [];
                     if( location === 'ALL' ){ //find without location
                         doctorSpecialty = await db.Doctor_Info.findAll({

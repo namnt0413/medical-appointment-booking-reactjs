@@ -9,6 +9,7 @@ import { getProfileDoctor } from '../../../services/userService';
 import NumberFormat from 'react-number-format';
 import _ from 'lodash';
 import moment from 'moment';
+import { Link } from 'react-router-dom'
 
 class ProfileDoctor extends Component {
     constructor(props) {
@@ -29,9 +30,12 @@ class ProfileDoctor extends Component {
         if(prevProps.language !== this.props.language){
 
         }
-        if( prevProps.doctorId !== this.props.doctorId){
-            
-        }
+        if (this.props.doctorId !== prevProps.doctorId) {
+            let data = await this.getProfileDoctorFromService(this.props.doctorId);
+            this.setState({
+                doctorProfile: data,
+            });
+          }
     }
 
     getProfileDoctorFromService = async (id) => {
@@ -71,7 +75,7 @@ class ProfileDoctor extends Component {
     render() {
         // console.log(this.props.match.params.id)
         let {doctorProfile } = this.state;
-        let { isShowDescriptionDoctor , language ,dataSchedule } = this.props
+        let { isShowDescriptionDoctor , language ,dataSchedule ,isShowLinkDetail , isShowPrice , doctorId} = this.props
         // console.log(this.props)
 
         return (
@@ -105,6 +109,13 @@ class ProfileDoctor extends Component {
                     }
                 </div>
             </div>
+
+            {isShowLinkDetail === true && 
+            <div className="view-detail-doctor">
+                <Link to={`/detail-doctor/${doctorId}`} >Xem thêm</Link>
+            </div> }
+
+            { isShowPrice === true && 
             <div className="price">
             Giá khám:  
                 {doctorProfile && doctorProfile.Doctor_Info && language===LANGUAGES.VI &&
@@ -126,6 +137,7 @@ class ProfileDoctor extends Component {
                     />  
                 }
             </div>   
+            }
         </> 
         );
     }
