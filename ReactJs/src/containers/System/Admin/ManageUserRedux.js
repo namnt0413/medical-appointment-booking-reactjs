@@ -380,6 +380,7 @@ class ManageUserRedux extends Component {
                                     typeAction = {this.state.typeAction}
                                 />
                             </div>
+
                         </div>
                     </div>
                 </div>

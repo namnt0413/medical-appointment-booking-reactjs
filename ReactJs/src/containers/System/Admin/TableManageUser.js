@@ -3,27 +3,9 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import './TableManageUser.scss';
 import * as actions from "../../../store/actions"
-
-// import MarkdownIt from 'markdown-it';
-// import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 
-
-// Initialize a markdown parser
-// const mdParser = new MarkdownIt(/* Markdown-it options */);
-
-// Finish!
-// function handleEditorChange({ html, text }) {
-//   console.log('handleEditorChange', html, text);
-// }
-
 class TableManageUser extends Component {
-    // Component life cycle
-    // 1. Contructor : init state
-    //2. Didmount : set state - unmount
-    //3. Render
-
-    //khoi tao theo chuan react
     constructor(props) {
         super(props);
         this.state = {
@@ -54,6 +36,8 @@ class TableManageUser extends Component {
 
     }
 
+
+    
     render() {
         // console.log('check user redux , state : ',this.props.users , this.state.usersRedux  )
         let arrUsers = this.state.usersRedux
@@ -88,8 +72,8 @@ class TableManageUser extends Component {
  
                 </tbody>
             </table>
-            
-            {/* <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} /> */}
+
+
         </React.Fragment>
 
         );
@@ -112,3 +96,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TableManageUser);
+
+
+
+

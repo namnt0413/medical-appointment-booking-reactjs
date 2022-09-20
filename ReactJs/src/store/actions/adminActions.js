@@ -1,6 +1,6 @@
 import actionTypes from './actionTypes';
 import { getAllCodeService , createNewUserService , getAllUsers , deleteUserService, deleteSpecialtyService, getAllSpecialty,
-     editUserService ,getTopDoctorHomeService , getAllDoctorService, saveInfoDoctorService } from '../../services/userService';
+     editUserService ,getTopDoctorHomeService , getAllDoctorService, saveInfoDoctorService, getAllClinic, deleteClinicService } from '../../services/userService';
 import { toast } from 'react-toastify';
 
 // export const fetchGenderStart = () => ({
@@ -383,4 +383,55 @@ export const deleteSpecialtySuccess = () => ({
 
 export const deleteSpecialtyFailed = () => ({
     type: actionTypes.DELETE_SPECIALTY_FAILED
+})
+
+
+export const fetchAllClinic = () => {
+    return async (dispatch,getState) => {
+        try {
+            let res = await getAllClinic();
+            // console.log(res);
+            if( res && res.errCode === 0){
+                dispatch({
+                    type: actionTypes.FETCH_ALL_CLINIC_SUCCESS,
+                    data: res.data.reverse()
+                })
+            }
+            else {
+                dispatch({ type: actionTypes.FETCH_ALL_CLINIC_FAILED})
+            }
+        } catch (error) {
+            dispatch({ type: actionTypes.FETCH_ALL_CLINIC_FAILED})            
+        }
+    }
+}
+
+export const deleteClinic = (clinicId) => {
+    return async (dispatch,getState) => {
+        try {
+            let res = await deleteClinicService(clinicId) ;
+            // console.log(res) ;
+            if( res && res.errCode === 0 ){
+                toast.success("Delete clinic success!")
+                dispatch(deleteClinicSuccess());
+                dispatch(fetchAllClinic());
+            }
+            else {
+                toast.error("Delete clinic failed!")
+                dispatch(deleteClinicFailed());
+            }
+        } catch (error) {
+            console.log('error : ', error);
+            toast.error("Delete clinic failed!")
+            dispatch(deleteClinicFailed());
+        }
+    }
+}
+
+export const deleteClinicSuccess = () => ({
+    type: actionTypes.DELETE_CLINIC_SUCCESS
+})
+
+export const deleteClinicFailed = () => ({
+    type: actionTypes.DELETE_CLINIC_FAILED
 })

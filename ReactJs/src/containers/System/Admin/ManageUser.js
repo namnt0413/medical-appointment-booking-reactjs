@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import './UserManage.scss';
-import {getAllUsers , createNewUserService , deleteUserService, editUserService } from '../../services/userService'; // import function in component
+import {getAllUsers , createNewUserService , deleteUserService, editUserService } from '../../../services/userService'; // import function in component
 import ModalUser from './ModalUser'; // import component
 import ModalEditUser from './ModalEditUser'; 
-import { emitter } from '../../utils/emitter'
+import { emitter } from '../../../utils/emitter'
 
 class ManageUser extends Component {
     // Component life cycle

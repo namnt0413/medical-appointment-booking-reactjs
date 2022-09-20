@@ -1,0 +1,46 @@
+.manage-clinic-container {
+    padding: 0 15px;
+
+    .title {
+
+    }
+
+    .add-new-clinic {
+        
+        .btn-save-clinic {
+            border: none;
+            padding: 8px 5px;
+            min-width:75px;
+            border-radius: 3px;
+            margin: 15px 0;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #eee;
+        }
+
+        .label-upload{
+            padding: 5px;
+            border-radius:3px;
+            background:#ddd;
+            margin-left: 10px;
+            cursor: pointer;
+        
+            &:hover {
+                opacity: 0.9;
+            }
+        
+        }
+
+        .preview-image {
+            height: 50px;
+            width: 100%;
+            border: 1px solid #ddd;
+            background: center center no-repeat;
+            background-size: contain;
+            cursor: pointer;
+    
+        }
+    }
+
+
+}
