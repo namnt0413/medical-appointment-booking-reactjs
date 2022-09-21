@@ -127,57 +127,48 @@ let updateClinic = (data) => {
     })
 }
 
-// let getDetailClinicById = (inputId , location) => {
-//     return new Promise( async (resolve, reject) => {
-//         try {
-//             if( !inputId || !location ) {
-//                 resolve({
-//                     errCode: 1,
-//                     errMessage: 'Missing required parameter',
-//                 })
-//             } else {
+let getDetailClinicById = (inputId) => {
+    return new Promise( async (resolve, reject) => {
+        try {
+            if( !inputId ) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required parameter',
+                })
+            } else {
 
-//                 let data = await db.Specialty.findOne({ 
-//                     where: { 
-//                         id : inputId 
-//                     },
-//                     attributes: ['descriptionMarkdown','descriptionHTML','image']
-//                 })
+                let data = await db.Clinic.findOne({ 
+                    where: { 
+                        id : inputId 
+                    },
+                    attributes: ['name', 'address' ,'descriptionMarkdown','descriptionHTML','image']
+                })
                 
-//                 if( data ){
-//                     data.image = new Buffer(data.image,'base64').toString('binary'); // convert image to base64
-//                     let doctorSpecialty = [];
-//                     if( location === 'ALL' ){ //find without location
-//                         doctorSpecialty = await db.Doctor_Info.findAll({
-//                             where: { specialtyId: inputId},
-//                             attributes:['doctorId','provinceId']
-//                         })
-//                     } else { // find with location
-//                         doctorSpecialty = await db.Doctor_Info.findAll({
-//                             where: { specialtyId: inputId , provinceId: location },
-//                             attributes:['doctorId','provinceId']
-//                         })
-//                     }
-
-//                     data.doctorSpecialty = doctorSpecialty
+                if( data ){
+                    data.image = new Buffer(data.image,'base64').toString('binary'); // convert image to base64
+                    let doctorClinic = await db.Doctor_Info.findAll({
+                        where: { clinicId: inputId},
+                        attributes:['doctorId','provinceId']
+                    })
+                    data.doctorClinic = doctorClinic
                 
-//                 } else {
-//                     data = {}
-//                 }
+                } else {
+                    data = {}
+                }
 
-//                 resolve({
-//                     errCode: 0,
-//                     errMessage: 'OK',
-//                     data
-//                 })
-//             }
+                resolve({
+                    errCode: 0,
+                    errMessage: 'OK',
+                    data
+                })
+            }
 
-//         } catch (error) {
-//             reject(error);
-//         }
-//     })
-// }
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
 
 module.exports = {
-    createNewClinic , getAllClinic , deleteClinic, updateClinic 
+    createNewClinic , getAllClinic , deleteClinic, updateClinic , getDetailClinicById
 }

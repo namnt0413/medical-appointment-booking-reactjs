@@ -35,7 +35,6 @@ class Specialty extends Component {
     if( this.props.history ){
       this.props.history.push(`/detail-specialty/${item.id}`)
     }
-
   }
   
     render() {
