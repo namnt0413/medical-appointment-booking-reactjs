@@ -4,7 +4,10 @@ const getListPatient = (data) => {
     return axios.get(`/api/get-list-patient?doctorId=${data.doctorId}&date=${data.date}`)
 }
 
+const postSendPrescription = (data) => {
+    return axios.post('/api/send-prescription',data);
+}
 
 export {
-    getListPatient ,
+    getListPatient , postSendPrescription
 }

@@ -18,7 +18,8 @@ class DoctorSchedule extends Component {
             arrDay: [],
             allAvaiableTimes: [],
             isOpenModalBooking: false,
-            dataSchedule : {} // data truyen cho modal booking
+            dataSchedule : {}, // data truyen cho modal booking
+            
         }
     }
 
@@ -124,6 +125,7 @@ class DoctorSchedule extends Component {
         
         return (
         <>
+
             <div className="doctor-schedule-container">
                 <div className="all-schedule">
                     <select 

@@ -38,6 +38,7 @@ let initWebRoutes = (app) => {
     router.get('/api/get-extra-info-doctor', doctorController.getExtraInfoDoctor);
     router.get('/api/get-profile-doctor', doctorController.getProfileDoctor); // component info doctor
     router.get('/api/get-list-patient', doctorController.getListPatient); // component info doctor
+    router.post('/api/send-prescription', doctorController.sendPrescription);
  
     router.post('/api/post-booking-appointment', patientController.postBookingAppointment);
     router.post('/api/verify-booking-appointment', patientController.postVerifyBookingAppointment);

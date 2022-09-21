@@ -1,3 +1,11 @@
+div._loading_overlay_wrapper {
+    position: unset !important;
+
+    ._loading_overlay_overlay {
+        z-index: 1000000;
+    }
+}
+
 .manage-patient-container {
 
     .manage-patient-title {
@@ -37,15 +45,16 @@
             .btn-confirm {
                 border: none;
                 outline: none;
-                background: green !important;
-                color: white !important;
+                background: #fff04b ;
+                color: #333 ;
                 height:30px;
                 border-radius: 3px;
                 margin-right:10px ;
               
                 &:hover {
-                color: green;
-                opacity: 0.8;
+                    background: #45c3d2;
+                    color: #fff;
+                    opacity: 0.8;
                 }
             }
               

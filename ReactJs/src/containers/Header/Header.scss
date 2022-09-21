@@ -4,8 +4,8 @@
     z-index: 99;
     display: flex;
     justify-content: space-between;
-    background-color: $colormain;
-    color: $common-text-color;
+    background-color: #45c3d2;
+    color: #333;
     height: 40px;
     position: relative;
     
@@ -13,12 +13,14 @@
         display: flex;
 
         .btn-logout {
-            color: $common-text-color;
+            color: #333;
             line-height: 40px;
             height: 40px;
             padding: 0 10px;
             &:hover {
-                background-color: darken($colormain, 5);
+                background-color: #333 ;
+                opacity: 0.8;
+                color: #fff;
             }
             i {
                 font-size: $base-size + 1px;
@@ -42,7 +44,7 @@
             cursor: pointer;
             color:white;
             &.active {
-                color: yellow
+                color: blue
             }
         }
 
