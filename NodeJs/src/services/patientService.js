@@ -50,7 +50,7 @@ let postBookingAppointment = (data) => {
                 if( user && user[0] ){          //user tra ve 2 phan tu, [0] la thong tin user, [1] la bien boolean check isCreated? 
                     console.log(user[0])
                     await db.Booking.findOrCreate({
-                        where: {patientId: user[0].id , doctorId: data.doctorId },
+                        where: {patientId: user[0].id , doctorId: data.doctorId , date: data.date},
                         defaults: {
                             doctorId: data.doctorId,
                             statusId: 'S1',

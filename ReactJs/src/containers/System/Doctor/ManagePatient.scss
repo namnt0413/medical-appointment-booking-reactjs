@@ -6,57 +6,64 @@
 
     .manage-patient-body {
         padding: 0 20px;
-    
-        #TableManagePatient {
-            font-family: Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-            // margin-bottom:40px;
-          }
-          
-          #TableManagePatient td, #TableManagePatient th {
-            border: 1px solid #ddd;
-            padding: 8px;
-          }
-          
-          #TableManagePatient tr:nth-child(even){background-color: #f2f2f2;}
-          
-          #TableManagePatient tr:hover {background-color: #ddd;}
-          
-          #TableManagePatient th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #04AA6D;
-            color: white;
-          }
+
+        .table-manage-patient {
+            #TableManagePatient {
+                font-family: Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                // margin-bottom:40px;
+            }
+              
+            #TableManagePatient td, #TableManagePatient th {
+              border: 1px solid #ddd;
+              padding: 8px;
+              
+            }
+              
+            #TableManagePatient tr:nth-child(even){background-color: #f2f2f2;}
+            
+            #TableManagePatient tr:hover {background-color: #ddd;}
+            
+            #TableManagePatient th {
+              padding-top: 12px;
+              padding-bottom: 12px;
+              text-align: left;
+              background-color: #04AA6D;
+              color: white;
+            }
+
         
-        .btn-edit {
-          width: 50px;
-          border: none;
-          outline: none;
-          background: transparent;
-          color: orange;
-        
-          &:hover {
-            background-color: transparent !important;
-            color: orange;
-          }
+            .btn-confirm {
+                border: none;
+                outline: none;
+                background: green !important;
+                color: white !important;
+                height:30px;
+                border-radius: 3px;
+                margin-right:10px ;
+              
+                &:hover {
+                color: green;
+                opacity: 0.8;
+                }
+            }
+              
+            .btn-send-email {
+                border: none;
+                outline: none;
+                height:30px;
+                border-radius: 3px;
+                background: rgb(221, 24, 24);
+                color: white !important;
+
+              
+                &:hover {
+                color: rgb(221, 24, 24);
+                opacity: 0.8;
+                }
+            }
         }
-        
-        .btn-delete {
-          width: 50px;
-          border: none;
-          outline: none;
-          background: transparent;
-          color: rgb(221, 24, 24);
-        
-          &:hover {
-            background-color: transparent !important;
-            color: rgb(221, 24, 24);
-          }
-        }
-    
     }
 
 }
