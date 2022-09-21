@@ -150,7 +150,9 @@ class BookingModal extends Component {
             selectedGender: this.state.selectedGender.value,
             language: this.props.language,
             timeString: timeString,
-            doctorName: doctorName
+            doctorName: doctorName,
+            nameClinic: this.props.dataSchedule.doctorData.Doctor_Info.nameClinic,
+            addressClinic: this.props.dataSchedule.doctorData.Doctor_Info.addressClinic,
         })
         console.log(res)
         if(res && res.errCode === 0){
@@ -163,7 +165,7 @@ class BookingModal extends Component {
 
 
     render() {
-        // console.log(this.props.dataSchedule)
+        // console.log(this.props)
         let doctorId = '';
         let language = this.props.language;
         let { isOpenModal , dataSchedule } = this.props;

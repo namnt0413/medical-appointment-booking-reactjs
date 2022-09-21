@@ -177,7 +177,6 @@ class ManageSchedule extends Component {
                                     value={this.state.currentDate}
                                     // value={this.state.currentDate}
                                     className="form-control"
-
                                 />
                             </div>
                             <div className="col-12 pick-hour-container">

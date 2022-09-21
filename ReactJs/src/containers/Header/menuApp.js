@@ -51,6 +51,9 @@ export const doctorMenu = [
         { // quản lý ke hoach kham benh cua bac si
             name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
         },
+        { // quản lý danh sach benh nhan dat lich cua bac si
+            name: 'menu.doctor.manage-patient', link: '/doctor/manage-patient'
+        },
         ]
     }
 ];

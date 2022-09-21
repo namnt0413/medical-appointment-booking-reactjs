@@ -275,7 +275,10 @@ let getScheduleDoctorByDate = (doctorId,date) => {
                     } ,
                     include: [
                         { model: db.Allcode, as: 'timeTypeData', attributes: ['valueVi','valueEn']  },
-                        { model: db.User, as: 'doctorData', attributes: ['firstName','lastName']  },
+                        { model: db.User, as: 'doctorData', attributes: ['firstName','lastName'] ,
+                            include: [
+                                {model: db.Doctor_Info, attributes: ['addressClinic','nameClinic'] }
+                            ]},
                     ],
                     raw: false,
                     nest: true,
@@ -384,6 +387,45 @@ let getProfileDoctor = (inputId) => {
     })
 }
 
+let getListPatient = (doctorId,date) => {
+    return new Promise( async (resolve, reject) => {
+        try {
+            if( !doctorId  || !date ){
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required parameter'
+                })
+            } else {
+                let data = await db.Booking.findAll({
+                    where: {
+                        statusId: 'S2',
+                        doctorId:doctorId,
+                        date: date,
+                    },
+                    include: [
+                        { 
+                            model: db.User, as: 'patientData',attributes: ['email','lastName','address','gender','phonenumber'],
+                            include: [
+                                { model: db.Allcode, as: 'genderData',attributes: ['valueVi','valueEn'] }  
+                            ]
+                        }
+                    ],
+                    raw: false,
+                    nest: true
+                })
+
+                resolve({
+                    errCode: 0,
+                    data: data
+                })
+            }
+
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
 module.exports ={
     getTopDoctorHome: getTopDoctorHome,
     getAllDoctors : getAllDoctors,
@@ -392,5 +434,6 @@ module.exports ={
     bulkCreateSchedule: bulkCreateSchedule,
     getScheduleDoctorByDate: getScheduleDoctorByDate,
     getExtraInfoDoctor: getExtraInfoDoctor,
-    getProfileDoctor: getProfileDoctor
+    getProfileDoctor: getProfileDoctor,
+    getListPatient: getListPatient,
 }

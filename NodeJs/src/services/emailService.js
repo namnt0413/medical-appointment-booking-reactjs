@@ -32,11 +32,11 @@ let getBodyHTMLEmails = (dataSend) => {
         `
             <h3> Medical Booking xin chào ${dataSend.patientName} !</h3>
             <p> Cảm ơn bạn vì đã sử dụng dịch vụ đặt lịch khám bệnh online của chúng tôi </p>
-            <p> Thông tin đặt lịch khám bệnh :</p>
-            <div><b>Khách hàng: ${dataSend.patientName}</b></div>
-            <div><b>Thời gian: ${dataSend.time}</b></div>
-            <div><b>Tại địa điểm : ${dataSend.clinicName}</b></div>
-            <div><b>Bác sĩ: ${dataSend.doctorName}</b></div 
+            <p><b> Thông tin đặt lịch khám bệnh :</b></p>
+            <div>Khách hàng : <b>${dataSend.patientName}</b></div>
+            <div>  Thời gian: <b>${dataSend.time}</b></div>
+            <div>   Địa chỉ : <b>${dataSend.clinicName} ( ${dataSend.clinicAddress} )</b></div>
+            <div>     Bác sĩ: <b>${dataSend.doctorName}</b></div 
             <p> Nếu các thông tin trên là đúng sự thật, vui lòng click vào đường link bên dưới để xác nhận và hoàn tất thủ tục đặt lịch khám.</p>
             <div>
                 <a href=${dataSend.redirectLink} target="_blank" >Click here</a>
@@ -48,12 +48,11 @@ let getBodyHTMLEmails = (dataSend) => {
         `
             <h3> Medical Booking, Hi ${dataSend.patientName} !</h3>
             <p> Thank you for using our online medical appointment booking service </p>
-            <p> Medical appointment booking information :</p>
-            <div><b>Customer: ${dataSend.patientName}</b></div>
-            <div><b>Time: ${dataSend.time}</b></div>
-            <div><b>Address : ${dataSend.clinicName}</b></div>
-            <div><b>Doctor: Mr/Ms ${dataSend.doctorName}</b></div>
-        
+            <p><b> Medical appointment booking information :</b></p>
+            <div>Customer: <b>${dataSend.patientName}</b></div>
+            <div>    Time: <b>${dataSend.time}</b></div>
+            <div>Address : <b>${dataSend.clinicName} ( ${dataSend.clinicAddress} )</b></div>
+            <div>  Doctor: <b>Mr/Ms ${dataSend.doctorName}</b></div>
             <p> If the above information is true, please click on the link below to confirm and complete the appointment booking procedure.</p>
             <div>
                 <a href=${dataSend.redirectLink} target="_blank" >Click here</a>

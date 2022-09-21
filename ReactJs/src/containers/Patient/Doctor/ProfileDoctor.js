@@ -76,7 +76,7 @@ class ProfileDoctor extends Component {
         // console.log(this.props.match.params.id)
         let {doctorProfile } = this.state;
         let { isShowDescriptionDoctor , language ,dataSchedule ,isShowLinkDetail , isShowPrice , doctorId} = this.props
-        // console.log(this.props)
+        // console.log(this.state.doctorProfile)
 
         return (
         <>   

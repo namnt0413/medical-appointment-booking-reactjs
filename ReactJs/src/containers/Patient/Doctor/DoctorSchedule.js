@@ -120,7 +120,7 @@ class DoctorSchedule extends Component {
         // console.log(this.props.match.params.id)
         let language = this.props.language;
         let {arrDay,allAvaiableTimes , isOpenModalBooking , dataSchedule} = this.state;
-        // console.log(allAvaiableTimes)
+        // console.log(this.state.dataSchedule)
         
         return (
         <>

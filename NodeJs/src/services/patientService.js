@@ -13,7 +13,7 @@ let postBookingAppointment = (data) => {
     return new Promise( async (resolve, reject) => {
         try {
             if( !data.email || !data.doctorId || !data.timeType || !data.date
-                || !data.fullName
+                || !data.fullName || !data.address || !data.phoneNumber || !data.selectedGender
                 ){
                 resolve({
                     errCode: 1,
@@ -26,7 +26,8 @@ let postBookingAppointment = (data) => {
                     receiveEmail : data.email,
                     patientName: data.fullName,
                     time: data.timeString,
-                    clinicName: 'Phòng khám đa khoa Hà Đông',
+                    clinicName: data.nameClinic ,
+                    clinicAddress: data.addressClinic,
                     doctorName: data.doctorName,
                     language: data.language,
                     redirectLink: buildUrlEmail(data.doctorId,token)
@@ -37,7 +38,11 @@ let postBookingAppointment = (data) => {
                     where: { email: data.email },
                     defaults: {
                         email: data.email,
-                        roleId: 'R3'
+                        roleId: 'R3',
+                        lastName: data.fullName,
+                        address: data.address,
+                        phonenumber : data.phoneNumber,
+                        gender: data.selectedGender
                     }
                 })
                 
@@ -52,6 +57,8 @@ let postBookingAppointment = (data) => {
                             patientId: user[0].id,
                             date: data.date,
                             timeType: data.timeType,
+                            timeString: data.timeString,
+                            reason: data.reason,
                             token: token,
                         }
                     })
