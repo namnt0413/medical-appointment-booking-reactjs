@@ -12,7 +12,7 @@ export const fetchGenderStart =() => {
     return async (dispatch,getState) => {
         try {
             dispatch({type: actionTypes.FETCH_GENDER_START})
-            let res = await getAllCodeService("gender");
+            let res = await getAllCodeService("GENDER");
             if( res && res.errCode === 0 ){
                 dispatch(fetchGenderSuccess(res.data));
             }
@@ -30,7 +30,7 @@ export const fetchPositionStart =() => {
     // type: actionTypes.FETCH_GENDER_START
     return async (dispatch,getState) => {
         try {
-            let res = await getAllCodeService("position");
+            let res = await getAllCodeService("POSITION");
             if( res && res.errCode === 0 ){
                 dispatch(fetchPositionSuccess(res.data));
             }
@@ -48,7 +48,7 @@ export const fetchRoleStart =() => {
     // type: actionTypes.FETCH_GENDER_START
     return async (dispatch,getState) => {
         try {
-            let res = await getAllCodeService("role");
+            let res = await getAllCodeService("ROLE");
             if( res && res.errCode === 0 ){
                 dispatch(fetchRoleSuccess(res.data));
             }

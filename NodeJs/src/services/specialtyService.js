@@ -156,8 +156,8 @@ let getDetailSpecialtyById = (inputId , location) => {
                             attributes:['doctorId','provinceId']
                         })
                     }
-
                     data.doctorSpecialty = doctorSpecialty
+                    console.log(data.doctorSpecialty)
                 
                 } else {
                     data = {}
