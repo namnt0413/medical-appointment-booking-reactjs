@@ -193,7 +193,7 @@ let getDetailDoctor= (inputId) => {
                     nest: true
                 })
                 if(data && data.image){ 
-                    data.image = new Buffer(data.image,'base64').toString('binary'); // convert image to base64
+                    data.image = Buffer.from(data.image,'base64').toString('binary'); // convert image to base64
                 }
                 // console.log(data.image);
                 if( !data){ data={} }
@@ -370,7 +370,7 @@ let getProfileDoctor = (inputId) => {
                     nest: true
                 })
                 if(data && data.image){ 
-                    data.image = new Buffer(data.image,'base64').toString('binary'); // convert image to base64
+                    data.image = Buffer.from(data.image,'base64').toString('binary'); // convert image to base64
                 }
                 // console.log(data.image);
                 if( !data){ data={} }

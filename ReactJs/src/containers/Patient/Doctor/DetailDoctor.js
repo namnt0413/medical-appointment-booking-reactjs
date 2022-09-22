@@ -7,6 +7,9 @@ import {getDetailInfoDoctor} from '../../../services/userService';
 import {LANGUAGES} from '../../../utils'
 import DoctorSchedule from './DoctorSchedule'
 import DoctorExtraInfo from './DoctorExtraInfo'
+import Comment from '../SocailPlugin/Comment'
+import LikeAndShare from '../SocailPlugin/LikeAndShare'
+
 
 class DetailDoctor extends Component {
     constructor(props) {
@@ -46,6 +49,9 @@ class DetailDoctor extends Component {
         let {detailDoctor} = this.state;
         let language = this.props.language;
         // console.log('check detailDoctor: ', (detailDoctor) );
+
+        let currentURL = +process.env.REACT_APP_IS_LOCALHOST === 0 ?
+        "https://eric-restaurant-bot-tv.herokuapp.com/" : window.location.href;
         
         return (
             <>
@@ -74,6 +80,11 @@ class DetailDoctor extends Component {
                                     {detailDoctor.Markdown.description}
                                 </span>
                                 }
+                                <div className="like-share-plugin">
+                                    <LikeAndShare
+                                        dataHref={currentURL}
+                                    />
+                                </div>
                             </div>
                         </div>
 
@@ -99,7 +110,11 @@ class DetailDoctor extends Component {
                         }
                     </div>
                     <div className="comment-doctor">
-
+                        <Comment
+                            dataHref={currentURL}
+                            width={"100%"}
+                            // numPost=
+                        />
                     </div>
                 </div>
 

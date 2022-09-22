@@ -41,7 +41,7 @@ let getAllClinic = () => {
             });
             if(data && data.length > 0) {
                 data.map( item => {
-                    item.image = new Buffer(item.image,'base64').toString('binary'); // convert image to base64
+                    item.image = Buffer.from(item.image,'base64').toString('binary'); // convert image to base64
                     return item;
                 })
             }
@@ -145,7 +145,7 @@ let getDetailClinicById = (inputId) => {
                 })
                 
                 if( data ){
-                    data.image = new Buffer(data.image,'base64').toString('binary'); // convert image to base64
+                    data.image = Buffer.from(data.image,'base64').toString('binary'); // convert image to base64
                     let doctorClinic = await db.Doctor_Info.findAll({
                         where: { clinicId: inputId},
                         attributes:['doctorId','provinceId']
