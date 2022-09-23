@@ -17,7 +17,11 @@ const customizeConfig = {
           require: true,
           rejectUnauthorized: false
       }
-    }
+    },
+    query: {
+      "raw": true
+    },
+    timezone: "+07:00"
 }
 
 let sequelize;
