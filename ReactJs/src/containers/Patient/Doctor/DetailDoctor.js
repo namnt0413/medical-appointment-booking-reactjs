@@ -51,7 +51,7 @@ class DetailDoctor extends Component {
         // console.log('check detailDoctor: ', (detailDoctor) );
 
         let currentURL = +process.env.REACT_APP_IS_LOCALHOST === 0 ?
-        "https://eric-restaurant-bot-tv.herokuapp.com/" : window.location.href;
+        "https://medicalbookingg.herokuapp.com/" : window.location.href;
         
         return (
             <>

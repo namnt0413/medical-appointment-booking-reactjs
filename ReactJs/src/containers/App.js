@@ -20,7 +20,6 @@ import DetailDoctor from './Patient/Doctor/DetailDoctor'
 import DetailSpecialty from './Patient/Specialty/DetailSpecialty'
 import DetailClinic from './Patient/Clinic/DetailClinic'
 import Doctor from '../routes/Doctor'
-import { CustomToastCloseButton } from '../components/CustomToast';
 import ConfirmModal from '../components/ConfirmModal';
 import CustomScrollbars from '../components/CustomScrollbars';
 import VerifyEmail from '../containers/Patient/VerifyEmail'
