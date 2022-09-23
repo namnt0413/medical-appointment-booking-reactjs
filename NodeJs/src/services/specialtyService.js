@@ -142,31 +142,34 @@ let getDetailSpecialtyById = (inputId , location) => {
                     attributes: ['descriptionMarkdown','descriptionHTML','image']
                 })
                 
+                let doctorSpecialty = [];
                 if( data ){
                     data.image = Buffer.from(data.image,'base64').toString('binary'); // convert image to base64
-                    let doctorSpecialty = [];
                     if( location === 'ALL' ){ //find without location
-                        doctorSpecialty = await db.Doctor_Info.findAll({
+                        let Specialty = await db.Doctor_Info.findAll({
                             where: { specialtyId: inputId},
-                            attributes:['doctorId','provinceId']
+                            attributes:['doctorId','provinceId'], 
                         })
+                        doctorSpecialty = Specialty                    
+
                     } else { // find with location
-                        doctorSpecialty = await db.Doctor_Info.findAll({
+                        let Specialty = await db.Doctor_Info.findAll({
                             where: { specialtyId: inputId , provinceId: location },
                             attributes:['doctorId','provinceId']
                         })
+                        doctorSpecialty = Specialty                    
                     }
-                    data.doctorSpecialty = doctorSpecialty
-                    console.log(data.doctorSpecialty)
-                
+                    
                 } else {
                     data = {}
                 }
-
+                
+                // console.log(doctorSpecialty)
                 resolve({
                     errCode: 0,
                     errMessage: 'OK',
-                    data
+                    data: data,
+                    doctorSpecialty: doctorSpecialty
                 })
             }
 

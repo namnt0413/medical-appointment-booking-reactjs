@@ -30,10 +30,10 @@ class DetailClinic extends Component {
             })
            
             if( res && res.errCode === 0  ){
-                let data = res.data;
+                let doctorClinic = res.doctorClinic;
                 let arrDoctor = [];
-                if( data && !_.isEmpty(res.data) ){
-                    let arr = data.doctorClinic;
+                if( doctorClinic && !_.isEmpty(res.doctorClinic) ){
+                    let arr = doctorClinic;
                     if(arr && arr.length > 0){
                         arr.map(item =>{
                             arrDoctor.push(item.doctorId);

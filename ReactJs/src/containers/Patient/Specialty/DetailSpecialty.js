@@ -30,16 +30,17 @@ class DetailSpecialty extends Component {
                 id: id,
                 location: 'ALL'
             })
+            console.log(res.data);
             let resProvince = await getAllCodeService('PROVINCE')
             if( res && res.errCode === 0 && resProvince && resProvince.errCode === 0 ){
-                let data = res.data;
+                let doctorSpecialty = res.doctorSpecialty;
                 let arrDoctor = [];
-                if( data && !_.isEmpty(res.data) ){
-                    let arr = data.doctorSpecialty;
+                if( doctorSpecialty && !_.isEmpty(res.doctorSpecialty) ){
+                    let arr = doctorSpecialty;
                     if(arr && arr.length > 0){
                         arr.map(item =>{
                             arrDoctor.push(item.doctorId);
-
+                            
                         })
                     }
                 }
@@ -80,10 +81,11 @@ class DetailSpecialty extends Component {
             })            
             
             if( res && res.errCode === 0  ){
-                let data = res.data;
+                let doctorSpecialty = res.doctorSpecialty;
+
                 let arrDoctor = [];
-                if( data && !_.isEmpty(res.data) ){
-                    let arr = data.doctorSpecialty;
+                if( doctorSpecialty && !_.isEmpty(res.doctorSpecialty) ){
+                    let arr = doctorSpecialty;
                     if(arr && arr.length > 0){
                         arr.map(item =>{
                             arrDoctor.push(item.doctorId);

@@ -144,13 +144,14 @@ let getDetailClinicById = (inputId) => {
                     attributes: ['name', 'address' ,'descriptionMarkdown','descriptionHTML','image']
                 })
                 
+                let doctorClinic = [];
                 if( data ){
                     data.image = Buffer.from(data.image,'base64').toString('binary'); // convert image to base64
-                    let doctorClinic = await db.Doctor_Info.findAll({
+                    let Clinic = await db.Doctor_Info.findAll({
                         where: { clinicId: inputId},
                         attributes:['doctorId','provinceId']
                     })
-                    data.doctorClinic = doctorClinic
+                    doctorClinic = Clinic
                 
                 } else {
                     data = {}
@@ -159,7 +160,8 @@ let getDetailClinicById = (inputId) => {
                 resolve({
                     errCode: 0,
                     errMessage: 'OK',
-                    data
+                    data: data,
+                    doctorClinic: doctorClinic
                 })
             }
 
