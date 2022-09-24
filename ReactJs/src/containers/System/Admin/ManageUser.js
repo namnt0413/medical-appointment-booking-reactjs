@@ -15,7 +15,7 @@ class ManageUser extends Component {
 
     //khoi tao theo chuan react
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             arrUsers: [],
             isOpenModalUser: false,
