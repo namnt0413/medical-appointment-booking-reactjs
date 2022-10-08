@@ -1,0 +1,98 @@
+/*--------------------------------------------------------------
+  # detailSpecialty
+  --------------------------------------------------------------*/
+
+
+.detail-info-clinic img {
+   
+    max-width: 75%;
+    max-height: 300px;
+    margin: auto !important;
+}
+
+.clinic-doctor {
+    display: flex;
+    width: 100%;
+    min-height: 20rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(32, 33, 36 , 0.6) ;
+}
+
+.doctor-content-left {
+    border-right: 1px solid #ddd;
+}   
+
+.doctor-content-right {
+}
+
+.doctor-schedule-container {
+    padding: 5px;
+}
+
+.clinics-background-image {
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  height: 300px !important;
+}
+
+.clinic-short-description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-map-marker {
+  font-size: 20px !important;
+  margin-right: 1rem !important;
+  width: 20px;
+}
+
+.clinic-name{
+  font-size: 22px;
+  font-weight: 560;
+  margin: auto;
+}
+.clinic-address{
+  font-size: 16px;
+  font-weight: 300;
+  margin: auto;
+}
+.clinic-gt {
+  margin-top: 2rem;
+  color:#337ab7;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  padding: 10px 0px;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.clinic-booking {
+  color:#337ab7;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  padding: 10px 0px;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-top: 2rem;
+}
+
+.clinic-content p img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 575px) {
+    .clinics-description {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 1180px) {
+    .clinics-description {
+        margin-top: 0 !important;
+    }
+}
