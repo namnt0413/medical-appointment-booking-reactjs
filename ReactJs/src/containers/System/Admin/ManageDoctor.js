@@ -346,7 +346,7 @@ class ManageDoctor extends Component {
                     />
                 </div>
                 <div className="col-4 form-group">
-                    <labe>Dia chi phong kham</labe>
+                    <label>Dia chi phong kham</label>
                     <input type="" className="form-control" 
                         onChange={ (event) => this.handleOnChangeText(event,'addressClinic') }
                         value = {this.state.addressClinic}
