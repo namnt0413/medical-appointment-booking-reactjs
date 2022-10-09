@@ -6,7 +6,6 @@ import Slider from "react-slick";
 // import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import specialtyImg from "../../../assets/specialty/120331-co-xuong-khop.jpg"
 import * as actions from "../../../store/actions"
 import { withRouter } from 'react-router'
 import { FormattedMessage } from 'react-intl';
@@ -43,50 +42,51 @@ class OutstandingDoctor extends Component {
         let arrDoctors = this.state.arrDoctors
         // console.log(arrDoctors)
         return (
-            <div className="section-share section-outstanding-doctor">
-                <div className="section-container">
-                    <div className="section-header">
-                        <span className="title-section"><FormattedMessage id="homepage.outstanding-doctor" /></span>
-                        <button className="btn-section"><FormattedMessage id="homepage.more-info" /></button>
-                    </div>
-
-                    <div className="section-body">
-                    <Slider {...this.props.settings}>
-                    {arrDoctors && arrDoctors.length > 0 &&
+            <>
+                <section id="doctors" className="doctors">
+                    <div className="container">
+    
+                        <div className="section-title">
+                          <h2>Doctors</h2>
+                          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        </div>
+    
+                        <div className="row">
+                        <Slider {...this.props.settings}>
+                        {arrDoctors && arrDoctors.length > 0 &&
                         arrDoctors.map( (item,index) => {
                             let imageBase64 = '';
                             if(item.image){
                                 imageBase64 = Buffer.from(item.image, 'base64').toString('binary');
                             }
-                            //let nameVi= `${item.positionData.valueVi`, {item.firstName} {item.lastName} 
-                            //let nameEn = `${item.positionData.valueEn`, {item.firstName} {item.lastName}
-                            
                             return (
-                                <div className="section-customize" key={index} onClick={()=>this.handleViewDetailDoctor(item) } >
-                                    <div className="outer-bg">
-                                        <div  className="image section-outstanding-doctor"
-                                        style = {{background: `url(${imageBase64})` }}
-
-                                        />
+                                    <div className="member d-flex align-items-start" key={index}>
+                                        <div className="member-info">
+                                            <div className="pic" style = {{background: `url(${imageBase64})` }} onClick={()=>this.handleViewDetailDoctor(item) }></div>
+                                            {/* style = {{background: `url(${imageBase64})` }} */}
+                                            <h4 onClick={()=>this.handleViewDetailDoctor(item) }>{item.firstName} {item.lastName}</h4>
+                                            <span>{item.positionData.valueVi}</span>
+                                            <p>Chuyen khoa tim mach</p>
+                                            <p>Benh vien Da khoa Thang Long Ha Noi</p>
+                                            <div className="social" >
+                                              <a href=""><i className="ri-twitter-fill"></i></a>
+                                              <a href="" ><i className="ri-facebook-fill"></i></a>
+                                              <a href=""><i className="ri-instagram-fill"></i></a>
+                                              <a href=""> <i className="ri-linkedin-box-fill"></i> </a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="postion text-center">
-                                    {/* {console.log(item.positionData.valueVi)} */}
-                                        <div>{item.positionData.valueVi} ,{item.firstName} {item.lastName}</div>
-                                        <div>CHUYEN KHOA XXX</div>
-                                    </div>
-                                </div>
-                            )
-                        })
-                    
-                    }
+                                )
+                            })
+                            }
 
-                      
-                    </Slider>
+                        
+                        </Slider>
+                        </div>
+    
                     </div>
-
-
-                </div>
-            </div>
+                </section>
+                </>
             );
     }
 

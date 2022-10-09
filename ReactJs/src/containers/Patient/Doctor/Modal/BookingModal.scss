@@ -9,14 +9,18 @@
             padding: 10px;
             border-bottom: 1px solid #ddd;
             
-            .left {
-                font-weight: 600;
-                font-size: 15px;
-                color: #333;
-            }
-            .right {
-                float: right;
-                cursor: pointer;
+            .section-title {
+                padding: 0;
+
+                h2 {
+                    font-size: 22px !important;
+                }
+
+                .right {
+                    float: right;
+                    cursor: pointer;
+                    top: -2rem;
+                }
             }
         }
 
@@ -32,21 +36,22 @@
             justify-content: flex-end;
             gap: 15px;
 
-            button {
-                border:none !important;
-                outline: none !important;
-                padding: 5px 8px !important;
-                border-radius: 3px !important;
-
+            button.confirm {
+                background: #1977cc;
+                border: 0;
+                padding: 10px 35px;
+                color: #fff;
+                transition: 0.4s;
+                border-radius: 50px;
             }
-
-            .btn-booking-confirm {
-
+            button.cancel {
+                background: #dc3545;
+                border: 0;
+                padding: 10px 35px;
+                color: #fff;
+                transition: 0.4s;
+                border-radius: 50px;
             }
-            .btn-booking-cancel {
-
-            }
-
         }
     }
 }

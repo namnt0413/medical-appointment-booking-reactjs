@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './Specialty.scss';
 import '../HomePage.scss';
+import '../HomePage.css';
 import { FormattedMessage } from 'react-intl';
 import Slider from "react-slick";
 // import css files

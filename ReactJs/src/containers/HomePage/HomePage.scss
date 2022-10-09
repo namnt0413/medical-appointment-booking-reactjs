@@ -5,7 +5,6 @@
     z-index: 1000 !important;
     height: 48px !important;
     width: 44px !important;
-    background-color:green !important;
     background: #fff !important;
     border: 2px solid #d7d7d7 !important;
 
@@ -20,7 +19,6 @@
     z-index: 1000 !important;
     height: 48px !important;
     width: 44px !important;
-    background-color:green !important;
     background: #fff !important;
     border: 2px solid #d7d7d7 !important;
 
@@ -29,6 +27,12 @@
     }
 }
 
+// @media (max-width: 575px) {
+//     .slick-next  {
+//     margin-right: 1rem;
+//     }
+// }
+
 .slick-disabled {
     display: none !important;
 }
@@ -36,126 +40,126 @@
 .slick-prev:before ,.slick-next:before {
     // content: "\e257" !important;
     font-family: FontAwesome !important;
-    color:red !important;
+    color:#1977cc !important;
 }
 
-.section-share .section-specialty{
-    // border: 1px solid red;
+// .section-share .section-specialty{
+//     // border: 1px solid red;
 
-}
+// }
 
-.section-share {
-    height: 330px;
-    &.section-specialty{
-    background: #f5f5f5;
+// .section-share {
+//     height: 330px;
+//     &.section-specialty{
+//     background: #f5f5f5;
 
-    }
+//     }
 
-    &.section-about{
-        // margin-top: 150px;
-        height: 600px !important;
-    }
+//     &.section-about{
+//         // margin-top: 150px;
+//         height: 600px !important;
+//     }
  
-    .section-container {
-        margin: 0 100px ;
-        display:flex;
-        flex-direction: column;
-        margin-bottom: 10px;
+//     .section-container {
+//         margin: 0 100px ;
+//         display:flex;
+//         flex-direction: column;
+//         margin-bottom: 10px;
 
-        .section-header {
-            height: 60px;
-            // border: 1px solid red;
+//         .section-header {
+//             height: 60px;
+//             // border: 1px solid red;
            
-            .title-section {
-                font-size: 22px;
-                font-weight: 600;
-            }   
-            .btn-section {
-                float: right;
-                padding:10px 15px;
-                border: none;
-                outline: none;
-                display:block;
-                background: #525252;
-                color:white;
-                cursor: pointer;
-                text-transform: uppercase;
+//             .title-section {
+//                 font-size: 22px;
+//                 font-weight: 600;
+//             }   
+//             .btn-section {
+//                 float: right;
+//                 padding:10px 15px;
+//                 border: none;
+//                 outline: none;
+//                 display:block;
+//                 background: #525252;
+//                 color:white;
+//                 cursor: pointer;
+//                 text-transform: uppercase;
 
-                &:hover{
-                    color: #fff;
-                    background: orange; 
-                }
-            }
+//                 &:hover{
+//                     color: #fff;
+//                     background: orange; 
+//                 }
+//             }
         
-        }
-        .section-body {
-            // border: 1px solid black;
+//         }
+//         .section-body {
+//             // border: 1px solid black;
     
-            .section-customize {
-                margin: auto !important;
-                cursor: pointer;
-                // border: 1px solid black;
+//             .section-customize {
+//                 margin: auto !important;
+//                 cursor: pointer;
+//                 // border: 1px solid black;
     
-                .image {
-                    width: 400px !important;
-                    height: 200px !important;
-                    background-position: center center !important;
-                    background-repeat: no-repeat !important;
-                    background-size: cover !important;
-                    // margin: auto !important;
-                    &.section-specialty{
-                        // background: url('../../assets/specialty/120331-co-xuong-khop.jpg') ;
-                    }
-                    &.section-medical-facility{
-                        // background: url('../../assets/medical-facility/095119-benh-vien-cho-ray-h1.jpg') ;
-                    }
-                    &.section-outstanding-doctor{
-                        // background: url('../../assets/outstanding-doctor/anh1.png') ;
-                        margin: auto;
-                        width: 200px !important;
-                        height: 200px !important;
-                        border-radius: 50%;
-                    }
-                    &.section-handbook{
-                        background: url('../../assets/handbook/101832-anh-xet-nghiem-9.png') ;
-                    }
-                }
-            }   
-        }
+//                 .image {
+//                     width: 400px !important;
+//                     height: 200px !important;
+//                     background-position: center center !important;
+//                     background-repeat: no-repeat !important;
+//                     background-size: cover !important;
+//                     // margin: auto !important;
+//                     &.section-specialty{
+//                         // background: url('../../assets/specialty/120331-co-xuong-khop.jpg') ;
+//                     }
+//                     &.section-medical-facility{
+//                         // background: url('../../assets/medical-facility/095119-benh-vien-cho-ray-h1.jpg') ;
+//                     }
+//                     &.section-outstanding-doctor{
+//                         // background: url('../../assets/outstanding-doctor/anh1.png') ;
+//                         margin: auto;
+//                         width: 200px !important;
+//                         height: 200px !important;
+//                         border-radius: 50%;
+//                     }
+//                     &.section-handbook{
+//                         background: url('../../assets/handbook/101832-anh-xet-nghiem-9.png') ;
+//                     }
+//                 }
+//             }   
+//         }
 
-    }
-}
+//     }
+// }
 
-.postion {
-    width:inherit;
-    margin-top:10px;
-}
+// .postion {
+//     width:inherit;
+//     margin-top:10px;
+// }
 
-.section-about{
+// .section-about{
     
-    .section-about-header {
-        padding: 20px 10px;
-        font-size: 30px;
-        font-weight: 600;
-        margin-left: 220px !important;
-    }
+//     .section-about-header {
+//         padding: 20px 10px;
+//         font-size: 30px;
+//         font-weight: 600;
+//         margin-left: 220px !important;
+//     }
     
-    .section-about-content {
-        display: flex;
-        gap: 15px;
-        margin: 0 100px 0 100px;
-        // width: 1900px;;
+//     .section-about-content {
+//         display: flex;
+//         gap: 15px;
+//         margin: 0 100px 0 100px;
+//         // width: 1900px;;
 
-        .content-left{
-            width:60% !important;
-        }
-        .content-right{
-            width:40% !important;
-            p {
-                text-align: justify;
-                font-style: italic;
-            }
-        }
+//         .content-left{
+//             width:60% !important;
+//         }
+//         .content-right{
+//             width:40% !important;
+//             p {
+//                 text-align: justify;
+//                 font-style: italic;
+//             }
+//         }
 
-    }
-}
+//     }
+// }

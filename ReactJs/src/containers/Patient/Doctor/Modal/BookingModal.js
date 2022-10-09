@@ -204,8 +204,11 @@ class BookingModal extends Component {
                     >
                         <div className="booking-modal-content">
                             <div className="booking-modal-header">
-                                <span className="left" > <FormattedMessage id="patient.booking-modal.title"/> </span>
-                                <span className="right" onClick={ () => {this.toggle()} }><i className="fas fa-times"></i></span>
+                                <div className="section-title">
+                                    <h2><FormattedMessage id="patient.booking-modal.title"/>
+                                        <span className="right" onClick={ () => {this.toggle()} }><i className="fas fa-times"></i></span>
+                                    </h2>
+                                </div>
                             </div>
 
                             <div className="booking-modal-body">
@@ -279,8 +282,8 @@ class BookingModal extends Component {
                             </div>
 
                             <div className="booking-modal-footer">  
-                                <button className="btn-booking-confirm btn-warning" onClick={() => this.handleConfirmBooking()} >Xac nhan</button>
-                                <button className="btn-booking-cancel btn-danger" onClick={ () => {this.toggle()} }>Huy</button>
+                                <button className="confirm" onClick={() => this.handleConfirmBooking()} >Xac nhan</button>
+                                <button className="cancel" onClick={ () => {this.toggle()} }>Huy</button>
                             </div>
                         </div>
                     </Modal>

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('specialties', {
+        await queryInterface.createTable('Specialties', {
 
             // currentNumber: DataTypes.INTEGER,
             // maxNumber: DataTypes.INTEGER,
@@ -16,6 +16,9 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             name: {
+                type: Sequelize.STRING
+            },
+            iconName: {
                 type: Sequelize.STRING
             },
             image: {
@@ -38,6 +41,6 @@ module.exports = {
         });
     },
     down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('specialties');
+        await queryInterface.dropTable('Specialties');
     }
 };

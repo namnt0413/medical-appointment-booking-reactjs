@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './MedicalFacility.scss'
+import './MedicalFacility.css'
 import Slider from "react-slick";
 // import css files
 import "slick-carousel/slick/slick.css";
@@ -40,7 +41,8 @@ class MedicalFacility extends Component {
       let {dataClinic} = this.state;
 
         return (
-            <div className="section-share section-medical-facility">
+          <>
+            {/* <div className="section-share section-medical-facility">
                 <div className="section-container">
                     <div className="section-header">
                         <span className="title-section">Cơ sở y tế nổi bật</span>
@@ -62,14 +64,44 @@ class MedicalFacility extends Component {
                       })
                     
                     }
-
                       
                     </Slider>
                     </div>
-
-
                 </div>
-            </div>
+            </div> */}
+            
+            
+                  <section id="medical-facility" className="medical-facility">
+                    <div className="container">
+    
+                        <div className="section-title">
+                          <h2>Medical Facility</h2>
+                          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        </div>
+    
+                        <div className="row">
+                                  <Slider {...this.props.settings}>
+                                    {dataClinic && dataClinic.length > 0 && 
+                                    dataClinic.map( (item,index) => {
+                                    return (
+                                    <div className="member d-flex align-items-start" key={index} >
+                                        <div className="member-info">
+                                            <div className="pic" style = {{background: `url(${item.image})` }} onClick={()=>this.handleViewDetailClinic(item)}></div>
+                                            <h4 onClick={()=>this.handleViewDetailClinic(item)}>{item.name}</h4>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                            }
+
+                        
+                        </Slider>
+                        </div>
+    
+                    </div>
+                </section>
+            
+            </>
             );
     }
 

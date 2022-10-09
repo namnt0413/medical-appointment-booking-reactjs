@@ -139,7 +139,6 @@ let getDetailSpecialtyById = (inputId , location) => {
                     where: { 
                         id : inputId 
                     },
-                    attributes: ['descriptionMarkdown','descriptionHTML','image']
                 })
                 
                 let doctorSpecialty = [];

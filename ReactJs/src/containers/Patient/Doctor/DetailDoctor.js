@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import HomeHeader from '../../HomePage/HomeHeader';
 import HomeFooter from '../../HomePage/HomeFooter';
 import './DetailDoctor.scss';
+import './DetailDoctor.css';
 import {getDetailInfoDoctor} from '../../../services/userService';
 import {LANGUAGES} from '../../../utils'
 import DoctorSchedule from './DoctorSchedule'
 import DoctorExtraInfo from './DoctorExtraInfo'
 import Comment from '../SocailPlugin/Comment'
 import LikeAndShare from '../SocailPlugin/LikeAndShare'
-
 
 class DetailDoctor extends Component {
     constructor(props) {
@@ -55,26 +55,25 @@ class DetailDoctor extends Component {
         
         return (
             <>
-                <HomeHeader
-                    isShowBanner = {false}
-                />
-                <div className="doctor-detail-container">
-                    <div className="intro-doctor">
-                        <div className="content-left"
-                         style={{backgroundImage: `url(${detailDoctor && detailDoctor.image ? detailDoctor.image : ''})` }} 
-                         >
+            <HomeHeader
+                isShowBanner = {false}
+            />
 
+                <section id="doctors" className="doctors">
+                  <div className="container">
+                    <div className="row">
+                        <div className="col-lg-4 mt-4 mt-lg-0" >
+                            <div className="pic" style={{backgroundImage: `url(${detailDoctor && detailDoctor.image ? detailDoctor.image : ''})` }} ></div>
                         </div>
-                        <div className="content-right">
-                            
+                        <div className="col-lg-8 mt-4 mt-lg-0">
                             { detailDoctor && detailDoctor.positionData && detailDoctor.positionData.valueVi && detailDoctor.positionData.valueEn
-                            &&<div className="up">
+                            &&<div className="row up">
                                 {language === LANGUAGES.VI ? detailDoctor.positionData.valueVi : detailDoctor.positionData.valueEn } { }
                                   {detailDoctor.firstName} {detailDoctor.lastName}
                             </div>
                             }
-                            
-                            <div className="down">
+
+                            <div className="row down">
                                 { detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.description
                                 && <span>
                                     {detailDoctor.Markdown.description}
@@ -87,39 +86,43 @@ class DetailDoctor extends Component {
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <div className="schedule-doctor">
-                        <div className="content-left">
-                            <DoctorSchedule
-                                detailDoctorFromParent = {this.state.currentDoctorId}
-                            />
-                        </div>
-                        <div className="content-right">
-                                <DoctorExtraInfo
+                    <div className="row">
+                      <div className="col-lg-6 mt-4 mt-lg-0">
+                        {/* <div className="member d-flex align-items-start"> */}
+                                <DoctorSchedule
+                                   detailDoctorFromParent = {this.state.currentDoctorId}
+                                />
+                        {/* </div> */}
+                      </div>
+                            
+                      <div className="col-lg-6 mt-4 mt-lg-0">
+                        {/* <div className="member d-flex align-items-start"> */}
+                                 <DoctorExtraInfo
                                     doctorIdFromParent = {this.state.currentDoctorId}
                                 />
+                        {/* </div> */}
+                      </div>
+                    </div>
+                    <div className="row detail-info-doctor">
+                        <div className="col-lg-12 mt-2 mt-lg-2">
+                            {detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.contentHTML 
+                            && <div dangerouslySetInnerHTML={{__html: detailDoctor.Markdown.contentHTML }}></div>
+                            }
                         </div>
                     </div>
-                    <div className="detail-info-doctor">
-                        {detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.contentHTML 
-                            && 
-                            <div dangerouslySetInnerHTML={{__html: detailDoctor.Markdown.contentHTML }}>
-
-                            </div>
-                        }
-                    </div>
-                    <div className="comment-doctor">
+                    <div className="row">
                         <Comment
                             dataHref={currentURL}
                             width={"100%"}
                             // numPost=
-                        />
+                        />    
                     </div>
-                </div>
+                        
+                  </div>
+                </section>
 
-
-                <HomeFooter/>
+            <HomeFooter/>
             </>
         );
     }

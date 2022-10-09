@@ -1,6 +1,6 @@
-.detail-specialty-container {
+.container {
 
-    .detail-specialty-background-image {
+    .row.detail-specialty-background-image {
         background-repeat: no-repeat !important;
         background-position: center !important;
         background-size: cover !important;
@@ -64,9 +64,6 @@
             width: 50%;
             padding: 5px;
 
-            .doctor-schedule {
-
-            }
             .doctor-extra-info {
                 border-top: 1px solid #ddd;
                 margin-top:10px;
