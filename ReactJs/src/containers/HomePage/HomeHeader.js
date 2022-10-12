@@ -9,6 +9,7 @@ import { LANGUAGES } from '../../utils'
 import { changeLanguageApp } from '../../store/actions'
 import Header from '../Header/Header';
 import { withRouter } from 'react-router'
+import * as actions from "../../store/actions";
 
 class HomeHeader extends Component {
 
@@ -24,8 +25,19 @@ class HomeHeader extends Component {
           }
     }
 
+    handleClickLogin = () => {
+      if( this.props.history ){
+          this.props.history.push(`/login`)
+        }
+    }
+
+    handleClickLogout = () => {
+      this.props.processLogout();
+    }
+
     render() {
         // console.log('check props : ', this.props); thuoc tinh language cua props lay tu redux chu ko phai la cua cha truyen den
+        let { isLoggedIn } = this.props;
         let language = this.props.language;
         return (
             // do render chi tra ve 1 khoi duy nhat
@@ -35,14 +47,19 @@ class HomeHeader extends Component {
                     <img src = {logo} onClick={()=>this.handleClickLogo() } alt="MedicalBokking" className="img-logo"/>
                     <nav id="navbar" className="navbar order-last order-lg-0">
                       <ul>
-                        <li><a className="nav-link scrollto active" href="#">Home</a></li>
-                        <li><a className="nav-link scrollto" href="#about">About</a></li>
-                        <li><a className="nav-link scrollto" href="#services">Specialty</a></li>
-                        <li><a className="nav-link scrollto" href="#departments">Clinics</a></li>
+                        <li><a className="nav-link scrollto active" onClick={()=>this.handleClickLogo() } href="#">Home</a></li>
+                        <li><a className="nav-link scrollto" href="#specialty">Specialty</a></li>
+                        <li><a className="nav-link scrollto" href="#medical-facility">Clinics</a></li>
                         <li><a className="nav-link scrollto" href="#doctors">Doctors</a></li>
-                        <li><a className="nav-link scrollto" href="#contact">Help</a></li>
-                        {/* <li className="dropdown"><a href="#"><span>Drop Down</span> <i className="bi bi-chevron-down"></i></a>
+                        <li><a className="nav-link scrollto" href="#about">About</a></li>
+                        <li><a className="nav-link scrollto" href="#help">Help</a></li>
+                        <li className="dropdown"><a href="#"><span>Language</span> <i className="bi bi-chevron-down"></i></a>
                           <ul>
+                            <li><a href="#">Vietnamese <img className='vn-img'></img></a></li>
+                            <li><a href="#">English <img className='uk-img'></img></a></li>
+                            <li><a href="#">Japanese <img className='jp-img'></img></a></li>
+                          </ul>
+                          {/* <ul>
                             <li><a href="#">Drop Down 1</a></li>
                             <li className="dropdown"><a href="#"><span>Deep Drop Down</span> <i className="bi bi-chevron-right"></i></a>
                               <ul>
@@ -56,13 +73,15 @@ class HomeHeader extends Component {
                             <li><a href="#">Drop Down 2</a></li>
                             <li><a href="#">Drop Down 3</a></li>
                             <li><a href="#">Drop Down 4</a></li>
-                          </ul>
-                        </li> */}
+                          </ul> */}
+                        </li>
                       </ul>
                       <i className="bi bi-list mobile-nav-toggle"></i>
                     </nav>
 
-                    <a href="#appointment" className="appointment-btn scrollto"><span className="d-none d-md-inline">Login or</span> Sign up</a>
+                  { isLoggedIn === false ? 
+                  <a href="#" className="appointment-btn scrollto" onClick={()=>this.handleClickLogin()}><span className="d-none d-md-inline">Login or</span> Sign up</a>
+                  : <a href="#" className="appointment-btn scrollto" onClick={()=>this.handleClickLogout()}><span className="d-none d-md-inline">Logout</span></a>}  
                   </div>
                 </header>
 
@@ -140,6 +159,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        processLogout: () => dispatch(actions.processLogout()),
         changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language))
     };
 };

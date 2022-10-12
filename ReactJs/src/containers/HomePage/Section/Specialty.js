@@ -93,6 +93,7 @@ class Specialty extends Component {
 
     return (
       <>
+      <section id="specialty" className="specialty">
         <div className="department_area section-padding2">
           <div className="container">
             <div className="section-title">
@@ -130,7 +131,7 @@ class Specialty extends Component {
                     <div className="col-lg-7">
                       <div className="dept_info">
                         <h3>{selectedSpecialtyItem.name}</h3>
-                        <p>short Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                        <p>{selectedSpecialtyItem.shortDescription}</p>
                         <button onClick={() => this.handleViewDetailSpecialty(selectedSpecialtyItem)} href="#" className="dep-btn">View Detail Specialty<i className="fa fa-arrow-right"></i></button>
                       </div>
                     </div>
@@ -149,6 +150,7 @@ class Specialty extends Component {
 
           </div>
         </div>
+      </section>
       </>
     );
   }

@@ -18,8 +18,9 @@ class About extends Component {
                   <div className="container-fluid">
 
                     <div className="row ml-3 mr-3">
-                      <div className="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
-                        <a href="https://www.youtube.com/watch?v==x0fSBAgBrOQ&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q" className="glightbox play-btn mb-4"></a>
+                      <div className="col-xl-5 col-lg-6 d-flex justify-content-center align-items-stretch position-relative">
+                        <iframe width="100%" height="600" src="https://www.youtube.com/embed/Gr-8msO-AUI" title="DAOKO × 米津玄師『打上花火』MUSIC VIDEO" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        {/* <a href="#" className="glightbox play-btn mb-4"></a> */}
                       </div>
 
                       <div className="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">

@@ -300,3 +300,25 @@
   .navbar-mobile .dropdown>.dropdown-active {
     display: block;
   }
+
+  .vn-img {
+    background: url("../../assets/language/vietnam.png") ;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+  }
+  .uk-img {
+    background: url("../../assets/language/united-kingdom.png") ;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+  }
+  .jp-img {
+    background: url("../../assets/language/japan.png") ;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+  }
