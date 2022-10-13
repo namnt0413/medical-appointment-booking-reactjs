@@ -9,6 +9,10 @@ import OutstandingDoctor from './Section/OutstandingDoctor'
 import HandBook from './Section/HandBook'
 import About from './Section/About'
 import HomeFooter from './/HomeFooter'
+import { FormattedMessage } from 'react-intl';
+import { changeLanguageApp } from '../../store/actions'
+import { LANGUAGES } from '../../utils';
+// import css files
 
 import './HomePage.scss'
 import './HomePage.css'
@@ -82,8 +86,7 @@ class HomePage extends Component {
                   <div className="container">
 
                     <div className="section-title">
-                      <h2>Gallery</h2>
-                      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                      <h2><FormattedMessage id="homepage.gallery"/></h2>
                     </div>
                   </div>
 
@@ -442,12 +445,14 @@ class HomePage extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+      isLoggedIn: state.user.isLoggedIn,
+      language: state.app.language
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+      changeLanguageApp: (language) => dispatch(changeLanguageApp(language))
     };
 };
 

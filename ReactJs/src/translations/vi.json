@@ -1,13 +1,70 @@
 {
     "homeHeader": {
+        "home": "Trang chủ",
         "specialty": "Chuyên khoa",
-        "searchDoctor": "Tìm bác sĩ theo chuyên khoa",
         "clinic": "Cơ sở y tế",
-        "chooseClinic": "Chọn bệnh viện phòng khám",
         "doctor": "Bác sĩ",
-        "chooseDoctor": "Chọn bác sĩ giỏi",
-        "medicalPackage": "Gói khám",
-        "generalHealthCheck": "Khám sức khỏe tổng quát"
+        "about": "Về chúng tôi",
+        "help": "Hỗ trợ",
+        "language": "Ngôn ngữ",
+        "vi": "Tiếng Việt",
+        "en": "Tiếng Anh",
+        "jp": "Tiếng Nhật",
+        "account_setting": "Cài đặt tài khoản",
+        "booking_history": "Lịch sử khám bệnh",
+        "logout": "Đăng xuất",
+        "login": "Đăng nhập hoặc",
+        "signup": "Đăng ký tài khoản"
+    },
+    "homeBanner":{
+        "banner_header": " Medical Booking",
+        "banner_content": "Hiểu, theo dõi, và cải thiện sức khỏe của bạn",
+        "banner_button": "Đặt lịch khám ngay",
+        "why_choose": "VÌ SAO ĐẶT LỊCH KHÁM VỚI Medcail Booking",
+        "why_choose_reason": "Những lý do vì sao bạn nên chọn dịch vụ của Medical Booking",
+        "learn_more": "Tìm hiểu thêm",
+        "reason1":"Bác sĩ uy tín",
+        "reason1_content": "Bác sĩ chuyên khoa giỏi, thông tin đã xác thực, được nhiều bệnh nhân tin tưởng, đồng nghiệp đánh giá cao, có uy tín trong ngành. Đã, đang công tác tại các bệnh viện hàng đầu trên cả nước.",
+        "reason2":"Đúng người, đúng bệnh",
+        "reason2_content": "Thông tin và kinh nghiệm bác sĩ được xác thực, nội dung bài viết cẩm nang dễ hiểu cùng với sự gợi ý từ hệ thống, bệnh nhân đặt khám đúng bác sĩ chuyên khoa giỏi phù hợp với vấn đề của mình.",
+        "reason3":"Hỗ trợ chu đáo",
+        "reason3_content": "Trên cơ sở hợp tác chặt chẽ với các cơ sở y tế, chúng tôi hỗ trợ bệnh nhân trước, trong và sau khi đi khám. Qua đó, giúp cho việc đi khám hiệu quả hơn và đảm bảo quyền lợi của người bệnh."
+
+    },
+    "homepage": {
+        "specialty": "Chuyên khoa phổ biến",
+        "view_specialty": "Xem chi tiết chuyên khoa",
+        "clinic": "Các cơ sở y tế liên kết",
+        "doctor": "Bác sĩ nổi bật tuần qua",
+        "about": "Về chúng tôi",
+        "gallery": "Một vài hình ảnh nổi bật"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Lịch khám",
+            "no-schedule": "Không có lịch hẹn trong khoảng thời gian này. Vui lòng lòng chọn lịch trong khoảng thời gian khác !",
+            "choose": "Chọn",
+            "book-free": " và đặt ( miễn phí )"
+        },
+        "extra-info-doctor": {
+            "text-address": "Địa chỉ khám",
+            "price": "Giá khám : ",
+            "detail": "Xem chi tiết",
+            "payment": "Người bệnh có thể thanh toán bằng hình thức: ",
+            "hide-price": "Ẩn bảng giá"
+        },
+        "booking-modal": {
+            "title": "Thông tin lịch hẹn khám bệnh"
+        },
+        "profile-doctor":  {
+            "price": "Giá khám : ",
+            "free-booking": "Miễn phí đặt lịch",
+            "more-info": "Xem thêm"
+        },
+        "detail-clinic": {
+            "intro": "Giới thiệu",
+            "book-appointment": "Đặt lịch khám"
+        }
     },
     "menu": {
         "admin": {
@@ -32,35 +89,13 @@
         "add": "Thêm mới người dùng"
 
     },
-    "homepage": {
-        "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
-        "more-info": "Xem thêm",
-        "specialty":"Chuyên khoa phổ biến"
-    },
     "manage-schedule":  {
-        "title": "Quản lý kế hoạc khám của bác sĩ",
+        "title": "Quản lý kế hoạch khám của bác sĩ",
         "choose-doctor": "Chọn bác sĩ",
         "choose-date": "Chọn ngày",
         "save-info": "Lưu thông tin"
     },
-    "patient": {
-        "detail-doctor": {
-            "schedule": "Lịch khám",
-            "no-schedule": "Không có lịch hẹn trong khoảng thời gian này. Vui lòng lòng chọn lịch trong khoảng thời gian khác !",
-            "choose": "Chọn",
-            "book-free": " và đặt ( miễn phí )"
-        },
-        "extra-info-doctor": {
-            "text-address": "Địa chỉ khám",
-            "price": "Giá khám : ",
-            "detail": "Xem chi tiết",
-            "payment": "Người bệnh có thể thanh toán bằng hình thức: ",
-            "hide-price": "Ẩn bảng giá"
-        },
-        "booking-modal": {
-            "title": "Thông tin đặt lịch khám bệnh"
-        }
-    },
+
     "admin": {
         "manage-doctor": {
             "title":"THÔNG TIN CHI TIẾT BÁC SĨ",

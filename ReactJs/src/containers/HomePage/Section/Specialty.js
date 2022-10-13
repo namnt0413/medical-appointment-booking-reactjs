@@ -6,6 +6,8 @@ import '../HomePage.css';
 import './Specialty.scss';
 import './Specialty.css'
 import { FormattedMessage } from 'react-intl';
+import { changeLanguageApp } from '../../../store/actions'
+import { LANGUAGES } from '../../../utils';
 import Slider from "react-slick";
 // import css files
 import "slick-carousel/slick/slick.css";
@@ -97,8 +99,7 @@ class Specialty extends Component {
         <div className="department_area section-padding2">
           <div className="container">
             <div className="section-title">
-                <h2>Popular Specialty</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <h2><FormattedMessage id="homepage.specialty"/></h2>
             </div>
             <div className="row">
               <div className="col-lg-12">
@@ -132,7 +133,7 @@ class Specialty extends Component {
                       <div className="dept_info">
                         <h3>{selectedSpecialtyItem.name}</h3>
                         <p>{selectedSpecialtyItem.shortDescription}</p>
-                        <button onClick={() => this.handleViewDetailSpecialty(selectedSpecialtyItem)} href="#" className="dep-btn">View Detail Specialty<i className="fa fa-arrow-right"></i></button>
+                        <button onClick={() => this.handleViewDetailSpecialty(selectedSpecialtyItem)} href="#" className="dep-btn"><FormattedMessage id="homepage.view_specialty"/><i className="fa fa-arrow-right"></i></button>
                       </div>
                     </div>
                     <div className="col-lg-5">
@@ -160,12 +161,14 @@ class Specialty extends Component {
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.user.isLoggedIn,
-    language: state.app.language
+    language: state.app.language,
+    userInfo: state.user.userInfo
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    changeLanguageApp: (language) => dispatch(changeLanguageApp(language))
   };
 };
 

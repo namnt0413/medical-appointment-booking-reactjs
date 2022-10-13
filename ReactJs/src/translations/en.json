@@ -1,14 +1,72 @@
 {
     "homeHeader": {
-        "specialty": "Specialty",
-        "searchDoctor": "Find doctor by specailty",
+        "home": "Home",
+        "specialty": "Medical specialty",
         "clinic": "Health facilities",
-        "chooseClinic": "Choose hospital / clinic",
         "doctor": "Doctor",
-        "chooseDoctor": "Choose a good doctor",
-        "medicalPackage": "Checkup package",
-        "generalHealthCheck": "General health check"
+        "about": "About us",
+        "help": "Support",
+        "language": "language",
+        "vi": "Vietnamese",
+        "en": "English",
+        "jp": "Japanese",
+        "account_setting": "Account Setting",
+        "booking_history": "Appointment history",
+        "logout": "logout",
+        "login": "Login or",
+        "signup": "Signup"
     },
+    "homeBanner":{
+        "banner_header": " Medical Booking",
+        "banner_content": "Understand, track and improve your health",
+        "banner_button": "Book an appointment now",
+        "why_choose": "WHY BOOK AN APPOINTMENT WITH Medcail Booking",
+        "why_choose_reason": "Reasons why you should choose Medical Booking's services",
+        "learn_more": "Looking for more information",
+        "reason1":"Reputable doctor",
+        "reason1_content": "Good specialist doctor, verified information, trusted by many patients, highly appreciated by colleagues, reputable in the industry. Has been working at leading hospitals across the country.",
+        "reason2":"Right person, right disease",
+        "reason2_content": "The information and experience of the doctor is verified, the content of the manual is easy to understand and the suggestions from the system, the patient orders the right doctor who is the right specialist for his or her problem.",
+        "reason3":"Attentive support",
+        "reason3_content": "On the basis of close cooperation with medical facilities, we support patients before, during and after the examination. Thereby, making medical examination more efficient and ensuring the interests of patients."
+
+    },
+    "homepage": {
+        "specialty":"Popular specialties",
+        "view_specialty": "View specialty details",
+        "clinic": "Health facilities",
+        "doctor": "Last week's outstanding doctor",
+        "about": "About us",
+        "gallery": "Our some impressive photos"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Schedule",
+            "no-schedule": "There are no schedules during this time period. Please choose another time slot!",
+            "choose": "Choose",
+            "book-free": " and book (free)"
+        },
+        "extra-info-doctor": {
+            "text-address": "Clinic Address",
+            "price": "Examine price : ",
+            "detail": "Detail infomation",
+            "payment": "Patient can pay with method : ",
+            "hide-price": "Hide detail infomation"
+        },
+        "booking-modal": {
+            "title": "Information about medical appointment"
+        },
+        "profile-doctor":  {
+            "price": "Price : ",
+            "free-booking": "Free Booking",
+            "more-info": "More info"
+        },
+        "detail-clinic": {
+            "intro": "Introduction",
+            "book-appointment": "予約を取る"
+        }
+    },
+
     "menu": {
         "admin": {
             "user": "User System",
@@ -31,35 +89,14 @@
     "manage-user": {
         "add": "Add new user"
     } ,
-    "homepage": {
-        "outstanding-doctor": "Outstanding Doctor",
-        "more-info": "More Info",
-        "specialty":"Popular Specialty"
-    },
+
     "manage-schedule":  {
         "title": "Manage doctor's examination plan",
         "choose-doctor": "Choose doctor",
         "choose-date": "Choose date",
         "save-info": "Save information"
     },
-    "patient": {
-        "detail-doctor": {
-            "schedule": "Schedule",
-            "no-schedule": "There are no schedules during this time period. Please choose another time slot!",
-            "choose": "Choose",
-            "book-free": " and book (free)"
-        },
-        "extra-info-doctor": {
-            "text-address": "Clinic Address",
-            "price": "Examine price : ",
-            "detail": "Detail infomation",
-            "payment": "Patient can pay with method : ",
-            "hide-price": "Hide detail infomation"
-        },
-        "booking-modal": {
-            "title": "Booking appointment infomation"
-        }
-    },
+
     "admin": {
         "manage-doctor": {
             "title":"Doctor detail infomation",

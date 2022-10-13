@@ -322,3 +322,10 @@
     border: none;
     border-radius: 50%;
   }
+
+  li.active {
+    background-color: #1977cc;
+  }
+  li.active a{
+    color: #fff !important;
+  }

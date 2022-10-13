@@ -5,11 +5,13 @@ import {getDetailInfoDoctor} from '../../../services/userService';
 import {LANGUAGES} from '../../../utils';
 import Select from 'react-select';
 import moment from 'moment';
-import localization from 'moment/locale/vi'
 import {getScheduleDoctorByDate} from '../../../services/userService'
 import { FormattedMessage} from 'react-intl'
 import BookingModal from './Modal/BookingModal'
 import { Modal } from 'reactstrap';
+// import localization from 'moment/locale/vi'
+require('moment/locale/ja.js');
+require('moment/locale/vi.js');
 
 class DoctorSchedule extends Component {
     constructor(props) {
@@ -72,7 +74,7 @@ class DoctorSchedule extends Component {
                     object.label = this.capitalizeFirstLetter(labelVi);
                 }
             }
-            else {
+            else if(language === LANGUAGES.EN ){
                 if(i===0){
                     let ddMM = moment(new Date()).format('DD/MM');
                     let today = `Today - ${ddMM}`;
@@ -81,6 +83,18 @@ class DoctorSchedule extends Component {
                     object.label = moment(new Date()).add(i, 'days').locale('en').format("ddd - DD/MM"); // format ngay TV, add them ... ngay theo vong for    
                 }
             }
+            else {
+                if(i===0){
+                    let ddMM = moment(new Date()).format('今： M月D日');
+                    let today = `${ddMM}`
+                    // let today = `Today - ${ddMM}`;
+                    object.label = today;
+                } else {
+                    
+                    object.label = moment(new Date()).add(i, 'days').locale('ja').format('dd - M月D日') ; // format ngay TV, add them ... ngay theo vong for    
+                }
+            }
+
             object.value = moment(new Date()).add(i, 'days').startOf('day').valueOf(); // startOf day de lay gio =0, valueof de lay kieu unix tim
             arrDay.push(object);
         }

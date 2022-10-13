@@ -13,12 +13,20 @@ let getTopDoctorHome = (limitInput) => {
                 order: [['createdAt','DESC']],
                 where: { roleId : 'R2' },
                 attributes: {
-                    exclude: ['password',] // loai bo di thuoc tinh password
+                    exclude: ['password','address','gender','genderData','phonenumber','roleId', 'createdAt', 'updatedAt'] // loai bo di thuoc tinh password
                 },
                 include: [
                     { model: db.Allcode, as: 'positionData', attributes: ['valueVi','valueEn']  },
-                    { model: db.Allcode, as: 'genderData', attributes: ['valueVi','valueEn']  }
+                    { model: db.Allcode, as: 'genderData', attributes: ['valueVi','valueEn']  },
+                    { model: db.Doctor_Info, attributes: ['clinicId','specialtyId'] ,
+                         include: [
+                        { model: db.Clinic, as: 'clinicData', attributes: ['name'] },
+                        { model: db.Specialty, as: 'specialtyData', attributes: ['name'] },
+                         ]
+                    },
                 ],
+                // include: [
+                // ],
                 raw: true,
                 nest: true,
 

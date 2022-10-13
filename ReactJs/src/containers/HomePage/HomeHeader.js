@@ -16,7 +16,7 @@ class HomeHeader extends Component {
     changeLanguage = (language) => {
         // alert('Change language: ' + language);
         //fire redux event : actions
-        this.props.changeLanguageAppRedux(language);
+        this.props.changeLanguageApp(language);
     }
 
     handleClickLogo = () => {
@@ -37,8 +37,7 @@ class HomeHeader extends Component {
 
     render() {
         // console.log('check props : ', this.props); thuoc tinh language cua props lay tu redux chu ko phai la cua cha truyen den
-        let { isLoggedIn } = this.props;
-        let language = this.props.language;
+        let { isLoggedIn , userInfo, language } = this.props;
         return (
             // do render chi tra ve 1 khoi duy nhat
             <React.Fragment> 
@@ -47,17 +46,24 @@ class HomeHeader extends Component {
                     <img src = {logo} onClick={()=>this.handleClickLogo() } alt="MedicalBokking" className="img-logo"/>
                     <nav id="navbar" className="navbar order-last order-lg-0">
                       <ul>
-                        <li><a className="nav-link scrollto active" onClick={()=>this.handleClickLogo() } href="#">Home</a></li>
-                        <li><a className="nav-link scrollto" href="#specialty">Specialty</a></li>
-                        <li><a className="nav-link scrollto" href="#medical-facility">Clinics</a></li>
-                        <li><a className="nav-link scrollto" href="#doctors">Doctors</a></li>
-                        <li><a className="nav-link scrollto" href="#about">About</a></li>
-                        <li><a className="nav-link scrollto" href="#help">Help</a></li>
-                        <li className="dropdown"><a href="#"><span>Language</span> <i className="bi bi-chevron-down"></i></a>
+                        <li><a className="nav-link scrollto active" onClick={()=>this.handleClickLogo() } href="#hero"><FormattedMessage id="homeHeader.home"/></a></li>
+                        <li><a className="nav-link scrollto" href="#specialty" onClick={()=>this.handleClickLogo() }><FormattedMessage id="homeHeader.specialty"/></a></li>
+                        <li><a className="nav-link scrollto" href="#medical-facility" onClick={()=>this.handleClickLogo() }><FormattedMessage id="homeHeader.clinic"/></a></li>
+                        <li><a className="nav-link scrollto" href="#doctors" onClick={()=>this.handleClickLogo() }><FormattedMessage id="homeHeader.doctor"/></a></li>
+                        <li><a className="nav-link scrollto" href="#about" onClick={()=>this.handleClickLogo() }><FormattedMessage id="homeHeader.about"/></a></li>
+                        <li><a className="nav-link scrollto" href="#help" onClick={()=>this.handleClickLogo() }><FormattedMessage id="homeHeader.help"/></a></li>
+                        <li className="dropdown"><a href="#"><span><FormattedMessage id="homeHeader.language"/></span> <i className="bi bi-chevron-down"></i></a>
                           <ul>
-                            <li><a href="#">Vietnamese <img className='vn-img'></img></a></li>
-                            <li><a href="#">English <img className='uk-img'></img></a></li>
-                            <li><a href="#">Japanese <img className='jp-img'></img></a></li>
+                            <li className={ language === LANGUAGES.VI ? "active" :""}>
+                              <a href="#" onClick={() => this.changeLanguage(LANGUAGES.VI) }><FormattedMessage id="homeHeader.vi"/><img className='vn-img'></img></a>
+                            </li>
+                            <li className={ language === LANGUAGES.EN ? "active" :""}>
+                              <a href="#" onClick={() => this.changeLanguage(LANGUAGES.EN) }><FormattedMessage id="homeHeader.en"/><img className='uk-img'></img></a>
+                            </li>
+                            <li className={ language === LANGUAGES.JP ? "active" :""}>
+                              <a href="#" onClick={() => this.changeLanguage(LANGUAGES.JP) }><FormattedMessage id="homeHeader.jp"/><img className='jp-img'></img></a>
+                            </li>
+                       
                           </ul>
                           {/* <ul>
                             <li><a href="#">Drop Down 1</a></li>
@@ -75,13 +81,23 @@ class HomeHeader extends Component {
                             <li><a href="#">Drop Down 4</a></li>
                           </ul> */}
                         </li>
+                        { isLoggedIn === true && 
+                        <li className="dropdown"><a href="#"> <span className="welcome"> {userInfo? userInfo.firstName : ""} {userInfo? userInfo.lastName : ""} </span>
+                        <i className="bi bi-chevron-down"></i></a>
+                          <ul>
+                            <li><a href="#"><FormattedMessage id="homeHeader.account_setting"/></a></li>
+                            <li><a href="#"><FormattedMessage id="homeHeader.booking_history"/></a></li>
+                            <li><a href="#"><FormattedMessage id="homeHeader.logout"/></a></li>
+                          </ul>
+                        </li>
+                        }
                       </ul>
                       <i className="bi bi-list mobile-nav-toggle"></i>
                     </nav>
 
                   { isLoggedIn === false ? 
-                  <a href="#" className="appointment-btn scrollto" onClick={()=>this.handleClickLogin()}><span className="d-none d-md-inline">Login or</span> Sign up</a>
-                  : <a href="#" className="appointment-btn scrollto" onClick={()=>this.handleClickLogout()}><span className="d-none d-md-inline">Logout</span></a>}  
+                  <a href="#" className="appointment-btn scrollto" onClick={()=>this.handleClickLogin()}><span className="d-none d-md-inline"><FormattedMessage id="homeHeader.login"/></span> <FormattedMessage id="homeHeader.signup"/></a>
+                  : <a href="#" className="appointment-btn scrollto" onClick={()=>this.handleClickLogout()}><span className="d-none d-md-inline"><FormattedMessage id="homeHeader.logout"/></span></a>}  
                   </div>
                 </header>
 
@@ -89,9 +105,9 @@ class HomeHeader extends Component {
                 <>
                 <section id="hero" className="d-flex align-items-center">
                   <div className="container">
-                    <h1>Welcome to Medical Booking</h1>
-                    <h2>We are team of talented designers making websites with Bootstrap</h2>
-                    <a href="#about" className="btn-get-started scrollto">Get Started</a>
+                    <h1><FormattedMessage id="homeBanner.banner_header"/></h1>
+                    <h2><FormattedMessage id="homeBanner.banner_content"/></h2>
+                    <a href="#specialty" className="btn-get-started scrollto"><FormattedMessage id="homeBanner.banner_button"/></a>
                   </div>
                 </section>
                 <section id="why-us" className="why-us">
@@ -100,13 +116,12 @@ class HomeHeader extends Component {
                     <div className="row">
                       <div className="col-lg-4 d-flex align-items-stretch">
                         <div className="content">
-                          <h3>Why Choose Medilab?</h3>
+                          <h3><FormattedMessage id="homeBanner.why_choose"/></h3>
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                            Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                            <FormattedMessage id="homeBanner.why_choose_reason"/>
                           </p>
                           <div className="text-center">
-                            <a href="#" className="more-btn">Learn More <i className="bx bx-chevron-right"></i></a>
+                            <a href="#about" className="more-btn"><FormattedMessage id="homeBanner.learn_more"/><i className="bx bx-chevron-right"></i></a>
                           </div>
                         </div>
                       </div>
@@ -116,22 +131,22 @@ class HomeHeader extends Component {
                             <div className="col-xl-4 d-flex align-items-stretch">
                               <div className="icon-box mt-4 mt-xl-0">
                                 <i className="bx bx-receipt"></i>
-                                <h4>Corporis voluptates sit</h4>
-                                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                                <h4><FormattedMessage id="homeBanner.reason1"/></h4>
+                                <p><FormattedMessage id="homeBanner.reason1_content"/></p>
                               </div>
                             </div>
                             <div className="col-xl-4 d-flex align-items-stretch">
                               <div className="icon-box mt-4 mt-xl-0">
                                 <i className="bx bx-cube-alt"></i>
-                                <h4>Ullamco laboris ladore pan</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                                <h4><FormattedMessage id="homeBanner.reason2"/></h4>
+                                <p><FormattedMessage id="homeBanner.reason2_content"/></p>
                               </div>
                             </div>
                             <div className="col-xl-4 d-flex align-items-stretch">
                               <div className="icon-box mt-4 mt-xl-0">
                                 <i className="bx bx-images"></i>
-                                <h4>Labore consequatur</h4>
-                                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                                <h4><FormattedMessage id="homeBanner.reason3"/></h4>
+                                <p><FormattedMessage id="homeBanner.reason3_content"/></p>
                               </div>
                             </div>
                           </div>
@@ -160,7 +175,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         processLogout: () => dispatch(actions.processLogout()),
-        changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language))
+        changeLanguageApp: (language) => dispatch(changeLanguageApp(language))
+        
     };
 };
 

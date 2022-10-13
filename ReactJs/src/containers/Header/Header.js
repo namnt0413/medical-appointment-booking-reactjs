@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { FormattedMessage } from 'react-intl';
 import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
 import { adminMenu , doctorMenu } from './menuApp';
@@ -16,7 +16,6 @@ class Header extends Component {
             menuApp: []
         }
     }
-
 
     changeLanguage = (language) => {
         // console.log('change language : ' + language);

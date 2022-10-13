@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import './MedicalFacility.scss'
 import './MedicalFacility.css'
 import Slider from "react-slick";
+import { FormattedMessage } from 'react-intl';
+import { changeLanguageApp } from '../../../store/actions'
+import { LANGUAGES } from '../../../utils';
 // import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -45,8 +48,7 @@ class MedicalFacility extends Component {
             <section id="medical-facility" className="medical-facility">
               <div className="container">
                   <div className="section-title">
-                    <h2>Medical Facility</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <h2><FormattedMessage id="homepage.clinic"/></h2>
                   </div>
                   <div className="row">
                             <Slider {...this.props.settings}>
@@ -75,12 +77,16 @@ class MedicalFacility extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+      isLoggedIn: state.user.isLoggedIn,
+      language: state.app.language,
+      userInfo: state.user.userInfo
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+    changeLanguageApp: (language) => dispatch(changeLanguageApp(language))
+
     };
 };
 

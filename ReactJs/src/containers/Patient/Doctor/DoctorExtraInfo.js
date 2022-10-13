@@ -81,6 +81,15 @@ class DoctorExtraInfo extends Component {
                                 suffix=" $"
                             />
                         }
+                        { extraInfo && extraInfo.priceTypeData && language === LANGUAGES.JP &&
+                            <NumberFormat 
+                                className="currency"
+                                value={extraInfo.priceTypeData.valueEn}
+                                displayType="text"
+                                thousandSeparator={true}
+                                suffix=" ¥"
+                            />
+                        }
                         <span 
                             className="detail"
                             onClick={() => this.showHiddenInfo(true) }
@@ -113,6 +122,15 @@ class DoctorExtraInfo extends Component {
                                             suffix=" $"
                                         />
                                         }
+                                        { extraInfo && extraInfo.priceTypeData && language === LANGUAGES.JP &&
+                                            <NumberFormat 
+                                                className="currency"
+                                                value={extraInfo.priceTypeData.valueEn}
+                                                displayType="text"
+                                                thousandSeparator={true}
+                                                suffix=" ¥"
+                                            />
+                                        }
                                     </div>
                                 </div>
                                 <div className="note">{ extraInfo && extraInfo.note ? extraInfo.note : '' }</div>
@@ -121,6 +139,8 @@ class DoctorExtraInfo extends Component {
                             <div className="payment"><FormattedMessage id="patient.extra-info-doctor.payment"/> 
                             { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.VI  ? extraInfo.paymentTypeData.valueVi : '' }
                             { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.EN  ? extraInfo.paymentTypeData.valueEn : '' }
+                            { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.JP  ? extraInfo.paymentTypeData.valueEn : '' }
+
                             </div>
 
                             <div className="hide-price">

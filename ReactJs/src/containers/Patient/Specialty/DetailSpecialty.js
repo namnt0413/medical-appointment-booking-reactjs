@@ -55,6 +55,7 @@ class DetailSpecialty extends Component {
                         type: 'PROVINCE',
                         valueEn: 'All',
                         valueVi: 'Toàn quốc',
+                        valueJp: '全国',
                     })
                 }
                 this.setState({
@@ -133,7 +134,7 @@ class DetailSpecialty extends Component {
                                         listProvince.map((item, index) => {
                                             return (
                                                 <option key={index} value={item.keyMap} >
-                                                    {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+                                                    {language === LANGUAGES.VI ? item.valueVi : language === LANGUAGES.EN ? item.valueEn : item.valueJp }
                                                 </option>
                                             )
                                         })

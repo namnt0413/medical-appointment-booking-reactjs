@@ -67,43 +67,6 @@ class DetailClinic extends Component {
         return (
             <>
                 <HomeHeader />
-                {/* 
-                
-                <div className="detail-clinic-body"> 
-                    <div className="clinic-booking">Đặt lịch khám</div>
-                    { arrDoctor && arrDoctor.length > 0 &&
-                        arrDoctor.map( (item,index) => {
-                        return (
-                    <div className="clinic-doctor" key={index} >
-                        <div className="doctor-content-left">
-                            <div className="profile-doctor">
-                                <ProfileDoctor 
-                                    doctorId={item}
-                                    isShowDescriptionDoctor={true}
-                                    isShowLinkDetail={true}
-                                    isShowPrice={false}
-                                    // dataSchedule={dataSchedule}
-                                />
-                            </div>
-                        </div>
-                        <div className="doctor-content-right">
-                            <div className="doctor-schedule">
-                                 <DoctorSchedule
-                                    detailDoctorFromParent = {item}
-                                />
-                            </div>
-                            <div className="doctor-extra-info">
-                                <DoctorExtraInfo
-                                    doctorIdFromParent = {item}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                        )
-                        })
-                    }
-                </div> */}
-
                 <section id="clinics" className="clinics">
                     <div className="container">
                         <div className="row clinics-background-image" style={{ background: `url(${this.state.dataDetailClinic.image})` }}>
@@ -120,14 +83,14 @@ class DetailClinic extends Component {
                         </div>
                         <div className='row'>
                             <div className="col-lg-12 mt-4 mt-lg-0 clinic-content">
-                                <div className="clinic-gt">Giới thiệu</div>
+                                <div className="clinic-gt"><FormattedMessage id="patient.detail-clinic.intro"/></div>
                                 {dataDetailClinic && !_.isEmpty(dataDetailClinic) && //chuyen ve dang html
                                     <div dangerouslySetInnerHTML={{ __html: dataDetailClinic.descriptionHTML }}></div>
                                 }
                             </div>
                         </div>
 
-                        <div className="clinic-booking">Đặt lịch khám</div>
+                        <div className="clinic-booking"><FormattedMessage id="patient.detail-clinic.book-appointment"/></div>
                         {arrDoctor && arrDoctor.length > 0 &&
                             arrDoctor.map((item, index) => {
                                 return (

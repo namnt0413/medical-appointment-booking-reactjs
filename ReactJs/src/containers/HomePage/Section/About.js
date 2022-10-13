@@ -3,8 +3,10 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../HomePage.scss';
 import '../HomePage.css';
-import { FormattedMessage } from 'react-intl';
 import Slider from "react-slick";
+import { FormattedMessage } from 'react-intl';
+import { changeLanguageApp } from '../../../store/actions'
+import { LANGUAGES } from '../../../utils';
 // import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,13 +21,12 @@ class About extends Component {
 
                     <div className="row ml-3 mr-3">
                       <div className="col-xl-5 col-lg-6 d-flex justify-content-center align-items-stretch position-relative">
-                        <iframe width="100%" height="600" src="https://www.youtube.com/embed/Gr-8msO-AUI" title="DAOKO × 米津玄師『打上花火』MUSIC VIDEO" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/Gr-8msO-AUI" title="DAOKO × 米津玄師『打上花火』MUSIC VIDEO" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         {/* <a href="#" className="glightbox play-btn mb-4"></a> */}
                       </div>
 
                       <div className="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-                        <h3>Truyền thông nói gì về Medical Booking</h3>
-                        <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla tenetur. Suscipit aut voluptate.</p>
+                        <h3><FormattedMessage id="homepage.about"/></h3>
 
                         <div className="icon-box">
                           <div className="icon"><i className="bx bx-fingerprint"></i></div>
@@ -64,6 +65,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+      changeLanguageApp: (language) => dispatch(changeLanguageApp(language))
     };
 };
 

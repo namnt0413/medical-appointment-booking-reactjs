@@ -63,7 +63,7 @@ class ProfileDoctor extends Component {
             return (
                 <>
                     <div> {time} : {date} </div>
-                    <div> Miễn phí đặt lịch </div>
+                    <div> <FormattedMessage id="patient.profile-doctor.free-booking"/> </div>
 
                 </>
             )
@@ -112,12 +112,12 @@ class ProfileDoctor extends Component {
 
             {isShowLinkDetail === true && 
             <div className="view-detail-doctor">
-                <Link to={`/detail-doctor/${doctorId}`} >Xem thêm</Link>
+                <Link to={`/detail-doctor/${doctorId}`} ><FormattedMessage id="patient.profile-doctor.more-info"/></Link>
             </div> }
 
             { isShowPrice === true && 
             <div className="price">
-            Giá khám:  
+            <FormattedMessage id="patient.profile-doctor.price"/>  
                 {doctorProfile && doctorProfile.Doctor_Info && language===LANGUAGES.VI &&
                     <NumberFormat 
                         className="currency"
@@ -134,6 +134,15 @@ class ProfileDoctor extends Component {
                         displayType="text"
                         thousandSeparator={true}
                         suffix=" $" 
+                    />  
+                }
+                {doctorProfile && doctorProfile.Doctor_Info && language===LANGUAGES.JP &&
+                    <NumberFormat 
+                        className="currency"
+                        value={doctorProfile.Doctor_Info.priceTypeData.valueEn}
+                        displayType="text"
+                        thousandSeparator={true}
+                        suffix="¥" 
                     />  
                 }
             </div>   

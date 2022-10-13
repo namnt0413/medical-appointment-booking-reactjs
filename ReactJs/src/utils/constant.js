@@ -14,7 +14,8 @@ export const path = {
 
 export const LANGUAGES = {
     VI: 'vi',
-    EN: 'en'
+    EN: 'en',
+    JP: 'jp'
 };
  
 export const CRUD_ACTIONS = {
