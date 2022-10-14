@@ -2,38 +2,45 @@
 module.exports = {
     up: async (queryInterface, Sequelize) => {
         await queryInterface.createTable('Markdowns', {
-
-
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            contentHTML: {
+            doctorId: {
                 allowNull: false,
+                type: Sequelize.INTEGER
+            },
+            contentHTML: {
                 type: Sequelize.TEXT('long')
             },
             contentMarkdown: {
-                allowNull: false,
                 type: Sequelize.TEXT('long')
             },
             description: {
-                allowNull: true,
                 type: Sequelize.TEXT('long')
             },
-            doctorId: {
-                allowNull: true,
-                type: Sequelize.INTEGER
+            contentHTMLEn: {
+              type: Sequelize.TEXT('long')
             },
-            specialtyId: {
-                allowNull: true,
-                type: Sequelize.INTEGER
+            contentMarkdownEn: {
+                type: Sequelize.TEXT('long')
             },
-            clinicId: {
-                allowNull: true,
-                type: Sequelize.INTEGER
+            descriptionEn: {
+                type: Sequelize.TEXT('long')
+            },  
+
+            contentHTMLJp: {
+              type: Sequelize.TEXT('long') 
             },
+            contentMarkdownJp: {
+                type: Sequelize.TEXT('long')
+            },
+            descriptionJp: {
+                type: Sequelize.TEXT('long')
+            },
+
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE

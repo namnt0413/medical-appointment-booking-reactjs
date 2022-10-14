@@ -47,7 +47,7 @@ class DoctorExtraInfo extends Component {
     render() {
         let language = this.props.language;
         let {isShowDetailInfo , extraInfo } = this.state;
-        // console.log(extraInfo)
+        console.log(extraInfo)
 
         return (
             <div className="doctor-extra-info-container">
@@ -84,7 +84,7 @@ class DoctorExtraInfo extends Component {
                         { extraInfo && extraInfo.priceTypeData && language === LANGUAGES.JP &&
                             <NumberFormat 
                                 className="currency"
-                                value={extraInfo.priceTypeData.valueEn}
+                                value={extraInfo.priceTypeData.valueJp}
                                 displayType="text"
                                 thousandSeparator={true}
                                 suffix=" ¥"
@@ -125,7 +125,7 @@ class DoctorExtraInfo extends Component {
                                         { extraInfo && extraInfo.priceTypeData && language === LANGUAGES.JP &&
                                             <NumberFormat 
                                                 className="currency"
-                                                value={extraInfo.priceTypeData.valueEn}
+                                                value={extraInfo.priceTypeData.valueJp}
                                                 displayType="text"
                                                 thousandSeparator={true}
                                                 suffix=" ¥"
@@ -139,7 +139,7 @@ class DoctorExtraInfo extends Component {
                             <div className="payment"><FormattedMessage id="patient.extra-info-doctor.payment"/> 
                             { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.VI  ? extraInfo.paymentTypeData.valueVi : '' }
                             { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.EN  ? extraInfo.paymentTypeData.valueEn : '' }
-                            { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.JP  ? extraInfo.paymentTypeData.valueEn : '' }
+                            { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.JP  ? extraInfo.paymentTypeData.valueJp : '' }
 
                             </div>
 

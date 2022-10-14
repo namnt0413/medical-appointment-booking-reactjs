@@ -91,7 +91,8 @@ class Specialty extends Component {
   render() {
     let { dataSpecialty, selectedSpecialty, selectedSpecialtyItem } = this.state;
     let sliderSetting = this.props.settings;
-    console.log(dataSpecialty)
+    let { language } = this.props;
+    // console.log(dataSpecialty)
 
     return (
       <>
@@ -114,7 +115,10 @@ class Specialty extends Component {
                                 onClick={() => this.handleViewShortDescriptionSpecialty(item.id)} href="#" role="tab" >
                               {this.handleSetIcon(item) // lay ra specialty icon
                               }
-                              <h4>{item.name}</h4>
+                              <h4>{ language===LANGUAGES.VI ? item.name 
+                                    : language===LANGUAGES.EN ? item.nameEn 
+                                      : item.nameJp }
+                              </h4>
                               </a>
                             </li>
                           )
@@ -131,8 +135,14 @@ class Specialty extends Component {
                   <div className="row align-items-center no-gutters">
                     <div className="col-lg-7">
                       <div className="dept_info">
-                        <h3>{selectedSpecialtyItem.name}</h3>
-                        <p>{selectedSpecialtyItem.shortDescription}</p>
+                        <h3>{ language===LANGUAGES.VI ? selectedSpecialtyItem.name 
+                              : language===LANGUAGES.EN ? selectedSpecialtyItem.nameEn 
+                                : selectedSpecialtyItem.nameJp }
+                        </h3>
+                        <p>{ language===LANGUAGES.VI ? selectedSpecialtyItem.shortDescription 
+                        : language===LANGUAGES.EN ? selectedSpecialtyItem.shortDescriptionEn 
+                          : selectedSpecialtyItem.shortDescriptionJp }
+                        </p>
                         <button onClick={() => this.handleViewDetailSpecialty(selectedSpecialtyItem)} href="#" className="dep-btn"><FormattedMessage id="homepage.view_specialty"/><i className="fa fa-arrow-right"></i></button>
                       </div>
                     </div>

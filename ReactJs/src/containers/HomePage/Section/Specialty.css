@@ -292,4 +292,6 @@ i.fa-arrow-right {
     width: 100%;
 }
 
-
+.department_area .depart_ment_tab .nav li a h4 {
+    margin-top: 1rem;
+}

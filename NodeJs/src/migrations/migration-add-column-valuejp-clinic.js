@@ -2,8 +2,6 @@
 module.exports = {
     up: async (queryInterface, Sequelize) => {
         await queryInterface.createTable('Clinics', {
-
-
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -23,6 +21,32 @@ module.exports = {
                 type: Sequelize.TEXT
             },
             descriptionMarkdown: {
+                type: Sequelize.TEXT
+            },
+
+            nameEn: {
+              type: Sequelize.STRING
+            },
+            addressEn: {
+                type: Sequelize.STRING
+            },
+            descriptionHTMLEn: {
+                type: Sequelize.TEXT
+            },
+            descriptionMarkdownEn: {
+                type: Sequelize.TEXT
+            },
+
+            nameJp: {
+              type: Sequelize.STRING
+            },
+            addressJp: {
+                type: Sequelize.STRING
+            },
+            descriptionHTMLJp: {
+                type: Sequelize.TEXT
+            },
+            descriptionMarkdownJp: {
                 type: Sequelize.TEXT
             },
             createdAt: {
