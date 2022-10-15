@@ -57,7 +57,7 @@ class ManageUserRedux extends Component {
 
     componentDidUpdate(prevProps,prevState,snapshot) {
         if( prevProps.genders !== this.props.genders ){
-            let arrGenders = this.props.genders;
+            let arrGenders = this.props.genders; // lay tu redux
             // console.log(arrGenders)
             this.setState({
                 genderArray: arrGenders,

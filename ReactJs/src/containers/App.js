@@ -5,27 +5,30 @@ import { ConnectedRouter as Router } from 'connected-react-router';
 import { history } from '../redux'
 import { ToastContainer } from 'react-toastify';
 import HomePage from './HomePage/HomePage.js';
-
-
 import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authentication';
-
 import { path } from '../utils'
-
 import Home from '../routes/Home';
 // import Login from '../routes/Login';
 import Login from '../containers/Auth/Login';
 // import Header from './Header/Header';
 import System from '../routes/System';
-import DetailDoctor from './Patient/Doctor/DetailDoctor'
-import DetailSpecialty from './Patient/Specialty/DetailSpecialty'
-import DetailClinic from './Patient/Clinic/DetailClinic'
+import DoctorDetail from './Patient/Doctor/DoctorDetail'
+import SpecialtyDetail from './Patient/Specialty/SpecialtyDetail'
+import ClinicDetail from './Patient/Clinic/ClinicDetail'
 import Doctor from '../routes/Doctor'
 import ConfirmModal from '../components/ConfirmModal';
 import CustomScrollbars from '../components/CustomScrollbars';
 import VerifyEmail from '../containers/Patient/VerifyEmail'
+import LoadingOverlay from 'react-loading-overlay';
 
 class App extends Component {
- 
+    constructor(props) {
+        super(props);
+        this.state = {
+            // isShowLoading: ""
+        } 
+    }
+
     handlePersistorState = () => {
         const { persistor } = this.props;
         let { bootstrapped } = persistor.getState();
@@ -45,8 +48,15 @@ class App extends Component {
     }
 
     render() {
+        let {isShowLoading} = this.props; // lay ra tu state admin cua redux
+        console.log(isShowLoading)
         return (
             <Fragment>
+                <LoadingOverlay
+                    active={isShowLoading}
+                    spinner
+                    text='Loading...'
+                >
                 <Router history={history}>  {/* Luu giu lai lich su , ko phai goi api nhieu lan*/}
                     <div className="main-container">
                         <ConfirmModal />
@@ -60,9 +70,9 @@ class App extends Component {
                                 <Route path={'/doctor'} component={userIsAuthenticated(Doctor)} />
 
                                 <Route path={path.HOMEPAGE} component={HomePage} />
-                                <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
-                                <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
-                                <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
+                                <Route path={path.DETAIL_DOCTOR} component={DoctorDetail} />
+                                <Route path={path.DETAIL_SPECIALTY} component={SpecialtyDetail} />
+                                <Route path={path.DETAIL_CLINIC} component={ClinicDetail} />
 
                                 <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
                             </Switch>
@@ -77,7 +87,7 @@ class App extends Component {
                         /> */}
 
                         <ToastContainer
-                            position="bottom-right"
+                            position="top-right"
                             autoClose={5000}
                             hideProgressBar={false}
                             newestOnTop={false}
@@ -89,6 +99,7 @@ class App extends Component {
                         />
                     </div>
                 </Router>
+                </LoadingOverlay>
             </Fragment>
         )
     }
@@ -97,7 +108,8 @@ class App extends Component {
 const mapStateToProps = state => {
     return {
         started: state.app.started,
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
+        isShowLoading: state.app.isShowLoading,
     };
 };
 

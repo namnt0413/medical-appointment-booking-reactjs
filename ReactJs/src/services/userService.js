@@ -57,7 +57,7 @@ const getExtraInfoDoctor = (doctorId) => {
     return axios.get(`/api/get-extra-info-doctor?doctorId=${doctorId}`)
 }
 
-const getProfileDoctor = (doctorId) => {
+const getDoctorProfile = (doctorId) => {
     return axios.get(`/api/get-profile-doctor?doctorId=${doctorId}`)
 }
 
@@ -85,7 +85,7 @@ const updateSpecialtyService = (inputData) => {
     return axios.put('/api/update-specialty',inputData); 
 }
 
-const getDetailSpecialtyById = (data) => {
+const getSpecialtyDetailById = (data) => {
     return axios.get(`/api/get-detail-specialty-by-id?id=${data.id}&location=${data.location}`)
 }
 
@@ -105,14 +105,14 @@ const updateClinicService = (inputData) => {
     return axios.put('/api/update-clinic',inputData); 
 }
 
-const getDetailClinicyById = (data) => {
+const getClinicDetailyById = (data) => {
     return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}`)
 }
 
 export { handleLoginApi , getAllUsers, createNewUserService, deleteUserService, bulkCreateSchedule, getScheduleDoctorByDate, getExtraInfoDoctor,
     editUserService, getAllCodeService, getTopDoctorHomeService,getAllDoctorService,saveInfoDoctorService , getDetailInfoDoctor,
-    getProfileDoctor, postBookingAppointment , postVerifyBookingAppointment, createNewSpecailty , getAllSpecialty , deleteSpecialtyService, updateSpecialtyService,getDetailSpecialtyById,
-    createNewClinic , getAllClinic , deleteClinicService , updateClinicService , getDetailClinicyById
+    getDoctorProfile, postBookingAppointment , postVerifyBookingAppointment, createNewSpecailty , getAllSpecialty , deleteSpecialtyService, updateSpecialtyService,getSpecialtyDetailById,
+    createNewClinic , getAllClinic , deleteClinicService , updateClinicService , getClinicDetailyById
 }
 
 

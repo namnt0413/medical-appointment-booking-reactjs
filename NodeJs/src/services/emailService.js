@@ -61,6 +61,23 @@ let getBodyHTMLEmails = (dataSend) => {
             </div>
         `
     } 
+    if(dataSend.language === 'jp') {
+        result = 
+        `
+            <h3> こんにちは ${dataSend.patientName} !</h3>
+            <p> 平素よりオンライン診療予約サービスをご利用いただき、誠にありがとうございます。 </p>
+            <p><b>診療予約情報 :</b></p>
+            <div>お客様: <b>${dataSend.patientName}さん</b></div>
+            <div>    時間: <b>${dataSend.time}</b></div>
+            <div>住所 : <b>${dataSend.clinicName} ( ${dataSend.clinicAddress} )</b></div>
+            <div>  医者: <b>${dataSend.doctorName}さん</b></div>
+            <p> 上記の情報が正しい場合は、以下のリンクをクリックして確認し、予約手続きを完了してください。</p>
+            <div>
+                <a href=${dataSend.redirectLink} target="_blank" >Click here</a>
+                <p> Medical Booking をご利用いただき、誠にありがとうございます。</p>
+            </div>
+        `
+    } 
     return result;
 }
 
@@ -113,6 +130,17 @@ let getBodyHTMLEmailPrescription = (dataSend) => {
             <p>Your prescription information has been sent in the attachment below:</p>
             <div>
                 <p>Medical Booking sincerely thank you for using our service!</p>
+            </div>
+        `
+    } 
+    if(dataSend.language === 'jp') {
+        result = 
+        `
+            <h3><b>こんにちは ${dataSend.patientName} !</b></h3>
+            <p> このメールは、当社の予約サービスを使用した後に送信されました.</p>
+            <p>あなたの処方箋情報は、以下の添付ファイルで送信されました:</p>
+            <div>
+                <p>医療予約サービスをご利用いただき、誠にありがとうございます!</p>
             </div>
         `
     } 

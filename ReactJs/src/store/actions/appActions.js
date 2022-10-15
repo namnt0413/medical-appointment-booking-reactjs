@@ -15,3 +15,8 @@ export const changeLanguageApp = (languageInput) => ({
     language : languageInput
 });
 
+export const changeIsShowLoading = (isShowLoading) => ({
+    type: actionTypes.CHANGE_IS_SHOW_LOADING,
+    isShowLoading : isShowLoading
+});
+

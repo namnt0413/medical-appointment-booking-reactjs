@@ -16,12 +16,12 @@ let getTopDoctorHome = (limitInput) => {
                     exclude: ['password','address','gender','genderData','phonenumber','roleId', 'createdAt', 'updatedAt'] // loai bo di thuoc tinh password
                 },
                 include: [
-                    { model: db.Allcode, as: 'positionData', attributes: ['valueVi','valueEn']  },
-                    { model: db.Allcode, as: 'genderData', attributes: ['valueVi','valueEn']  },
+                    { model: db.Allcode, as: 'positionData', attributes: ['valueVi','valueEn','valueJp']  },
+                    { model: db.Allcode, as: 'genderData', attributes: ['valueVi','valueEn','valueJp']  },
                     { model: db.Doctor_Info, attributes: ['clinicId','specialtyId'] ,
                          include: [
-                        { model: db.Clinic, as: 'clinicData', attributes: ['name'] },
-                        { model: db.Specialty, as: 'specialtyData', attributes: ['name'] },
+                        { model: db.Clinic, as: 'clinicData', attributes: ['name','nameEn','nameJp'] },
+                        { model: db.Specialty, as: 'specialtyData', attributes: ['name','nameEn','nameJp'] },
                          ]
                     },
                 ],
@@ -180,7 +180,11 @@ let getDetailDoctor= (inputId) => {
                     },
                     include: [
                         { model: db.Markdown , 
-                            attributes: ['description','contentHTML','contentMarkdown']
+                            attributes: 
+                                ['description','contentHTML','contentMarkdown',
+                                'descriptionEn','contentHTMLEn','contentMarkdownEn',
+                                'descriptionJp','contentHTMLJp','contentMarkdownJp'
+                                ]
                         },
 
                         { model: db.Doctor_Info , 
@@ -188,14 +192,14 @@ let getDetailDoctor= (inputId) => {
                                 exclude : ['id','doctorId'] 
                             },
                             include: [
-                                { model: db.Allcode , as: 'priceTypeData', attributes: ['valueVi','valueEn']},
-                                { model: db.Allcode , as: 'paymentTypeData', attributes: ['valueVi','valueEn']},
-                                { model: db.Allcode , as: 'provinceTypeData', attributes: ['valueVi','valueEn']},
+                                { model: db.Allcode , as: 'priceTypeData', attributes: ['valueVi','valueEn','valueJp']},
+                                { model: db.Allcode , as: 'paymentTypeData', attributes: ['valueVi','valueEn','valueJp']},
+                                { model: db.Allcode , as: 'provinceTypeData', attributes: ['valueVi','valueEn','valueJp']},
                             ]
                         },
 
-                        { model: db.Allcode, as: 'positionData', attributes: ['valueVi','valueEn']  },
-                        { model: db.Allcode, as: 'genderData', attributes: ['valueVi','valueEn']  },
+                        { model: db.Allcode, as: 'positionData', attributes: ['valueVi','valueEn','valueJp'] },
+                        { model: db.Allcode, as: 'genderData', attributes: ['valueVi','valueEn','valueJp'] },
                     ],
                     raw: true,
                     nest: true
@@ -283,7 +287,7 @@ let getScheduleDoctorByDate = (doctorId,date) => {
                         date : date,
                     } ,
                     include: [
-                        { model: db.Allcode, as: 'timeTypeData', attributes: ['valueVi','valueEn']  },
+                        { model: db.Allcode, as: 'timeTypeData', attributes: ['valueVi','valueEn','valueJp'] },
                         { model: db.User, as: 'doctorData', attributes: ['firstName','lastName'] ,
                             include: [
                                 {model: db.Doctor_Info, attributes: ['addressClinic','nameClinic'] }
@@ -321,9 +325,11 @@ let getExtraInfoDoctor = (doctorId) => {
                         exclude: ['id','doctorId'] 
                     },
                     include: [
-                        { model: db.Allcode , as: 'priceTypeData', attributes: ['valueVi','valueEn']},
-                        { model: db.Allcode , as: 'paymentTypeData', attributes: ['valueVi','valueEn']},
-                        { model: db.Allcode , as: 'provinceTypeData', attributes: ['valueVi','valueEn']},
+                        { model: db.Allcode , as: 'priceTypeData', attributes: ['valueVi','valueEn','valueJp']},
+                        { model: db.Allcode , as: 'paymentTypeData', attributes: ['valueVi','valueEn','valueJp']},
+                        { model: db.Allcode , as: 'provinceTypeData', attributes: ['valueVi','valueEn','valueJp']},
+
+                        { model: db.Clinic, as: 'clinicData', attributes: ['name','nameEn','nameJp','address','addressEn','addressJp'] },
                     ],
                     raw: false,
                     nest: true
@@ -359,20 +365,21 @@ let getProfileDoctor = (inputId) => {
                     },
                     include: [
                         { model: db.Markdown , 
-                            attributes: ['description','contentHTML','contentMarkdown']
+                            attributes: 
+                            ['description','contentHTML','contentMarkdown','descriptionEn','contentHTMLEn','contentMarkdownEn','descriptionJp','contentHTMLJp','contentMarkdownJp']
                         },
                         { model: db.Doctor_Info , 
                             attributes: { 
                                 exclude : ['id','doctorId'] 
                             },
                             include: [
-                                { model: db.Allcode , as: 'priceTypeData', attributes: ['valueVi','valueEn']},
-                                { model: db.Allcode , as: 'paymentTypeData', attributes: ['valueVi','valueEn']},
-                                { model: db.Allcode , as: 'provinceTypeData', attributes: ['valueVi','valueEn']},
+                                { model: db.Allcode , as: 'priceTypeData', attributes: ['valueVi','valueEn','valueJp']},
+                                { model: db.Allcode , as: 'paymentTypeData', attributes: ['valueVi','valueEn','valueJp']},
+                                { model: db.Allcode , as: 'provinceTypeData', attributes: ['valueVi','valueEn','valueJp']},
                             ]
                         },
 
-                        { model: db.Allcode, as: 'positionData', attributes: ['valueVi','valueEn']  },
+                        { model: db.Allcode, as: 'positionData', attributes: ['valueVi','valueEn','valueJp'] },
                     ],
                     raw: false,
                     nest: true
@@ -415,11 +422,11 @@ let getListPatient = (doctorId,date) => {
                         { 
                             model: db.User, as: 'patientData',attributes: ['email', 'firstName' ,'lastName','address','gender','phonenumber'],
                             include: [
-                                { model: db.Allcode, as: 'genderData',attributes: ['valueVi','valueEn'] }  ,
+                                { model: db.Allcode, as: 'genderData',attributes: ['valueVi','valueEn','valueJp'] }  ,
                             ]
                         },
                         {
-                            model: db.Allcode, as: 'timeTypeDataPatient',attributes: ['valueVi','valueEn'] 
+                            model: db.Allcode, as: 'timeTypeDataPatient',attributes: ['valueVi','valueEn','valueJp'] 
                         }
                     ],
                     raw: false,

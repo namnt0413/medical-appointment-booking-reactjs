@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import HomeHeader from './HomeHeader';
 import Specialty from './Section/Specialty'
 import Service from './Section/Service'
-import MedicalFacility from './Section/MedicalFacility'
-import OutstandingDoctor from './Section/OutstandingDoctor'
-import HandBook from './Section/HandBook'
+import Clinic from './Section/Clinic'
+import Doctor from './Section/Doctor'
 import About from './Section/About'
 import HomeFooter from './/HomeFooter'
 import { FormattedMessage } from 'react-intl';
@@ -70,15 +69,12 @@ class HomePage extends Component {
                 <Specialty
                    settings={specialSetting}
                 />
-                <MedicalFacility
+                <Clinic
                   settings={settings}
                  />
-                <OutstandingDoctor
+                <Doctor
                    settings={settings}
                 />
-                {/* <HandBook 
-                  settings={settings}
-                /> */}
                 <About/>
                 
                 {/* <!-- ======= Gallery Section ======= --> */}

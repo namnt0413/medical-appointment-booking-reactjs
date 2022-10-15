@@ -34,9 +34,11 @@ let getAllSpecialty = () => {
     return new Promise( async (resolve, reject) => {
         try {
             let data = await db.Specialty.findAll({
-                // attributes: {
-                //     exclude: ['image']
-                // }
+                attributes: 
+                [ 'id', 'iconName','name','shortDescription','descriptionHTML','descriptionMarkdown',
+                    'nameEn','shortDescriptionEn','descriptionHTMLEn','descriptionMarkdownEn',
+                    'nameJp','shortDescriptionJp','descriptionHTMLJp','descriptionMarkdownJp','image'
+                ]
             });
             if(data && data.length > 0) {
                 data.map( item => {
@@ -139,6 +141,9 @@ let getDetailSpecialtyById = (inputId , location) => {
                     where: { 
                         id : inputId 
                     },
+                    attributes: {
+                        exclude: ['iconName','descriptionMarkdown', 'descriptionMarkdownEn', 'descriptionMarkdownJp' , 'createdAt','updatedAt'] // loai bo di thuoc tinh password
+                    }
                 })
                 
                 let doctorSpecialty = [];

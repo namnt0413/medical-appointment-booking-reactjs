@@ -244,6 +244,7 @@ let getAllCode = (typeInput) => {
                 let allcode = await db.Allcode.findAll({
                     where: { type: typeInput }
                 });
+                // console.log(allcode);
                 res.errCode = 0;
                 res.data = allcode;
                 resolve(res);

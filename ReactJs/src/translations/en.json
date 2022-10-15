@@ -53,9 +53,6 @@
             "payment": "Patient can pay with method : ",
             "hide-price": "Hide detail infomation"
         },
-        "booking-modal": {
-            "title": "Information about medical appointment"
-        },
         "profile-doctor":  {
             "price": "Price : ",
             "free-booking": "Free Booking",
@@ -63,7 +60,21 @@
         },
         "detail-clinic": {
             "intro": "Introduction",
-            "book-appointment": "予約を取る"
+            "book-appointment": "Book an appointment"
+        },
+        "booking-modal": {
+            "title": "Medical appointment infomation",
+            "name": "Fullname",
+            "phone-number": "Phone number",
+            "email": "Email",
+            "address": "Address",
+            "reason": "Booking Reason",
+            "birthday": "Birthday",
+            "gender": "Gender",
+            "btn-confirm": "Confirm",
+            "btn-cancel": "Cancel",
+            "book-success": "Booking a new appointment success! Please check your email to confirm appointment",
+            "book-fail": "Booking a new appointment success! Please try again"
         }
     },
 

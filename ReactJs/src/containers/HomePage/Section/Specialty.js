@@ -14,8 +14,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import specialtyImg from "../../../assets/specialty/120331-co-xuong-khop.jpg"
 import { getAllSpecialty } from "../../../services/userService"
-import { getDetailSpecialtyById } from '../../../services/userService'
+import { getSpecialtyDetailById } from '../../../services/userService'
 import { withRouter } from 'react-router'
+import * as actions from '../../../store/actions'
 
 
 class Specialty extends Component {
@@ -23,21 +24,23 @@ class Specialty extends Component {
     super(props);
     this.state = {
       dataSpecialty: [],
-      selectedSpecialty: 3,
+      selectedSpecialty: 1,
       selectedSpecialtyItem: {}
     }
   }
 
   async componentDidMount() {
+    this.props.changeIsShowLoading(true);  // loading
     let res = await getAllSpecialty();
     if (res && res.errCode === 0) {
+      this.props.changeIsShowLoading(false);  // not loading
       this.setState({
         dataSpecialty: res.data ? res.data : []
       })
     }
 
     let selectedSpecialty = this.state.selectedSpecialty
-    let selectedSpecialtyItem = await getDetailSpecialtyById({
+    let selectedSpecialtyItem = await getSpecialtyDetailById({
       id: selectedSpecialty,
       location: 'ALL'
 
@@ -49,7 +52,7 @@ class Specialty extends Component {
     // console.log(res.data)
   }
 
-  handleViewDetailSpecialty = (item) => {
+  handleViewSpecialtyDetail = (item) => {
     if (this.props.history) {
       this.props.history.push(`/detail-specialty/${item.id}`)
     }
@@ -57,7 +60,7 @@ class Specialty extends Component {
 
   handleViewShortDescriptionSpecialty = async (item) => {
     // console.log(item);
-    let selectedSpecialtyItem = await getDetailSpecialtyById({
+    let selectedSpecialtyItem = await getSpecialtyDetailById({
       id: item,
       location: 'ALL'
 
@@ -143,7 +146,7 @@ class Specialty extends Component {
                         : language===LANGUAGES.EN ? selectedSpecialtyItem.shortDescriptionEn 
                           : selectedSpecialtyItem.shortDescriptionJp }
                         </p>
-                        <button onClick={() => this.handleViewDetailSpecialty(selectedSpecialtyItem)} href="#" className="dep-btn"><FormattedMessage id="homepage.view_specialty"/><i className="fa fa-arrow-right"></i></button>
+                        <button onClick={() => this.handleViewSpecialtyDetail(selectedSpecialtyItem)} href="#" className="dep-btn"><FormattedMessage id="homepage.view_specialty"/><i className="fa fa-arrow-right"></i></button>
                       </div>
                     </div>
                     <div className="col-lg-5">
@@ -172,13 +175,16 @@ const mapStateToProps = state => {
   return {
     isLoggedIn: state.user.isLoggedIn,
     language: state.app.language,
-    userInfo: state.user.userInfo
+    userInfo: state.user.userInfo,
+    isShowLoading: state.app.isShowLoading,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeLanguageApp: (language) => dispatch(changeLanguageApp(language))
+    // changeLanguageApp: (language) => dispatch(changeLanguageApp(language))
+    changeIsShowLoading: (isShowLoading) => dispatch(actions.changeIsShowLoading(isShowLoading))
+
   };
 };
 

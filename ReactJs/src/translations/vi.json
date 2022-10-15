@@ -53,9 +53,6 @@
             "payment": "Người bệnh có thể thanh toán bằng hình thức: ",
             "hide-price": "Ẩn bảng giá"
         },
-        "booking-modal": {
-            "title": "Thông tin lịch hẹn khám bệnh"
-        },
         "profile-doctor":  {
             "price": "Giá khám : ",
             "free-booking": "Miễn phí đặt lịch",
@@ -64,6 +61,20 @@
         "detail-clinic": {
             "intro": "Giới thiệu",
             "book-appointment": "Đặt lịch khám"
+        },
+        "booking-modal": {
+            "title": "Thông tin lịch hẹn khám bệnh",
+            "name": "Họ và tên",
+            "phone-number": "Số điện thoại",
+            "email": "Địa chỉ email",
+            "address": "Địa chỉ",
+            "reason": "Lý do khám",
+            "birthday": "Ngày sinh",
+            "gender": "Giới tính",
+            "btn-confirm": "Xác nhận",
+            "btn-cancel": "Hủy",
+            "book-success": "Đặt lịch hẹn mới thành công! Vui lòng kiểm tra email của bạn để xác nhận cuộc hẹn",
+            "book-fail": "Đặt lịch hẹn mới thành công! Xin vui lòng thử lại"
         }
     },
     "menu": {

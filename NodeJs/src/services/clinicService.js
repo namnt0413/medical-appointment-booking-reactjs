@@ -35,9 +35,11 @@ let getAllClinic = () => {
     return new Promise( async (resolve, reject) => {
         try {
             let data = await db.Clinic.findAll({
-                // attributes: {
-                //     exclude: ['image']
-                // }
+                attributes: 
+                ['id','name', 'address' ,'image',
+                'nameEn', 'addressEn',
+                'nameJp', 'addressJp',
+                ]
             });
             if(data && data.length > 0) {
                 data.map( item => {
@@ -141,7 +143,11 @@ let getDetailClinicById = (inputId) => {
                     where: { 
                         id : inputId 
                     },
-                    attributes: ['name', 'address' ,'descriptionMarkdown','descriptionHTML','image']
+                    attributes: 
+                    ['name', 'address' ,'descriptionMarkdown','descriptionHTML','image',
+                    'nameEn', 'addressEn' ,'descriptionMarkdownEn','descriptionHTMLEn',
+                    'nameJp', 'addressJp' ,'descriptionMarkdownJp','descriptionHTMLJp'
+                    ]
                 })
                 
                 let doctorClinic = [];

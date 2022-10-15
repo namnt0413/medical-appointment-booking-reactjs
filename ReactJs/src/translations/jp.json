@@ -52,9 +52,6 @@
             "payment": "患者は方法で支払うことができます : ",
             "hide-price": "詳細情報を非表示"
         },
-        "booking-modal": {
-            "title": "診療予約の内容"
-        },
         "profile-doctor":  {
             "price": "価格 : ",
             "free-booking": "無料予約",
@@ -62,7 +59,21 @@
         },
         "detail-clinic": {
             "intro": "序章",
-            "book-appointment": "Đặt lịch khám"
+            "book-appointment": "予約を取る"
+        },
+        "booking-modal": {
+            "title": "診療予約の内容",
+            "name": "名前",
+            "phone-number": "電話番号",
+            "email": "電子メールアドレス",
+            "address": "住所",
+            "reason": "審査理由",
+            "birthday": "生年月日",
+            "gender": "性別",
+            "btn-confirm": "確認",
+            "btn-cancel": "キャンセル",
+            "book-success": "新規予約成功！ メールを確認して予定を確認してください",
+            "book-fail": "新規予約成功！ もう一度お試しください"
         }
     },
 

@@ -14,7 +14,7 @@ body {
   }
   
   a {
-    color: #1977cc;
+    color: #009DFF;
     text-decoration: none;
   }
   
@@ -51,7 +51,7 @@ body {
     position: fixed;
     top: calc(50% - 30px);
     left: calc(50% - 30px);
-    border: 6px solid #1977cc;
+    border: 6px solid #009DFF;
     border-top-color: #d1e6f9;
     border-radius: 50%;
     width: 60px;
@@ -90,7 +90,7 @@ body {
     right: 15px;
     bottom: 15px;
     z-index: 996;
-    background: #1977cc;
+    background: #009DFF;
     width: 40px;
     height: 40px;
     border-radius: 4px;
@@ -139,11 +139,11 @@ body {
   }
   
   #topbar .contact-info a:hover {
-    color: #1977cc;
+    color: #009DFF;
   }
   
   #topbar .contact-info i {
-    color: #1977cc;
+    color: #009DFF;
     padding-right: 4px;
     margin-left: 15px;
     line-height: 0;
@@ -162,7 +162,7 @@ body {
   }
   
   #topbar .social-links a:hover {
-    color: #1977cc;
+    color: #009DFF;
   }
   
   #topbar .social-links a:first-child {
@@ -213,7 +213,7 @@ body {
   */
   .appointment-btn {
     margin-left: 25px;
-    background: #1977cc;
+    background: #009DFF;
     color: #fff;
     border-radius: 50px;
     padding: 8px 25px;
@@ -287,8 +287,8 @@ body {
   .navbar .active,
   .navbar .active:focus,
   .navbar li:hover>a {
-    color: #1977cc;
-    border-color: #1977cc;
+    color: #009DFF;
+    border-color: #009DFF;
   }
   
   .navbar .dropdown ul {
@@ -326,7 +326,7 @@ body {
   .navbar .dropdown ul a:hover,
   .navbar .dropdown ul .active:hover,
   .navbar .dropdown ul li:hover>a {
-    color: #1977cc;
+    color: #009DFF;
   }
   
   .navbar .dropdown:hover>ul {
@@ -430,7 +430,7 @@ body {
   .navbar-mobile a:hover,
   .navbar-mobile .active,
   .navbar-mobile li:hover>a {
-    color: #1977cc;
+    color: #009DFF;
   }
   
   .navbar-mobile .getstarted,
@@ -465,7 +465,7 @@ body {
   .navbar-mobile .dropdown ul a:hover,
   .navbar-mobile .dropdown ul .active:hover,
   .navbar-mobile .dropdown ul li:hover>a {
-    color: #1977cc;
+    color: #009DFF;
   }
   
   .navbar-mobile .dropdown>.dropdown-active {
@@ -514,7 +514,7 @@ body {
     border-radius: 50px;
     transition: 0.5s;
     color: #fff;
-    background: #1977cc;
+    background: #009DFF;
   }
   
   #hero .btn-get-started:hover {
@@ -598,7 +598,7 @@ body {
     display: block;
     width: 40px;
     height: 3px;
-    background: #1977cc;
+    background: #009DFF;
     bottom: 0;
     left: calc(50% - 20px);
   }
@@ -674,7 +674,7 @@ body {
   --------------------------------------------------------------*/
   .why-us .content {
     padding: 30px;
-    background: #1977cc;
+    background: #009DFF;
     border-radius: 4px;
     color: #fff;
   }
@@ -703,7 +703,7 @@ body {
   }
   
   .why-us .content .more-btn:hover {
-    color: #1977cc;
+    color: #009DFF;
     background: #fff;
   }
   
@@ -718,7 +718,7 @@ body {
   
   .why-us .icon-boxes .icon-box i {
     font-size: 40px;
-    color: #1977cc;
+    color: #009DFF;
     margin-bottom: 30px;
   }
   
@@ -766,13 +766,13 @@ body {
   }
   
   .about .icon-box .icon i {
-    color: #1977cc;
+    color: #009DFF;
     font-size: 32px;
   }
   
   .about .icon-box:hover .icon {
-    background: #1977cc;
-    border-color: #1977cc;
+    background: #009DFF;
+    border-color: #009DFF;
   }
   
   .about .icon-box:hover .icon i {
@@ -792,7 +792,7 @@ body {
   }
   
   .about .icon-box .title a:hover {
-    color: #1977cc;
+    color: #009DFF;
   }
   
   .about .icon-box .description {
@@ -810,7 +810,7 @@ body {
   .about .play-btn {
     width: 94px;
     height: 94px;
-    background: radial-gradient(#1977cc 50%, rgba(25, 119, 204, 0.4) 52%);
+    background: radial-gradient(#009DFF 50%, rgba(25, 119, 204, 0.4) 52%);
     border-radius: 50%;
     display: block;
     position: absolute;
@@ -858,7 +858,7 @@ body {
   }
   
   .about .play-btn:hover::after {
-    border-left: 15px solid #1977cc;
+    border-left: 15px solid #009DFF;
     transform: scale(20);
   }
   
@@ -926,7 +926,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     font-size: 20px;
-    background: #1977cc;
+    background: #009DFF;
     color: #fff;
     border-radius: 50px;
     display: inline-flex;
@@ -970,7 +970,7 @@ body {
     margin: 0 auto;
     width: 64px;
     height: 64px;
-    background: #1977cc;
+    background: #009DFF;
     border-radius: 5px;
     transition: all 0.3s ease-out 0s;
     display: flex;
@@ -1015,8 +1015,8 @@ body {
   }
   
   .services .icon-box:hover {
-    background: #1977cc;
-    border-color: #1977cc;
+    background: #009DFF;
+    border-color: #009DFF;
   }
   
   .services .icon-box:hover .icon {
@@ -1024,7 +1024,7 @@ body {
   }
   
   .services .icon-box:hover .icon i {
-    color: #1977cc;
+    color: #009DFF;
   }
   
   .services .icon-box:hover .icon::before {
@@ -1109,7 +1109,7 @@ body {
   .appointment .php-email-form input:focus,
   .appointment .php-email-form textarea:focus,
   .appointment .php-email-form select:focus {
-    border-color: #1977cc;
+    border-color: #009DFF;
   }
   
   .appointment .php-email-form input,
@@ -1122,7 +1122,7 @@ body {
   }
   
   .appointment .php-email-form button[type=submit] {
-    background: #1977cc;
+    background: #009DFF;
     border: 0;
     padding: 10px 35px;
     color: #fff;
@@ -1157,12 +1157,12 @@ body {
   }
   
   .departments .nav-link:hover {
-    color: #1977cc;
+    color: #009DFF;
   }
   
   .departments .nav-link.active {
-    color: #1977cc;
-    border-color: #1977cc;
+    color: #009DFF;
+    border-color: #009DFF;
   }
   
   .departments .tab-pane.active {
@@ -1193,7 +1193,7 @@ body {
   
     .departments .nav-link.active {
       color: #fff;
-      background: #1977cc;
+      background: #009DFF;
     }
   }
   
@@ -1288,7 +1288,7 @@ body {
   }
   
   .doctors .member .social a:hover {
-    background: #1977cc;
+    background: #009DFF;
   }
   
   .doctors .member .social a+a {
@@ -1361,7 +1361,7 @@ body {
   }
   
   .faq .faq-list a.collapsed:hover {
-    color: #1977cc;
+    color: #009DFF;
   }
   
   .faq .faq-list a.collapsed .icon-show {
@@ -1455,11 +1455,11 @@ body {
     height: 12px;
     background-color: #fff;
     opacity: 1;
-    border: 1px solid #1977cc;
+    border: 1px solid #009DFF;
   }
   
   .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-    background-color: #1977cc;
+    background-color: #009DFF;
   }
   
   @media (max-width: 767px) {
@@ -1510,7 +1510,7 @@ body {
   
   .contact .info i {
     font-size: 20px;
-    color: #1977cc;
+    color: #009DFF;
     float: left;
     width: 44px;
     height: 44px;
@@ -1545,7 +1545,7 @@ body {
   .contact .info .email:hover i,
   .contact .info .address:hover i,
   .contact .info .phone:hover i {
-    background: #1977cc;
+    background: #009DFF;
     color: #fff;
   }
   
@@ -1616,7 +1616,7 @@ body {
   }
   
   .contact .php-email-form button[type=submit] {
-    background: #1977cc;
+    background: #009DFF;
     border: 0;
     padding: 10px 35px;
     color: #fff;
@@ -1727,7 +1727,7 @@ body {
   
   #footer .footer-top .footer-links ul a:hover {
     text-decoration: none;
-    color: #1977cc;
+    color: #009DFF;
   }
   
   #footer .footer-newsletter {
@@ -1767,7 +1767,7 @@ body {
     background: none;
     font-size: 16px;
     padding: 0 20px;
-    background: #1977cc;
+    background: #009DFF;
     color: #fff;
     transition: 0.3s;
     border-radius: 50px;
@@ -1786,7 +1786,7 @@ body {
   #footer .social-links a {
     font-size: 18px;
     display: inline-block;
-    background: #1977cc;
+    background: #009DFF;
     color: #fff;
     line-height: 1;
     padding: 8px 0;

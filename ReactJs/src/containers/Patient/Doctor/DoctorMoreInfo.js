@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import './DoctorExtraInfo.scss';
+import './DoctorMoreInfo.scss';
 import {LANGUAGES} from '../../../utils';
 import Select from 'react-select';
 import {getScheduleDoctorByDate} from '../../../services/userService'
@@ -8,7 +8,7 @@ import { FormattedMessage} from 'react-intl'
 import {getExtraInfoDoctor} from '../../../services/userService'
 import NumberFormat from 'react-number-format';
 
-class DoctorExtraInfo extends Component {
+class DoctorMoreInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -47,17 +47,25 @@ class DoctorExtraInfo extends Component {
     render() {
         let language = this.props.language;
         let {isShowDetailInfo , extraInfo } = this.state;
-        // console.log(extraInfo)
+        console.log(extraInfo)
 
         return (
             <div className="doctor-extra-info-container">
                 <div className="content-up">
                     <div className="text-address">  <FormattedMessage id="patient.extra-info-doctor.text-address"/></div>
                     <div className="name-clinic">
-                        { extraInfo && extraInfo.nameClinic ? extraInfo.nameClinic : '' }
+                        { extraInfo && extraInfo.clinicData ? 
+                            language===LANGUAGES.VI ? extraInfo.clinicData.name :
+                            language===LANGUAGES.EN ? extraInfo.clinicData.nameEn :
+                            extraInfo.clinicData.nameJp
+                        : '' }
                     </div>
                     <div className="detail-address">
-                        { extraInfo && extraInfo.addressClinic ? extraInfo.addressClinic : '' }
+                    { extraInfo && extraInfo.clinicData ? 
+                            language===LANGUAGES.VI ? extraInfo.clinicData.address :
+                            language===LANGUAGES.EN ? extraInfo.clinicData.addressEn :
+                            extraInfo.clinicData.addressJp
+                        : '' }
                     </div>
                 </div>
                 <div className="content-down">
@@ -84,7 +92,7 @@ class DoctorExtraInfo extends Component {
                         { extraInfo && extraInfo.priceTypeData && language === LANGUAGES.JP &&
                             <NumberFormat 
                                 className="currency"
-                                value={extraInfo.priceTypeData.valueEn}
+                                value={extraInfo.priceTypeData.valueJp}
                                 displayType="text"
                                 thousandSeparator={true}
                                 suffix=" ¥"
@@ -125,7 +133,7 @@ class DoctorExtraInfo extends Component {
                                         { extraInfo && extraInfo.priceTypeData && language === LANGUAGES.JP &&
                                             <NumberFormat 
                                                 className="currency"
-                                                value={extraInfo.priceTypeData.valueEn}
+                                                value={extraInfo.priceTypeData.valueJp}
                                                 displayType="text"
                                                 thousandSeparator={true}
                                                 suffix=" ¥"
@@ -137,10 +145,15 @@ class DoctorExtraInfo extends Component {
                             </div>
                             
                             <div className="payment"><FormattedMessage id="patient.extra-info-doctor.payment"/> 
-                            { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.VI  ? extraInfo.paymentTypeData.valueVi : '' }
-                            { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.EN  ? extraInfo.paymentTypeData.valueEn : '' }
-                            { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.JP  ? extraInfo.paymentTypeData.valueEn : '' }
+                                { extraInfo && extraInfo.paymentTypeData ? 
+                                    language===LANGUAGES.VI ? extraInfo.paymentTypeData.valueVi :
+                                    language===LANGUAGES.EN  ? extraInfo.paymentTypeData.valueEn :
+                                    extraInfo.paymentTypeData.valueJp
+                                : '' }
 
+                            {/* 
+                             { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.EN  && extraInfo.paymentTypeData.valueEn  }
+                            { extraInfo && extraInfo.paymentTypeData && language===LANGUAGES.JP  && extraInfo.paymentTypeData.valueJp } */}
                             </div>
 
                             <div className="hide-price">
@@ -169,4 +182,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DoctorExtraInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(DoctorMoreInfo);

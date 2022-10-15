@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import './VerifyEmail.scss';
+import './VerifyEmail.css';
 // import {LANGUAGES} from '../../../utils';
 import Select from 'react-select';
 // import {getScheduleDoctorByDate} from '../../../services/userService'

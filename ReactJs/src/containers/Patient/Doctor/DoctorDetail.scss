@@ -1,0 +1,81 @@
+.doctor-detail-container{
+    // height: 800px;
+    // margin: 0 100px;
+    // border: 1px solid red;
+    margin-bottom:50px;
+
+    .intro-doctor {
+        display:flex;
+        // height: 300px;
+        margin: 0 200px;
+        // border: 1px solid grey;
+        background: #fff !important;
+        margin-top: 10px;
+
+        .content-left{
+            width:20%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width:120px;
+            height:120px;
+            border-radius:50%;
+            margin: 10px 20px;
+            // background-size: cover !important; // cover dung bang chieu dai va chieu rong
+        }
+        .content-right{
+            width:80%;
+            // border:1px solid blue;
+            display:flex;
+            flex-direction: column;
+            margin-left:30px;
+
+            .up {
+                font-size:20px;
+                font-weight: 600;
+                padding-top: 15px;
+            }
+            .down {
+                padding-top: 10px;
+
+                .like-share-plugin {
+                    margin: 10px 0 20px 0;
+                }
+            }
+        }
+
+    }
+
+    .schedule-doctor {
+        margin: 0 200px;
+        display: flex;
+        // height: 200px;
+        padding:20px 0;
+        min-height: 300px;
+        // border-radius: 8px;
+        // box-shadow: 0 1px 6px rgba(32, 33, 36 , 0.5) ;
+
+        .content-left{
+            width:50%;
+        }
+        .content-right{
+            width:50%;
+
+        }
+    }
+
+    .comment-doctor {
+        margin: 0 200px;
+        // height:50px;
+        padding: 10px 20px;
+    }
+}
+
+.detail-info-doctor {
+    img {
+        max-width: 75%;
+        max-height: 300px;
+        margin: auto !important;
+    }
+
+}
