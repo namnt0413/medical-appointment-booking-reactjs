@@ -132,20 +132,20 @@ class HomeHeader extends Component {
                       : language === LANGUAGES.EN ? <img className='uk-img'></img>
                       : <img className='jp-img'></img> 
                       }
-                  { isShowLanguage === true ?
-                    <ul class="mobile-language-navbar">
-                      <li className={ language === LANGUAGES.VI ? "active" :""}>
-                        <a href="#" onClick={() => this.changeLanguage(LANGUAGES.VI) }>VI<img className='vn-img'></img></a>
-                      </li>
-                      <li className={ language === LANGUAGES.EN ? "active" :""}>
-                        <a href="#" onClick={() => this.changeLanguage(LANGUAGES.EN) }>EN<img className='uk-img'></img></a>
-                      </li>
-                      <li className={ language === LANGUAGES.JP ? "active" :""}>
-                        <a href="#" onClick={() => this.changeLanguage(LANGUAGES.JP) }>JP<img className='jp-img'></img></a>
-                      </li>
-                    </ul>
-                    : ""
-                  }
+                      { isShowLanguage === true ?
+                        <ul class="mobile-language-navbar">
+                          <li className={ language === LANGUAGES.VI ? "active" :""}>
+                            <a href="#" onClick={() => this.changeLanguage(LANGUAGES.VI) }>VI<img className='vn-img'></img></a>
+                          </li>
+                          <li className={ language === LANGUAGES.EN ? "active" :""}>
+                            <a href="#" onClick={() => this.changeLanguage(LANGUAGES.EN) }>EN<img className='uk-img'></img></a>
+                          </li>
+                          <li className={ language === LANGUAGES.JP ? "active" :""}>
+                            <a href="#" onClick={() => this.changeLanguage(LANGUAGES.JP) }>JP<img className='jp-img'></img></a>
+                          </li>
+                        </ul>
+                        : ""
+                      }
                     </div>
                   </div>
 
