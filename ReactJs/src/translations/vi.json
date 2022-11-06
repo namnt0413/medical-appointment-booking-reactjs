@@ -13,8 +13,8 @@
         "account_setting": "Cài đặt tài khoản",
         "booking_history": "Lịch sử khám bệnh",
         "logout": "Đăng xuất",
-        "login": "Đăng nhập hoặc",
-        "signup": "Đăng ký tài khoản"
+        "login": "Đăng nhập",
+        "signup": ""
     },
     "homeBanner":{
         "banner_header": " Medical Booking",

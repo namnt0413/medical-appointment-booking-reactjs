@@ -13,8 +13,8 @@
         "account_setting": "Account Setting",
         "booking_history": "Appointment history",
         "logout": "logout",
-        "login": "Login or",
-        "signup": "Signup"
+        "login": "Login",
+        "signup": ""
     },
     "homeBanner":{
         "banner_header": " Medical Booking",

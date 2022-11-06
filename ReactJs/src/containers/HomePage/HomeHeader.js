@@ -12,6 +12,24 @@ import { withRouter } from 'react-router'
 import * as actions from "../../store/actions";
 
 class HomeHeader extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isShowMenu: false,
+      isShowLanguage: false
+    }
+  }
+
+    toggleClick() {
+      this.setState({
+         isShowMenu: !this.state.isShowMenu 
+        });
+    }
+    toggleLanguageNavbar(){
+      this.setState({
+        isShowLanguage: !this.state.isShowLanguage 
+       });
+    }
 
     changeLanguage = (language) => {
         // alert('Change language: ' + language);
@@ -20,9 +38,12 @@ class HomeHeader extends Component {
     }
 
     handleClickLogo = () => {
-        if( this.props.history ){
-            this.props.history.push(`/home`)
-          }
+      if( this.props.history ){
+          this.props.history.push(`/home`)
+      }
+      this.setState({
+        isShowMenu: false
+      })  
     }
 
     handleClickLogin = () => {
@@ -38,6 +59,7 @@ class HomeHeader extends Component {
     render() {
         // console.log('check props : ', this.props); thuoc tinh language cua props lay tu redux chu ko phai la cua cha truyen den
         let { isLoggedIn , userInfo, language } = this.props;
+        let {isShowMenu , isShowLanguage} = this.state;
         return (
             // do render chi tra ve 1 khoi duy nhat
             <React.Fragment> 
@@ -92,13 +114,57 @@ class HomeHeader extends Component {
                         </li>
                         }
                       </ul>
-                      <i className="bi bi-list mobile-nav-toggle"></i>
+                      <i className={isShowMenu===false ? "bi bi-list mobile-nav-toggle" : "bi bi-x mobile-nav-toggle" }  
+                        onClick={ () => {this.toggleClick()} }
+                      >
+                      </i>
                     </nav>
 
-                  { isLoggedIn === false ? 
-                  <a href="#" className="appointment-btn scrollto" onClick={()=>this.handleClickLogin()}><span className="d-none d-md-inline"><FormattedMessage id="homeHeader.login"/></span> <FormattedMessage id="homeHeader.signup"/></a>
-                  : <a href="#" className="appointment-btn scrollto" onClick={()=>this.handleClickLogout()}><span className="d-none d-md-inline"><FormattedMessage id="homeHeader.logout"/></span></a>}  
+                    { isLoggedIn === false ? 
+                    <a href="#" className="appointment-btn scrollto" onClick={()=>this.handleClickLogin()}><span className="d-none d-md-inline"><FormattedMessage id="homeHeader.login"/></span></a>
+                    : <a href="#" className="appointment-btn scrollto" onClick={()=>this.handleClickLogout()}><span className="d-none d-md-inline"><FormattedMessage id="homeHeader.logout"/></span></a>}  
+                  
+                  
+                    <div className="mobile-language"
+                      onClick={ () => {this.toggleLanguageNavbar()}}
+                    >
+                      { language === LANGUAGES.VI ? <img className='vn-img'></img> 
+                      : language === LANGUAGES.EN ? <img className='uk-img'></img>
+                      : <img className='jp-img'></img> 
+                      }
+                  { isShowLanguage === true ?
+                    <ul class="mobile-language-navbar">
+                      <li className={ language === LANGUAGES.VI ? "active" :""}>
+                        <a href="#" onClick={() => this.changeLanguage(LANGUAGES.VI) }>VI<img className='vn-img'></img></a>
+                      </li>
+                      <li className={ language === LANGUAGES.EN ? "active" :""}>
+                        <a href="#" onClick={() => this.changeLanguage(LANGUAGES.EN) }>EN<img className='uk-img'></img></a>
+                      </li>
+                      <li className={ language === LANGUAGES.JP ? "active" :""}>
+                        <a href="#" onClick={() => this.changeLanguage(LANGUAGES.JP) }>JP<img className='jp-img'></img></a>
+                      </li>
+                    </ul>
+                    : ""
+                  }
+                    </div>
                   </div>
+
+
+                  { isShowMenu === true ? 
+                    <div className="mobile_menu">
+                      <ul>
+                        <li><a className="nav-link scrollto active" onClick={()=>this.handleClickLogo() } href="#hero"><FormattedMessage id="homeHeader.home"/></a></li>
+                        <li><a className="nav-link scrollto" href="#specialty" onClick={()=>this.handleClickLogo() }><FormattedMessage id="homeHeader.specialty"/></a></li>
+                        <li><a className="nav-link scrollto" href="#medical-facility" onClick={()=>this.handleClickLogo() }><FormattedMessage id="homeHeader.clinic"/></a></li>
+                        <li><a className="nav-link scrollto" href="#doctors" onClick={()=>this.handleClickLogo() }><FormattedMessage id="homeHeader.doctor"/></a></li>
+                        <li><a className="nav-link scrollto" href="#about" onClick={()=>this.handleClickLogo() }><FormattedMessage id="homeHeader.about"/></a></li>
+                        <li><a className="nav-link scrollto" href="#help" onClick={()=>this.handleClickLogo() }><FormattedMessage id="homeHeader.help"/></a></li>
+                      </ul>
+                    </div>
+                    :
+                      ""
+                  }
+
                 </header>
 
                 { this.props.isShowBanner === true &&

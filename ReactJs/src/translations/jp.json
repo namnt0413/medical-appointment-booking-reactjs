@@ -13,8 +13,8 @@
         "account_setting": "アカウント設定",
         "booking_history": "任命履歴",
         "logout": "ログアウト",
-        "login": "ログイン or",
-        "signup": "サインアップ"
+        "login": "ログイン",
+        "signup": ""
     },
     "homeBanner":{
         "banner_header": " Medical Booking",
