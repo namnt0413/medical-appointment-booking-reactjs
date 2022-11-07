@@ -58,6 +58,12 @@ export const doctorMenu = [
     }
 ];
 
+export const patientMenu = [
+    {
+        name: 'homeHeader.home', link: '/home'
+    }
+];
+
 // subMenus: [
 //     { name: 'menu.system.system-administrator.user-manage', link: '/system/user-manage' },
 //     { name: 'menu.system.system-administrator.user-redux', link: '/system/user-redux' },

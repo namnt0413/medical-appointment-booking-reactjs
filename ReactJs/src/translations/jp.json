@@ -14,7 +14,8 @@
         "booking_history": "任命履歴",
         "logout": "ログアウト",
         "login": "ログイン",
-        "signup": ""
+        "signup": "",
+        "management": "システムマネジメント"
     },
     "homeBanner":{
         "banner_header": " Medical Booking",
@@ -89,7 +90,7 @@
             "manage-user": "Manage User",
             "manage-doctor": "Manage Doctor",
             "manage-admin": "Manage Admin",
-            "manage-user-redux": "Manage User REDUX",
+            "manage-user-redux": "Manage User",
             "clinic": "Clinic",
             "manage-clinic": "Manage Clinic",
             "specialty": "Specialty",

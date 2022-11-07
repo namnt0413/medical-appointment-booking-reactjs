@@ -14,7 +14,8 @@
         "booking_history": "Appointment history",
         "logout": "logout",
         "login": "Login",
-        "signup": ""
+        "signup": "",
+        "management": "System manegement"
     },
     "homeBanner":{
         "banner_header": " Medical Booking",
@@ -90,7 +91,7 @@
             "manage-user": "Manage User",
             "manage-doctor": "Manage Doctor",
             "manage-admin": "Manage Admin",
-            "manage-user-redux": "Manage User REDUX",
+            "manage-user-redux": "Manage User",
             "clinic": "Clinic",
             "manage-clinic": "Manage Clinic",
             "specialty": "Specialty",

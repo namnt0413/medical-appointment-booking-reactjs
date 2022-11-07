@@ -38,6 +38,7 @@ class ManagePatient extends Component {
         let {user} = this.props;
         let {currentDate} = this.state;
         let formatedDate = new Date(currentDate).getTime() ;
+        console.log(formatedDate)
         let res = await getListPatient({
             doctorId: user.id,
             date: formatedDate

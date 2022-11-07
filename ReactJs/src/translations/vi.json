@@ -14,7 +14,8 @@
         "booking_history": "Lịch sử khám bệnh",
         "logout": "Đăng xuất",
         "login": "Đăng nhập",
-        "signup": ""
+        "signup": "",
+        "management": "Quản lý hệ thống"
     },
     "homeBanner":{
         "banner_header": " Medical Booking",
@@ -90,7 +91,7 @@
             "manage-user": "Quản lý người dùng",
             "manage-doctor": "Quản lý bác sỹ",
             "manage-admin": "Quản lý Admin",
-            "manage-user-redux": "Manage user REDUX",
+            "manage-user-redux": "Quản lý người dùng",
             "clinic": "Phòng khám",
             "manage-clinic": "Quản lý phòng khám",
             "specialty": "Chuyên khoa",

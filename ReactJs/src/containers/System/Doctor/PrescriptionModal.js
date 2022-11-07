@@ -14,8 +14,10 @@ class PrescriptionModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            date: '',
             email: '',
             image: '',
+            note: '',
         }
     }
 
@@ -60,6 +62,12 @@ class PrescriptionModal extends Component {
         }
     }
 
+    handleOnChangeNote = (event) => {
+        this.setState({
+            note: event.target.value
+        })
+    }
+
     handleSendPrescription = () => {
         console.log('check state: ',this.state)
         this.props.sendPrescription(this.state)
@@ -68,7 +76,7 @@ class PrescriptionModal extends Component {
 
 
     render() {
-        // console.log(this.props)
+        console.log(this.props)
         let {language} = this.props;
         let { isOpenModal , dataModal, sendPrescription } = this.props;
 
@@ -93,6 +101,12 @@ class PrescriptionModal extends Component {
                         <div className="col-6 form-group">
                             <label>Chon file don thuoc</label>
                             <input type="file" className="form-control-file" onChange={(event)=>this.handleOnChangeImage(event)}></input>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-12 form-group">
+                            <label>Ghi chú của bác sĩ</label>
+                            <input type="email" className="form-control" value={this.state.note} onChange={(event)=>this.handleOnChangeNote(event)}></input>
                         </div>
                     </div>
                 </ModalBody>

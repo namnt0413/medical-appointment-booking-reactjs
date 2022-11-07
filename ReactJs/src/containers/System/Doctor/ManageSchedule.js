@@ -20,12 +20,14 @@ class ManageSchedule extends Component {
             listDoctors: [],
             selectedDoctor: {},
             currentDate: moment(new Date()).add(0, 'days').startOf('day').valueOf() ,
+            userInfo: this.props.userInfo
         }
     }
 
     componentDidMount() {
         this.props.fetchAllDoctors();
         this.props.FetchAllScheduleTime();
+        
     }
 
     async componentDidUpdate(prevProps,prevState, snapshot) {
@@ -128,13 +130,15 @@ class ManageSchedule extends Component {
         let { language } = this.props;
         if( inputData && inputData.length > 0 ) {
             inputData.map((item, index) => {
-                // console.log(item)
-                let object = {};
-                let labelVi = `${item.firstName} ${item.lastName}`
-                let labelEn = `${item.lastName} ${item.firstName}`
-                object.label = language===LANGUAGES.VI ? labelVi : labelEn;
-                object.value = item.id
-                result.push(object);
+                if( item.id === this.state.userInfo.id ){
+                    // console.log(item)
+                    let object = {};
+                    let labelVi = `${item.firstName} ${item.lastName}`
+                    let labelEn = `${item.lastName} ${item.firstName}`
+                    object.label = language===LANGUAGES.VI ? labelVi : labelEn;
+                    object.value = item.id
+                    result.push(object);
+                }
             })
         }
         return result;
@@ -225,8 +229,9 @@ class ManageSchedule extends Component {
     }
 
     render() {
-        const { isLoggedIn } = this.props;
+        const { isLoggedIn , userInfo } = this.props;
         // console.log(this.props);
+
         let { rangeTime } = this.state ;
         let {language} = this.props;
         let yesterday = new Date(new Date().setDate(new Date().getDate()-1));
@@ -293,7 +298,8 @@ const mapStateToProps = state => {
         isLoggedIn: state.user.isLoggedIn,
         allDoctors: state.admin.allDoctors,
         language: state.app.language,
-        allScheduleTime: state.admin.allScheduleTime
+        allScheduleTime: state.admin.allScheduleTime,
+        userInfo: state.user.userInfo
     };
 };
 

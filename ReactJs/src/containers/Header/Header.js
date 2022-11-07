@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
-import { adminMenu , doctorMenu } from './menuApp';
+import { adminMenu , doctorMenu, patientMenu } from './menuApp';
 import './Header.scss';
 import { LANGUAGES ,USER_ROLE} from '../../utils'
 import { changeLanguageApp } from '../../store/actions'
 import _ from 'lodash'
+import { Redirect } from 'react-router';
 
 class Header extends Component {
     constructor(props) {
@@ -34,6 +35,9 @@ class Header extends Component {
             if (role === USER_ROLE.DOCTOR ){
                 menu = doctorMenu;
             }
+            if (role === USER_ROLE.PATIENT ){
+                menu = patientMenu;
+            }
         }
 
         this.setState({ 
@@ -59,6 +63,7 @@ class Header extends Component {
                     <span className="welcome">Welcome {userInfo? userInfo.firstName : ""} {userInfo? userInfo.lastName : ""} </span>
                     <div className= { language === LANGUAGES.VI ? "language-vi active" :"language-vi"}><span onClick={() => this.changeLanguage(LANGUAGES.VI) }>VN</span></div>
                     <div className= { language === LANGUAGES.EN ? "language-en active" :"language-en"}><span onClick={() => this.changeLanguage(LANGUAGES.EN) }>EN</span></div>
+                    <div className= { language === LANGUAGES.JP ? "language-jp active" :"language-jp"}><span onClick={() => this.changeLanguage(LANGUAGES.EN) }>JP</span></div>
 
                     <div className="btn btn-logout" onClick={processLogout} title="Log out">
                         <i className="fas fa-sign-out-alt"></i>
