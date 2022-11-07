@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect , Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './HomeHeader.scss';
 import './HomeHeader.css';
@@ -65,6 +65,14 @@ class HomeHeader extends Component {
         }
     }
 
+    handleClickAdmin = () => {
+      // if( this.props.history ){
+      //   this.props.history.push(`/system/dashboard`)
+      // }
+      // let linkToRedirect = '/system/dashboard';
+      // return (<Redirect to={linkToRedirect} />)
+    }
+
     handleClickLogout = () => {
       this.props.processLogout();
     }
@@ -72,6 +80,7 @@ class HomeHeader extends Component {
     render() {
         // console.log('check props : ', this.props); thuoc tinh language cua props lay tu redux chu ko phai la cua cha truyen den
         let { isLoggedIn , userInfo, language } = this.props;
+        // console.log(userInfo)
         let {isShowMenu , isShowLanguage} = this.state;
         return (
             // do render chi tra ve 1 khoi duy nhat
@@ -120,6 +129,13 @@ class HomeHeader extends Component {
                         <li className="dropdown"><a href="#"> <span className="welcome"> {userInfo? userInfo.firstName : ""} {userInfo? userInfo.lastName : ""} </span>
                         <i className="bi bi-chevron-down"></i></a>
                           <ul>
+                          { 
+                            (userInfo.roleId === "R1" || userInfo.roleId === "R2") &&
+                            <Link to="/system/dashboard">
+                              <FormattedMessage id="homeHeader.management"/>
+                            </Link>
+                          }
+
                             <li><a href="#"><FormattedMessage id="homeHeader.account_setting"/></a></li>
                             <li><a href="#"><FormattedMessage id="homeHeader.booking_history"/></a></li>
                             <li><a href="#"><FormattedMessage id="homeHeader.logout"/></a></li>

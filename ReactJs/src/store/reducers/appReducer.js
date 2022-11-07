@@ -11,7 +11,8 @@ const initialState = {
     started: true,
     language: 'en',
     isShowLoading: "",
-    systemMenuPath: '/system/manage-user-redux',
+    // systemMenuPath: '/system/dashboard',
+    systemMenuPath: '/home',
     contentOfConfirmModal: {
         ...initContentOfConfirmModal
     }

@@ -6,7 +6,8 @@ class Home extends Component {
 
     render() {
         const { isLoggedIn } = this.props; // check xem login hay chua
-        let linkToRedirect = isLoggedIn ? '/system/manage-user-redux' : '/home'; // neu login roi thi gui direct toi route /system/user-manage , ko thi direct login
+        // let linkToRedirect = isLoggedIn ? '/system/dashboard' : '/home'; // neu login roi thi gui direct toi route /system/user-manage , ko thi direct login
+        let linkToRedirect = '/home'; // neu login roi thi gui direct toi route /system/user-manage , ko thi direct login
 
         return (
             <Redirect to={linkToRedirect} />
