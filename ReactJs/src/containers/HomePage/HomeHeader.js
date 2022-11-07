@@ -14,11 +14,24 @@ import * as actions from "../../store/actions";
 class HomeHeader extends Component {
   constructor(props) {
     super(props);
+    this.handleScroll = this.handleScroll.bind(this);
     this.state = {
       isShowMenu: false,
       isShowLanguage: false
     }
   }
+
+    componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll);
+    };
+    
+    componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleScroll);
+    };
+
+    handleScroll(event) {
+      // console.log('the scroll things', event)
+    };
 
     toggleClick() {
       this.setState({
@@ -63,7 +76,7 @@ class HomeHeader extends Component {
         return (
             // do render chi tra ve 1 khoi duy nhat
             <React.Fragment> 
-                <header id="header" className="fixed-top">
+                <header id="header" className="fixed-top" onScroll= { () => this.handleScroll() }>
                   <div className="container d-flex align-items-center">
                     <img src = {logo} onClick={()=>this.handleClickLogo() } alt="MedicalBokking" className="img-logo"/>
                     <nav id="navbar" className="navbar order-last order-lg-0">

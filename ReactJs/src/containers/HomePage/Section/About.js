@@ -21,7 +21,7 @@ class About extends Component {
 
                     <div className="row ml-3 mr-3">
                       <div className="col-xl-5 col-lg-6 d-flex justify-content-center align-items-stretch position-relative">
-                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/Gr-8msO-AUI" title="DAOKO × 米津玄師『打上花火』MUSIC VIDEO" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/3UYBsBnJe7U" title="DAOKO × 米津玄師『打上花火』MUSIC VIDEO" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         {/* <a href="#" className="glightbox play-btn mb-4"></a> */}
                       </div>
 

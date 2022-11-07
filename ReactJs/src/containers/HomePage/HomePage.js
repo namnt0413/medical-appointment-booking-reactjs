@@ -21,11 +21,13 @@ class HomePage extends Component {
     render() {
         let settings = {
             dots: false,
-            infinite: false, 
+            infinite: true, 
             initialSlide: 0,
             speed: 500,
             slidesToShow: 4,
             slidesToScroll: 2,
+            autoplay:true,
+            autoplaySpeed:6000,
             responsive: [
               {
                 breakpoint: 480,

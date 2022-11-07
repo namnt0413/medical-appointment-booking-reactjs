@@ -1806,13 +1806,164 @@ body {
 
   @media (max-width: 1920px) {}
   @media (max-width: 1780px) {}
-  @media (max-width: 1440px) {}
-  @media (max-width: 1280px) {}
-  @media (max-width: 991px) {}
-  @media (max-width: 768px) {}
+  @media (max-width: 1440px) {
+    .medical-facility .member .pic {
+      width: 18vw !important;
+      height: 30vh !important;
+    }
+  }
+  @media (max-width: 1280px) {
+    .content-container .content {
+      margin: 15px 0px;
+    }
+    .why-us .icon-boxes .icon-box {
+      padding: 20px 30px;
+    }
+    .medical-facility .member .pic {
+      width: 20w !important;
+      height: 30vh !important;
+    }
+  }
+  @media (max-width: 1024px) {
+    .medical-facility .member .pic {
+      width: 27vw !important;
+      height: 16vh !important;
+    }
+    
+    .doctors .member {
+      padding: 0;
+    }
+    .doctors .member .member-info {
+      width: 110vw;
+    }
+    .doctors .member .member-info {
+      text-align: center;
+    }
+    .doctors .member .social {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 920px) {
+    .medical-facility .member .pic {
+      width: 21vw !important;
+      height: 15vh !important;
+    }
+    .img-logo {
+      margin-right: 380px;
+    }
+
+    .appointment-btn .d-none {
+      display: block !important;
+    }
+    .appointment-btn {
+      margin: 0 25px 0 0;
+      min-width: 120px;
+      text-align: center;
+    }
+    .appointment-btn span {
+      font-size: 16px;
+    }
+
+    .mobile_menu {
+      display: block;
+    }
+    .mobile-language {
+      display: block;
+      margin-right: 25px;
+    }
+
+    #hero {
+      height: 50vh;
+    }
+
+    .doctors .member {
+      padding: 0;
+    }
+    .doctors .member .member-info {
+      width: 75vw;
+    }
+    .doctors .member .member-info {
+      text-align: center;
+    }
+    .doctors .member .social {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 854px) {
+    .img-logo {
+      margin-right: 380px;
+    }
+
+    .appointment-btn .d-none {
+      display: block !important;
+    }
+    .appointment-btn {
+      margin: 0 25px 0 0;
+      min-width: 120px;
+      text-align: center;
+    }
+    .appointment-btn span {
+      font-size: 16px;
+    }
+
+    .mobile_menu {
+      display: block;
+    }
+    .mobile-language {
+      display: block;
+      margin-right: 25px;
+    }
+
+    #hero {
+      height: 50vh;
+    }
+
+    .medical-facility .member .pic {
+      width: 21vw !important;
+      height: 15vh !important;
+    }
+
+    .doctors .member {
+      padding: 0;
+    }
+    .doctors .member .member-info {
+      width: 90vw;
+    }
+    .doctors .member .member-info {
+      text-align: center;
+    }
+    .doctors .member .social {
+      justify-content: center;
+    }
+
+  }
   @media (max-width: 620px) {
     .img-logo {
-      margin-right: 4rem;
+      margin-right: 170px;
+    }
+    .appointment-btn .d-none {
+      display: block !important;
+    }
+    .appointment-btn {
+      margin: 0 15px 0 0;
+      min-width: 120px;
+      text-align: center;
+    }
+    .mobile_menu {
+      display: block;
+    }
+    .mobile-language {
+      display: block;
+    }
+
+    .medical-facility .member .pic {
+      width: 40vw !important;
+      height: 25vh !important;
+    }
+  }
+  @media (max-width: 476px) {
+    .img-logo {
+      margin-right: 70px;
     }
     .appointment-btn .d-none {
       display: block !important;
@@ -1842,5 +1993,40 @@ body {
       padding-top: 63px;
     }
 
+    .content-container .content {
+      margin: 15px 0px;
+    }
+
+    .medical-facility .member .pic {
+      width: 90vw !important;
+      height: 25vh !important;
+    }
+
+    .doctors .member {
+      padding: 0;
+    }
+    .doctors .member .member-info {
+      width: 90vw;
+    }
+    .doctors .member .member-info {
+      text-align: center;
+    }
+    .doctors .member .social {
+      justify-content: center;
+    }
+
+    #about .container-fluid {
+      padding: 0 !important;
+    }
+    #about .container-fluid .row {
+      margin: 0 !important;
+    }
+
   }
-  @media (max-width: 300px) {}
+  @media (max-width: 360px) {
+
+    .medical-facility .member .pic {
+      width: 360px !important;
+    }
+
+  }

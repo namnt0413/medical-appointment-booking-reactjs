@@ -47,15 +47,17 @@
                     padding: 8px 10px;
                     border: none;
                     outline: none;
-                    background-color:#fff04b;
+                    background: linear-gradient(#24c0f1, #4c9afe);
+
                     min-width: 163px;
                     border-radius:3px;
                     font-weight: 600;
-                    color: #333;
+                    color: #fff;
 
                     &:hover{
-                      background-color: #45c3d2 ;
-                      color:white; 
+                        opacity: 0.8;
+                        background: #0056b3 ;
+                        color:#fff; 
                     }
                 }
 

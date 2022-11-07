@@ -15,8 +15,8 @@
   
   .medical-facility .member .pic {
     margin: auto;
-    width: 260px !important;
-    height: 220px !important;
+    width: 13vw ;
+    height: 28vh;
     background-position: center center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
