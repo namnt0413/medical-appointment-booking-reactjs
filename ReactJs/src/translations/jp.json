@@ -35,7 +35,7 @@
         "view_specialty": "医療専門の詳細を見る",
         "clinic": "保健施設",
         "doctor": "先週の優秀な医師",
-        "about": "私たちについて",
+        "about": "Medical Booking について",
         "gallery": "私たちのいくつかの印象的な写真"
     },
     "patient": {
@@ -76,7 +76,13 @@
             "book-fail": "新規予約成功！ もう一度お試しください"
         }
     },
-
+    "about": {
+        "about-intro": "ベトナムでは、手続きが多く、人が多いため、診察時間はとても長いです。 そこで私は、オンラインで診療を予約できるウェブサイトである Medical Booking を作成しました。",
+        "about-benefit": "Medical Booking がもたらす利点 : ",
+        "about-time": "患者が診療予約に登録したいとき、待ち時間を節約します",
+        "about-online": "多くの人との接触を避けるように役立ちます",
+        "about-info": "患者が簡単に選択できるように、クリニックや医師に関する詳細情報を提供しています"
+    },
     "menu": {
         "admin": {
             "user": "User System",

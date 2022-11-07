@@ -36,7 +36,7 @@
         "view_specialty": "Xem chi tiết chuyên khoa",
         "clinic": "Các cơ sở y tế liên kết",
         "doctor": "Bác sĩ nổi bật tuần qua",
-        "about": "Về chúng tôi",
+        "about": "Về Medical Booking",
         "gallery": "Một vài hình ảnh nổi bật"
     },
     "patient": {
@@ -76,6 +76,13 @@
             "book-success": "Đặt lịch hẹn mới thành công! Vui lòng kiểm tra email của bạn để xác nhận cuộc hẹn",
             "book-fail": "Đặt lịch hẹn mới thành công! Xin vui lòng thử lại"
         }
+    },
+    "about": {
+        "about-intro": "Tại Việt Nam , thời gian khám bệnh là rất lâu vì có nhiều thủ tục và đông người. Vì vậy, tôi đã tạo ra Medical Booking là một trang web cho phép bạn đặt lịch hẹn khám bệnh trực tuyến.",
+        "about-benefit": "Những lợi ích mà Medical Booking mang lại cho bạn: ",
+        "about-time": "Giúp người bệnh tiết kiệm thời gian chờ đợi",
+        "about-online": "Tránh phải tiếp xúc với nhiều người khi muốn đăng ký khám",
+        "about-info": "Cung cấp thông tin chi tiết về phòng khám và bác sĩ để bệnh nhân dễ dàng lựa chọn"
     },
     "menu": {
         "admin": {

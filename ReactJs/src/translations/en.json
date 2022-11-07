@@ -36,7 +36,7 @@
         "view_specialty": "View specialty details",
         "clinic": "Health facilities",
         "doctor": "Last week's outstanding doctor",
-        "about": "About us",
+        "about": "About Medical Booking",
         "gallery": "Our some impressive photos"
     },
     "patient": {
@@ -77,7 +77,13 @@
             "book-fail": "Booking a new appointment success! Please try again"
         }
     },
-
+    "about": {
+        "about-intro": "In Vietnam, the time for medical examination is very long because there are many procedures and crowded people. So I created Medical Booking which is a website that allows you to book medical appointments online.",
+        "about-benefit": "The benefits that Medical Booking brings to you :",
+        "about-time": "Help patients save waiting time",
+        "about-online": "Avoid having to contact many people when you want to register for a health-care",
+        "about-info": "Provides detailed information about clinics and doctors for patients to easily choose"
+    },
     "menu": {
         "admin": {
             "user": "User System",

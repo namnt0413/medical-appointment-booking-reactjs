@@ -736,6 +736,22 @@ body {
   /*--------------------------------------------------------------
   # About
   --------------------------------------------------------------*/
+  .about-video {
+    padding: 20px;
+  }
+  .about-container {
+    padding: 20px;
+  }
+  .about-container .about-intro {
+    font-size: 18px;
+    font-style: italic;
+  }
+  .about-container .about-benefit {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
   .about .icon-boxes h4 {
     font-size: 18px;
     color: #4b7dab;
@@ -798,7 +814,8 @@ body {
   .about .icon-box .description {
     margin-left: 85px;
     line-height: 24px;
-    font-size: 14px;
+    font-size: 16px;
+    margin-top: 15px;
   }
   
   .about .video-box {
